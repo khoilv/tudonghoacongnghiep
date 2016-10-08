@@ -3,18 +3,18 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appBanner', appBanner);
+        .directive('appSidebar', appSidebar);
 
     /** @ngInject */
-    function appBanner() {
+    function appSidebar() {
         var directive = {
             restrict: 'E',
             replace: true,
-            templateUrl: 'app/components/banner/banner.html',
+            templateUrl: 'app/components/sidebar/sidebar.html',
             scope: {
                 creationDate: '='
             },
-            controller: BannerController,
+            controller: SidebarController,
             controllerAs: 'vm',
             bindToController: true
         };
@@ -22,7 +22,7 @@
         return directive;
 
         /** @ngInject */
-        function BannerController() {}
+        function SidebarController() {}
     }
 
 })();

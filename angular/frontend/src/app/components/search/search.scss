@@ -1,0 +1,11 @@
+@import "../../scss/variables";
+
+.search	.glyphicon {
+  background: url($search-icon) no-repeat center center;
+  background-size: 15px;
+  padding: 16px 20px 16px 20px;
+  border-left: 0;
+  margin-top: -2px;
+  height: 34px;
+
+}

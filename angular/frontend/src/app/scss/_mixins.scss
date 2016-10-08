@@ -4,7 +4,7 @@
   background-position: $xPos $yPos;
 }
 
-@mixin background-color($bgcolor){
+@mixin background-color($bgcolor) {
   background-color: $bgcolor;
 }
 

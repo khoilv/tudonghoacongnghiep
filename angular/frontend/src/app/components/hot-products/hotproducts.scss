@@ -1,0 +1,94 @@
+@import "../../scss/variables";
+
+.product-hot {
+  padding: 30px 0;
+  background: url($path-icon-common + "background-product-hot.jpg");
+  .title-cm {
+    border-left: 5px solid #ffa200;
+  }
+  .product-item {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+  }
+}
+
+.carousel-control {
+  width: 35px;
+  &.left {
+    background: url($path-icon-common + "prev.jpg") no-repeat left center !important;
+  }
+  &.right {
+    background: url($path-icon-common + "next.jpg") no-repeat right center !important;
+  }
+}
+
+// Slide
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+
+#flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
+  display: none;
+}
+
+.nbs-flexisel-container {
+  position: relative;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.nbs-flexisel-ul {
+  position: relative;
+  width: 9999px;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  text-align: center;
+}
+
+.nbs-flexisel-inner {
+  overflow: hidden;
+  float: left;
+  width: 100%;
+  border: 1px solid #f9f9f9;
+}
+
+.nbs-flexisel-item {
+  float: left;
+  cursor: pointer;
+  position: relative;
+}
+
+.nbs-flexisel-item img {
+  width: auto;
+  cursor: pointer;
+  position: relative;
+}
+
+/*** Navigation ***/
+
+.nbs-flexisel-nav-left,
+.nbs-flexisel-nav-right {
+  width: 30px;
+  height: 40px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0.5;
+}
+
+.nbs-flexisel-nav-left {
+  left: 0px;
+  background: url($path-icon-common + "prev.jpg") no-repeat;
+}
+
+.nbs-flexisel-nav-right {
+  right: 0;
+  background: url($path-icon-common + "next.jpg") no-repeat;
+}
+
+.nbs-flexisel-nav-left:hover, .nbs-flexisel-nav-right:hover {
+  opacity: 0.7;
+  transition: all ease 0.3s;
+}

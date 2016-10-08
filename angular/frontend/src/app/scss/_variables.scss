@@ -1,4 +1,19 @@
+// path of images
 $path-icon: '../../../assets/images/frontend/';
 $path-icon-common: '../../../assets/images/frontend/common/';
 
+// menu icons
 $menu-icons: "icon_h02.png", "icon_h03.png", "icon_h04.png", "icon_h06.png", "icon_h05.png";
+
+// banner
+$banner: $path-icon-common + "banner.jpg";
+
+// search icon
+$search-icon: $path-icon + "icon_search.png";
+
+// sidebar icons
+$side-bar-icons: (
+        "support-online": "icon_03.png",
+        "bar-product-list": "icon_01.png",
+        "qaa": "icon_04.png"
+);
