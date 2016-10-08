@@ -1,0 +1,152 @@
+$path-icon: '../../../assets/images/frontend/';
+$path-icon-common: '../../../assets/images/frontend/common/';
+$menu-icons: "icon_h02.png", "icon_h03.png", "icon_h04.png", "icon_h06.png", "icon_h05.png";
+
+@mixin background-img($img, $xPos: left, $yPos: center) {
+  background-image: url($img);
+  background-repeat: no-repeat;
+  background-position: $xPos $yPos;
+}
+
+@mixin background-color($bgcolor){
+  background-color: $bgcolor;
+}
+
+@mixin border-test($color) {
+  border: 1px solid $color;
+}
+
+@mixin pt-pb($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+header {
+  .top-content {
+    background-color: #262626;
+    padding: 5px 0;
+    ul li {
+      display: inline-block;
+      padding-left: 25px;
+      margin: 3px 15px 0 15px;
+      a {
+        color: #fff;
+        font-size: 13px;
+        &:hover {
+          color: #07a0b4;
+          transition: all ease 0.3s;
+        }
+      }
+      @for $i from 1 through 5 {
+        $menu-icon: $path-icon-common + nth($menu-icons, $i);
+        &:nth-child(#{$i}) {
+          @include background-img($menu-icon);
+        }
+      }
+    }
+  }
+  .head-nav {
+    background-color: #fff;
+    @include pt-pb(15px);
+    ul {
+      display: inline-block;
+      li {
+        display: inline-block;
+        font-weight: bold;
+        margin: 25px 0;
+        a {
+          font-family: "avo-bold", sans-serif;
+          padding: 0 10px;
+        }
+      }
+    }
+
+  }
+}
+
+.btn-blue {
+  background-color: #07a0b4;
+  color: #fff;
+  font-family: avo, sans-serif;
+  padding: 5px 10px 8px 10px;
+  &:hover{
+    background-color: #ffa200;
+    transition: all ease 0.3s;
+    color: #fff;
+  }
+}
+
+.head-btn-cart {
+  @include background-img($path-icon-common + "icon_h07.png", 10px, 9px);
+  padding-left: 35px;
+}
+
+// Dăng nhập
+.modal-title{
+  font-size: 17px;
+  font-family: avo-bold,sans-serif;
+  color: #0099b0;
+}
+.box-login{
+  li{
+    width: 250px;
+    margin: 10px 0;
+    border-radius:5px;
+    border:none;
+    height:30px;
+    overflow:hidden;
+    &:nth-child(1){
+      background-color:#055192;
+      span{
+        background: url($path-icon-common + "icon14.png") no-repeat center center;
+        background-size: 10px;
+      }
+    }
+    &:nth-child(2){
+      background-color:#d6280c;
+      span{
+        background: url($path-icon-common + "icon15.png") no-repeat center center;
+        background-size: 15px;
+      }
+    }
+    span{
+      width: 32px;
+      height: 30px;
+      display: block;
+      float: left;
+      border-right: 1px solid rgba(0, 0, 0, 0.15);
+    }
+    a{
+      color:#fff;
+      text-align:center;
+      line-height:30px;
+      font-size:12px;
+      font-weight:bold;
+    }
+    p{
+      color: #fff;
+    }
+  }
+}
+.close {
+  background: #606061 !important;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  opacity: 1;
+}
+.close:hover { background: #1482bc !important;
+  color: #FFFFFF;
+}
