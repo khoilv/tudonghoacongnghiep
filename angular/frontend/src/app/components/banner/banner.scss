@@ -1,0 +1,7 @@
+@import "../../scss/variables";
+
+.banner {
+  height: 455px;
+  background: url($path-icon-common + "banner.jpg") no-repeat center top;
+  box-shadow: 1px 1px 13px #ccc;
+}

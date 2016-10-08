@@ -1,0 +1,18 @@
+@mixin background-img($img, $xPos: left, $yPos: center) {
+  background-image: url($img);
+  background-repeat: no-repeat;
+  background-position: $xPos $yPos;
+}
+
+@mixin background-color($bgcolor){
+  background-color: $bgcolor;
+}
+
+@mixin border-test($color) {
+  border: 1px solid $color;
+}
+
+@mixin pt-pb($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}

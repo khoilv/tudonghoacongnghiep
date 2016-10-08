@@ -1,25 +1,5 @@
-$path-icon: '../../../assets/images/frontend/';
-$path-icon-common: '../../../assets/images/frontend/common/';
-$menu-icons: "icon_h02.png", "icon_h03.png", "icon_h04.png", "icon_h06.png", "icon_h05.png";
-
-@mixin background-img($img, $xPos: left, $yPos: center) {
-  background-image: url($img);
-  background-repeat: no-repeat;
-  background-position: $xPos $yPos;
-}
-
-@mixin background-color($bgcolor){
-  background-color: $bgcolor;
-}
-
-@mixin border-test($color) {
-  border: 1px solid $color;
-}
-
-@mixin pt-pb($padding) {
-  padding-top: $padding;
-  padding-bottom: $padding;
-}
+@import "../../scss/variables";
+@import "../../scss/mixins";
 
 header {
   .top-content {

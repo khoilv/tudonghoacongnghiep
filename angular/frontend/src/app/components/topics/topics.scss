@@ -1,0 +1,49 @@
+@import "../../scss/variables";
+
+.topics {
+  background: url($path-icon-common + "background_topics.jpg") repeat;
+  padding: 30px 0;
+  text-align: center;
+  h3 {
+    font-size: 18px;
+    margin-top: 55px;
+    padding: 0 15px;
+  }
+  li {
+    padding-left: 0 !important;
+    padding-right: 0 !important;;
+    &:nth-child(1) .wrap-img-topics{
+      .link-border{
+        width: 40%;
+        margin-left: 60%;
+      }
+    }
+    &:nth-child(2) .wrap-img-topics{
+      .link-border{
+        width: 100%;
+      }
+    }
+    &:nth-child(3) .wrap-img-topics{
+      .link-border{
+        width: 40%;
+        margin-top: -37px;
+        margin-right: 60%;
+      }
+    }
+    p a{
+      display: block;
+      padding: 0 15px;
+    }
+  }
+}
+.wrap-img-topics{
+  .link-border{
+    border: 1px dashed #5b5b5b;
+    display: block;
+    margin-top: -35px;
+  }
+  img{
+    padding: 0 10px;
+    background: url($path-icon-common + "background_topics.jpg");
+  }
+}
