@@ -1,0 +1,38 @@
+@import "../../scss/variables";
+
+footer {
+  background-color: #445f64;
+  box-shadow: 0px 0px 20px #03343e inset;
+  padding: 30px 0;
+  h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+  ul li {
+    color: #fff;
+    line-height: 20px;
+    padding: 10px 0 10px 25px;
+    border-bottom: 1px dashed #ccc;
+    &:nth-child(1) {
+      background: url($path-icon-common + "icon_f01.png") no-repeat left 15px;
+    }
+    &:nth-child(2) {
+      background: url($path-icon-common + "icon_f02.png") no-repeat left 15px;
+    }
+    &:nth-child(3) {
+      background: url($path-icon-common + "icon_f03.png") no-repeat left 13px;
+    }
+  }
+  .network a {
+    margin-right: 10px;
+  }
+  .visit-number {
+    font-size: 17px;
+    text-align: right;
+    &, span {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}
