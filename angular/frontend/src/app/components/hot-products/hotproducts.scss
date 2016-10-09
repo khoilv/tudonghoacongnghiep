@@ -41,8 +41,8 @@
 .nbs-flexisel-ul {
   position: relative;
   width: 9999px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   list-style-type: none;
   text-align: center;
 }
@@ -79,7 +79,7 @@
 }
 
 .nbs-flexisel-nav-left {
-  left: 0px;
+  left: 0;
   background: url($path-icon-common + "prev.jpg") no-repeat;
 }
 
