@@ -1,9 +1,11 @@
-// path of images
+// path of fonts & images
+$path-font: '../../../assets/fonts/';
 $path-icon: '../../../assets/images/frontend/';
 $path-icon-common: '../../../assets/images/frontend/common/';
 
 // menu icons
-$menu-icons: "icon_h02.png", "icon_h03.png", "icon_h04.png", "icon_h06.png", "icon_h05.png";
+$menu-icons: $path-icon-common + "icon_h02.png", $path-icon-common + "icon_h03.png", $path-icon-common + "icon_h04.png",
+             $path-icon-common + "icon_h06.png", $path-icon-common + "icon_h05.png";
 
 // banner
 $banner: $path-icon-common + "banner.jpg";
@@ -13,7 +15,7 @@ $search-icon: $path-icon + "icon_search.png";
 
 // sidebar icons
 $side-bar-icons: (
-        "support-online": "icon_03.png",
-        "bar-product-list": "icon_01.png",
-        "qaa": "icon_04.png"
+        "support-online": $path-icon + "icon_03.png",
+        "bar-product-list": $path-icon + "icon_01.png",
+        "qaa": $path-icon + "icon_04.png"
 );

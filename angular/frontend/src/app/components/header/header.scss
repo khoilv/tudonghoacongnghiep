@@ -18,9 +18,8 @@ header {
         }
       }
       @for $i from 1 through 5 {
-        $menu-icon: $path-icon-common + nth($menu-icons, $i);
         &:nth-child(#{$i}) {
-          @include background-img($menu-icon);
+          @include background-img(nth($menu-icons, $i));
         }
       }
     }

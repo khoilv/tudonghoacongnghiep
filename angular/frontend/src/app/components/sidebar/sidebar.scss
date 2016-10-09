@@ -16,7 +16,7 @@
   }
   @each $class-name, $icon in $side-bar-icons {
     .#{$class-name} & {
-      @include background-img($path-icon + $icon, 15px, center);
+      @include background-img($icon, 15px, center);
     }
   }
 }
