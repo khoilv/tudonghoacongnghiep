@@ -49,7 +49,7 @@ header {
   color: #fff;
   font-family: avo, sans-serif;
   padding: 5px 10px 8px 10px;
-  &:hover{
+  &:hover {
     background-color: #ffa200;
     transition: all ease 0.3s;
     color: #fff;
@@ -62,52 +62,54 @@ header {
 }
 
 // Dăng nhập
-.modal-title{
+.modal-title {
   font-size: 17px;
-  font-family: avo-bold,sans-serif;
+  font-family: avo-bold, sans-serif;
   color: #0099b0;
 }
-.box-login{
-  li{
+
+.box-login {
+  li {
     width: 250px;
     margin: 10px 0;
-    border-radius:5px;
-    border:none;
-    height:30px;
-    overflow:hidden;
-    &:nth-child(1){
-      background-color:#055192;
-      span{
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    overflow: hidden;
+    &:nth-child(1) {
+      background-color: #055192;
+      span {
         background: url($path-icon-common + "icon14.png") no-repeat center center;
         background-size: 10px;
       }
     }
-    &:nth-child(2){
-      background-color:#d6280c;
-      span{
+    &:nth-child(2) {
+      background-color: #d6280c;
+      span {
         background: url($path-icon-common + "icon15.png") no-repeat center center;
         background-size: 15px;
       }
     }
-    span{
+    span {
       width: 32px;
       height: 30px;
       display: block;
       float: left;
       border-right: 1px solid rgba(0, 0, 0, 0.15);
     }
-    a{
-      color:#fff;
-      text-align:center;
-      line-height:30px;
-      font-size:12px;
-      font-weight:bold;
+    a {
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      font-size: 12px;
+      font-weight: bold;
     }
-    p{
+    p {
       color: #fff;
     }
   }
 }
+
 .close {
   background: #606061 !important;
   color: #FFFFFF;
@@ -126,7 +128,8 @@ header {
   -webkit-box-shadow: 1px 1px 3px #000;
   box-shadow: 1px 1px 3px #000;
   opacity: 1;
-}
-.close:hover { background: #1482bc !important;
-  color: #FFFFFF;
+  &:hover {
+    background: #1482bc !important;
+    color: #FFFFFF;
+  }
 }
