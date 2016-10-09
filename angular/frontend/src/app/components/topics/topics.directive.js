@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appTopics', appTopics);
+        .directive('comTopics', comTopics);
 
     /** @ngInject */
-    function appTopics() {
+    function comTopics() {
         var directive = {
             restrict: 'E',
             replace: true,

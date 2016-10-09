@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appSidebar', appSidebar);
+        .directive('comSidebar', comSidebar);
 
     /** @ngInject */
-    function appSidebar() {
+    function comSidebar() {
         var directive = {
             restrict: 'E',
             replace: true,

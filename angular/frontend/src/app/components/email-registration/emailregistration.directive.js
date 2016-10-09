@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appEmailRegistration', appEmailRegistration);
+        .directive('comEmailRegistration', comEmailRegistration);
 
     /** @ngInject */
-    function appEmailRegistration() {
+    function comEmailRegistration() {
         var directive = {
             restrict: 'E',
             replace: true,

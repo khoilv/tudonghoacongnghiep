@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appHeader', appHeader);
+        .directive('comHeader', comHeader);
 
     /** @ngInject */
-    function appHeader() {
+    function comHeader() {
         var directive = {
             restrict: 'E',
             replace: true,

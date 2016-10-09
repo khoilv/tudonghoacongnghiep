@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appNewProducts', appNewProducts);
+        .directive('comNewProducts', comNewProducts);
 
     /** @ngInject */
-    function appNewProducts() {
+    function comNewProducts() {
         var directive = {
             restrict: 'E',
             replace: true,

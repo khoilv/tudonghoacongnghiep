@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appFooter', appFooter);
+        .directive('comFooter', comFooter);
 
     /** @ngInject */
-    function appFooter() {
+    function comFooter() {
         var directive = {
             restrict: 'E',
             replace: true,

@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appNews', appNews);
+        .directive('comNews', comNews);
 
     /** @ngInject */
-    function appNews() {
+    function comNews() {
         var directive = {
             restrict: 'E',
             replace: true,

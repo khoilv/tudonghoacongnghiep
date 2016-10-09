@@ -3,10 +3,10 @@
 
     angular
         .module('angularSeedApp')
-        .directive('appSearch', appSearch);
+        .directive('comSearch', comSearch);
 
     /** @ngInject */
-    function appSearch() {
+    function comSearch() {
         var directive = {
             restrict: 'E',
             replace: true,
