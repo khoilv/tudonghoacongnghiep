@@ -1,0 +1,30 @@
+@import "../../scss/variables";
+
+.e-mail {
+  background: url($path-icon-common + "background.jpg") repeat-y center top;
+  padding: 20px 0 45px 0;
+  text-align: center;
+  h3 {
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 1px 2px 7px #000;
+    margin-bottom: 30px;
+  }
+  label {
+    color: #fff;
+    margin-top: 5px;
+  }
+}
+
+.btn-register {
+  border-radius: 20px;
+  padding: 6px 25px;
+  background-color: #19a1b5;
+  border: 1px solid #ebebeb;
+  font-weight: bold;
+  color: #fff;
+  &:hover {
+    background-color: #ffa200;
+    transition: all ease 0.3s;
+  }
+}

@@ -3,17 +3,18 @@
 
     angular
         .module('angularSeedApp')
-        .directive('acmeNavbar', acmeNavbar);
+        .directive('appNews', appNews);
 
     /** @ngInject */
-    function acmeNavbar() {
+    function appNews() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'app/components/navbar/navbar.html',
+            replace: true,
+            templateUrl: 'app/components/news/news.html',
             scope: {
                 creationDate: '='
             },
-            controller: NavbarController,
+            controller: NewsController,
             controllerAs: 'vm',
             bindToController: true
         };
@@ -21,7 +22,7 @@
         return directive;
 
         /** @ngInject */
-        function NavbarController() {}
+        function NewsController() {}
     }
 
 })();

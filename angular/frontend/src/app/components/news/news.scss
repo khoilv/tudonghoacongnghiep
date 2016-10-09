@@ -1,0 +1,88 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.news {
+  margin-top: 50px;
+  .container {
+    & > div {
+      @include background-img($path-icon-common + "background_03.png", center, bottom);
+      background-size: 100%;
+      padding: 0 0 22px 0;
+      .news-item {
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+        &:nth-child(odd) {
+          border-right: 1px solid #ccc;
+        }
+      }
+      #news_slider {
+        box-shadow: 0 1px 10px #bdbdbd;
+        background-color: #f2f2f2;
+        padding-top: 15px;
+      }
+      .wrap-img-news {
+        float: left;
+        width: 28%;
+        height: 110px;
+        overflow: hidden;
+      }
+      .news-content {
+        width: 72%;
+        height: 110px;
+        overflow: hidden;
+        padding-left: 15px;
+        float: right;
+        a {
+          font: {
+            size: 15px;
+            family: avo-bold, sans-serif;;
+          }
+          line-height: 10px;
+        }
+        p {
+          margin-top: 5px !important;
+        }
+      }
+    }
+    .carousel-control {
+      position: inherit;
+      height: 30px;
+      text-align: right;
+      width: 30px;
+      display: inline-block !important;
+      &.right,
+      &.left {
+        display: inline-block !important;
+      }
+      &.left {
+        background: url($path-icon + "prev_02.png") no-repeat left center !important;
+        opacity: 1;
+        &:hover {
+          background: url($path-icon + "prev_02-hover.png") no-repeat left center !important;
+          transition: all ease 0.3s;
+        }
+      }
+      &.right {
+        background: url($path-icon + "next_02.png") no-repeat right center !important;
+        opacity: 1;
+        &:hover {
+          background: url($path-icon + "next_02-hover.png") no-repeat right center !important;
+          transition: all ease 0.3s;
+        }
+      }
+    }
+    .carousel-control.left {
+
+    }
+  }
+  &-title {
+    font-size: 25px;
+    text-align: center;
+    span {
+      border: 2px solid #ffa200;
+      display: block;
+      width: 55px;
+      margin-top: 10px;
+    }
+  }
+}
