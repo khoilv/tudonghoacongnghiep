@@ -1,5 +1,5 @@
 @mixin background-img($img, $xPos: left, $yPos: center) {
-  background-image: url($img);
+  background-image: url($img) !important;
   background-repeat: no-repeat;
   background-position: $xPos $yPos;
 }

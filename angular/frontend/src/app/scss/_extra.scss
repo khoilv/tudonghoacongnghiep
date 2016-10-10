@@ -1,0 +1,18 @@
+.carousel-indicators {
+  display: none !important;
+}
+
+#news_slider {
+  a.carousel-control {
+    margin: {
+      top: 15px;
+      bottom: 15px;
+    }
+    &.left {
+      margin-left: 92%;
+    }
+  }
+  span.glyphicon {
+    display: none !important;
+  }
+}

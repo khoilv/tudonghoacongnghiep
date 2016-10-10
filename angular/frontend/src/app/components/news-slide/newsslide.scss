@@ -55,18 +55,18 @@
         display: inline-block !important;
       }
       &.left {
-        background: url($path-icon + "prev_02.png") no-repeat left center !important;
+        @include background-img($path-icon + "prev_02.png", left, center);
         opacity: 1;
         &:hover {
-          background: url($path-icon + "prev_02-hover.png") no-repeat left center !important;
+          @include background-img($path-icon + "prev_02-hover.png", left, center);
           transition: all ease 0.3s;
         }
       }
       &.right {
-        background: url($path-icon + "next_02.png") no-repeat right center !important;
+        @include background-img($path-icon + "next_02.png", right, center);
         opacity: 1;
         &:hover {
-          background: url($path-icon + "next_02-hover.png") no-repeat right center !important;
+          @include background-img($path-icon + "next_02-hover.png", right, center);
           transition: all ease 0.3s;
         }
       }

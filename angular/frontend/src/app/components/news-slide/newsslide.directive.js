@@ -1,29 +1,29 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('angularSeedApp')
-        .directive('comHotProducts', comHotProducts);
+        .directive('comNewsSlide', comNewsSlide);
 
     /** @ngInject */
-    function comHotProducts() {
+    function comNewsSlide() {
         var directive = {
             restrict: 'E',
             replace: true,
-            templateUrl: 'app/components/hot-products/hot-products.html',
+            templateUrl: 'app/components/news-slide/news-slide.html',
             scope: {
                 creationDate: '='
             },
-            controller: HotProductsController,
+            controller: NewsSlideController,
             controllerAs: 'vm',
-            bindToController: false
+            bindToController: true
         };
 
-        HotProductsController.$inject = ['$scope'];
+        NewsSlideController.$inject = ['$scope'];
 
         /** @ngInject */
-        function HotProductsController($scope) {
-            $scope.myInterval = 5000;
+        function NewsSlideController($scope) {
+            $scope.myInterval = 'none';
             $scope.active = 0;
             $scope.noWrapSlides = false;
             $scope.slides = [];
@@ -32,13 +32,11 @@
 
             function init() {
                 var i, slide = [];
-                for(i = 0; i < 4; i++) {
+                for (i = 0; i < 4; i++) {
                     slide.push({
-                        discount_rate: '20%',
-                        product_image: '../../../assets/images/frontend/img_05.jpg',
-                        product_name: 'Bộ chuyển đổi USB 2.0 to RS232',
-                        product_old_price: '200.000',
-                        product_new_price: '100.000'
+                        news_image: '../../../assets/images/frontend/img_01.png',
+                        news_title: 'SUPERNANO - Siêu khuyến mãi nhân dịp khai trương Website',
+                        news_description: 'Nhân dịp khai trương website bán hàng trực tuyến http://sna no.vn/ Công ty Cổ Phần Công Nghệ Nano Ứng Dụng xin giới thiệu đến Quý khách hàng'
                     });
                 }
                 for (i = 0; i < 2; i++) {

@@ -1,0 +1,21 @@
+<section class="news">
+    <h2 class="news-title f-avobold">Tin tức<span></span></h2>
+    <div class="container mt50">
+        <div>
+            <div id="news_slider" uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" class="item">
+                    <div ng-repeat="news in slide.items" class="col-lg-6 news-item">
+                        <div class="wrap-img-news">
+                            <img ng-src="{{news.news_image}}">
+                        </div>
+                        <div class="news-content">
+                            <a href="#">{{news.news_title}}</a>
+                            <p>{{news.news_description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>
