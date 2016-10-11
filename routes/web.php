@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('frontend/index');
 });
 
+// API Routes
+
+// get menu list
+Route::get('/api/menu', 'MenuController@getMenuList');
+
 Route::get('/admin', function () {
    return view('backend/index');
 });

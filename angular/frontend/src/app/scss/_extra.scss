@@ -1,3 +1,7 @@
+.active {
+  transition: all linear 0.4s;
+  display: block !important;
+}
 .carousel-indicators {
   display: none !important;
 }
