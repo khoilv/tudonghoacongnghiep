@@ -17,7 +17,7 @@
         <h2 class="side-bar-title">Hỗ trợ trực tuyến</h2>
         <ul>
             <li ng-repeat="support in supports">
-                <a href="skype:{{support.skype}}?chat" title="{{support.name}}">
+                <a ng-href="skype:{{support.skype}}?chat" title="{{support.name}}">
                     <img src="../../../assets/images/frontend/skype-non-text.png">
                 </a>
                 <h4>{{support.name}}</h4>
