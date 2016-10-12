@@ -16,21 +16,12 @@
     <div class="support-online mt20">
         <h2 class="side-bar-title">Hỗ trợ trực tuyến</h2>
         <ul>
-            <li>
-                <img src="../../../assets/images/frontend/icon_s01.png">
-                <h4>Mr Giang</h4>
-                <p>
-                    ĐT: 0966.538.368 <br>
-                    Email: sale@snano.vn
-                </p>
-            </li>
-            <li>
-                <img src="../../../assets/images/frontend/icon_s02.png">
-                <h4>Mr Giang</h4>
-                <p>
-                    ĐT: 0966.538.368 <br>
-                    Email: sale@snano.vn
-                </p>
+            <li ng-repeat="support in supports">
+                <a href="skype:{{support.skype}}?chat" title="{{support.name}}">
+                    <img src="../../../assets/images/frontend/skype-non-text.png">
+                </a>
+                <h4>{{support.name}}</h4>
+                <p>ĐT: {{support.contact_phone}} <br>Email: {{support.contact_email}}</p>
             </li>
         </ul>
     </div>

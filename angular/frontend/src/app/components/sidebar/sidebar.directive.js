@@ -32,6 +32,10 @@
                 $scope.faqs = data;
             });
 
+            commonService.loadData('online_support', null, true, function (data) {
+                $scope.supports = data;
+            });
+
             $scope.init = function () {
                 // product category menu
                 $('ul.product-list-content').on('click', 'li > a', function () {

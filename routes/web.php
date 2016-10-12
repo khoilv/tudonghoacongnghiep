@@ -23,6 +23,9 @@ Route::get('/api/menu', 'ProductCategoryController@getMenuList');
 // get faq list
 Route::get('/api/faq', 'FaqController@getFaqList');
 
+// get online support list
+Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList');
+
 Route::get('/admin', function () {
    return view('backend/index');
 });
