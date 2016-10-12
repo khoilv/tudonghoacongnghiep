@@ -349,52 +349,12 @@ a, a:hover {
   margin-top: 45px !important;
 }
 
-.mb10 {
-  margin-bottom: 10px;
-}
-
-.mb15 {
-  margin-bottom: 15px;
-}
-
-.mb20 {
-  margin-bottom: 20px;
-}
-
-.mb30 {
-  margin-bottom: 30px;
-}
-
-.mb40 {
-  margin-bottom: 40px;
-}
-
-.mb50 {
-  margin-bottom: 50px;
-}
-
-.mb60 {
-  margin-bottom: 60px;
-}
-
-.mb75 {
-  margin-bottom: 75px;
-}
-
-.mb80 {
-  margin-bottom: 80px;
-}
-
-.mb85 {
-  margin-bottom: 85px;
-}
-
-.mb90 {
-  margin-bottom: 90px;
-}
-
-.mb100 {
-  margin-bottom: 100px;
+$i: 10;
+@while($i <= 100) {
+  .mb#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  $i: $i + 5;
 }
 
 .ml20 {

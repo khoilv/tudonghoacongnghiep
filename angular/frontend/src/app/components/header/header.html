@@ -9,8 +9,8 @@
                     <li><a href="#">Tài khoản của tôi</a></li>
                     <li><a href="#">Lịch sử đơn hàng</a></li>
                     <li><a href="#">Danh sách ưa thích</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#login">Đăng nhập</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#register">Đăng ký</a></li>
+                    <li><a href="#">Đăng nhập</a></li>
+                    <li><a href="#" ng-click="open()">Đăng ký</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -34,4 +34,88 @@
             </div>
         </div>
     </div>
+
+    <script type="text/ng-template" id="registerModal.html">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Đăng ký</h4>
+        </div>
+        <div class="modal-body">
+            <strong>Thông tin tài khoản</strong>
+            <p>Nhập E-mail và mật khẩu</p>
+            <form class="form-horizontal mt20">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email-register">Email(<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" id="email-register" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="pwd-register">Mật khẩu (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="pwd-register" placeholder="Enter password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="pwd-register-2">Nhập lại mật khẩu (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="pwd-register-2" placeholder="Enter password">
+                    </div>
+                </div>
+                <strong>Thông tin cá nhân</strong>
+                <p class="mb20">Nhập thông tin người nhận, địa chỉ mà bạn muốn chúng tôi chuyển hàng tới.</p>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="name-register">Họ đệm (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" id="name-register" placeholder="Họ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="name-2">Tên (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="name-2" placeholder="Tên">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="company">Công ty :</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="company" placeholder="Công ty">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="tell">Điện thoại (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="tell" placeholder="Điện thoại">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="tell">Tỉnh/Thành phố (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <select class="form-control input-sm">
+                            <option>Hà Nội</option>
+                            <option>Hà Nội</option>
+                            <option>Hà Nội</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="tell">Mã xác nhận :</label>
+                    <div class="col-sm-9">
+                        <img src="../../../assets/images/frontend/maxacnhan.jpg">
+                        <a href="#"><img src="../../../assets/images/frontend/maxacnhan-2.jpg"></a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="tell">Ký tự hiển thị (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Ký tự hiển thị">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-blue btn-buy" type="button" ng-click="$ctrl.ok()">Đăng ký</button>
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+        </div>
+    </script>
 </header>

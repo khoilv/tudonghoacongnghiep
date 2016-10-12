@@ -5,6 +5,11 @@
         .module('angularSeedApp')
         .controller('MainController', MainController);
 
+
+    MainController.$inject = ['$scope'];
+
     /** @ngInject */
-    function MainController() {}
+    function MainController($scope) {
+
+    }
 })();

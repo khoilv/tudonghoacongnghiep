@@ -5,7 +5,6 @@
         .filter('tel', ['$log', function ($log) {
 
             return function (tel) {
-                $log.info('+telephone filter: ' + tel);
                 if (!tel) { return ''; }
 
                 var value = tel.toString().trim().replace(/^\+/, '');
@@ -32,7 +31,6 @@
                 }
 
                 number = n1 + '.' + n2 + '.' + n3;
-                $log.info('-telephone filter: ' + number);
 
                 return number;
             };

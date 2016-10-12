@@ -19,11 +19,41 @@
             bindToController: false
         };
 
-        HeaderController.$inject = ['$scope', '$location'];
+        HeaderController.$inject = ['$scope', '$location', '$uibModal', '$log'];
 
         /** @ngInject */
-        function HeaderController($scope, $location) {
+        function HeaderController($scope, $location, $uibModal, $log) {
 
+            $scope.open = function () {
+                var modalInstance;
+
+                var modalScope = $scope.$new();
+                modalScope.ok = function () {
+                    modalInstance.close();
+                };
+                modalScope.cancel = function () {
+                    modalInstance.dismiss('cancel');
+                };
+
+                modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'registerModal.html',
+                    size: 'lg',
+                    controller: 'ModalInstanceController',
+                    controllerAs: '$ctrl',
+                    resolve: {
+                        /*
+                        items: function () {
+                            return $ctrl.items;
+                        }*/
+                    }
+                });
+                modalInstance.result.then(function () {
+                    $log.info('Modal closed');
+                }, function () {
+                    $log.info('Modal dismissed at: ' + new Date());
+                });
+            }
         }
 
         return directive;
