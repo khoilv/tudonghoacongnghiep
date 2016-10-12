@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Menu;
 
-class MenuController extends Controller
+class ProductCategoryController extends Controller
 {
     public function getMenuList(Request $request)
     {
         $retData = [];
-        $menuData = Menu::all(['id', 'name', 'slug', 'order', 'parent_id'])->toArray();
+        $menuData = ProductCategory::all(['id', 'name', 'slug', 'order', 'parent_id'])->toArray();
 
         // get the list of parent menus
         foreach ($menuData as $item) {

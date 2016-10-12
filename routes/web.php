@@ -18,7 +18,7 @@ Route::get('/', function () {
 // API Routes
 
 // get menu list
-Route::get('/api/menu', 'MenuController@getMenuList');
+Route::get('/api/menu', 'ProductCategoryController@getMenuList');
 
 Route::get('/admin', function () {
    return view('backend/index');
