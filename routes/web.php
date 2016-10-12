@@ -20,6 +20,9 @@ Route::get('/', function () {
 // get menu list
 Route::get('/api/menu', 'ProductCategoryController@getMenuList');
 
+// get faq list
+Route::get('/api/faq', 'FaqController@getFaqList');
+
 Route::get('/admin', function () {
    return view('backend/index');
 });

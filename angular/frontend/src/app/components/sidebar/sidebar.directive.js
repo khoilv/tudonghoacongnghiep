@@ -26,10 +26,14 @@
 
             commonService.loadData('menu', null, true, function (data) {
                 $scope.menus = data;
-                console.log(data);
+            });
+
+            commonService.loadData('faq', null, true, function (data) {
+                $scope.faqs = data;
             });
 
             $scope.init = function () {
+                // product category menu
                 $('ul.product-list-content').on('click', 'li > a', function () {
                     if ($(this).hasClass('active')) {
                         $(this).removeClass('active').next('ul').hide(400);
