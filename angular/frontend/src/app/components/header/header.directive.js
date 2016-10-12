@@ -26,15 +26,6 @@
 
             $scope.open = function () {
                 var modalInstance;
-
-                var modalScope = $scope.$new();
-                modalScope.ok = function () {
-                    modalInstance.close();
-                };
-                modalScope.cancel = function () {
-                    modalInstance.dismiss('cancel');
-                };
-
                 modalInstance = $uibModal.open({
                     animation: true,
                     templateUrl: 'registerModal.html',
