@@ -31,7 +31,13 @@
 
             $scope.init = function () {
                 $('ul.product-list-content').on('click', 'li > a', function () {
-                    $(this).next('ul').toggle(400);
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active').next('ul').hide(400);
+                    } else {
+                        var a = $(this).parent().parent().find('a.active');
+                        $(a).removeClass('active').next('ul').hide(400);
+                        $(this).addClass('active').next('ul').show(400);
+                    }
                 });
             };
 
