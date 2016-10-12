@@ -26,6 +26,9 @@ Route::get('/api/faq', 'FaqController@getFaqList');
 // get online support list
 Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList');
 
+// get cities/provinces list
+Route::get('/api/cities_provinces', 'CustomerController@getCitiesProvincesList');
+
 Route::get('/admin', function () {
    return view('backend/index');
 });
