@@ -47,19 +47,19 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="email-register">Email (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="email" ng-model="$ctrl.email" class="form-control" id="email-register" placeholder="Nhập email">
+                        <input type="email" ng-model="$ctrl.customer.email" class="form-control" id="email-register" placeholder="Nhập email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="pwd-register">Mật khẩu (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="password" ng-model="$ctrl.password" class="form-control" id="pwd-register" placeholder="Mật khẩu">
+                        <input type="password" ng-model="$ctrl.customer.password" class="form-control" id="pwd-register" placeholder="Mật khẩu">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="pwd-register-2">Nhập lại mật khẩu (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="password" ng-model="$ctrl.confirmPassword" class="form-control" id="pwd-register-2" placeholder="Xác nhận mật khẩu">
+                        <input type="password" ng-model="$ctrl.customer.confirmPassword" class="form-control" id="pwd-register-2" placeholder="Xác nhận mật khẩu">
                     </div>
                 </div>
                 <strong>Thông tin cá nhân</strong>
@@ -67,31 +67,31 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="last-name">Họ đệm (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="text" ng-model="$ctrl.lastName" class="form-control" id="last-name" placeholder="Họ">
+                        <input type="text" ng-model="$ctrl.customer.lastName" class="form-control" id="last-name" placeholder="Họ">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="first-name">Tên (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="text" ng-model="$ctrl.firstName" class="form-control" id="first-name" placeholder="Tên">
+                        <input type="text" ng-model="$ctrl.customer.firstName" class="form-control" id="first-name" placeholder="Tên">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="company">Công ty :</label>
                     <div class="col-sm-9">
-                        <input type="text" ng-model="$ctrl.company" class="form-control" id="company" placeholder="Công ty">
+                        <input type="text" ng-model="$ctrl.customer.company" class="form-control" id="company" placeholder="Công ty">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="tel">Điện thoại (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="tel" ng-model="$ctrl.tel" class="form-control" id="tel" placeholder="Điện thoại">
+                        <input type="tel" ng-model="$ctrl.customer.tel" class="form-control" id="tel" placeholder="Điện thoại">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="city_province">Tỉnh/Thành phố (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <select class="form-control input-sm" ng-model="$ctrl.city_province" id="city_province">
+                        <select class="form-control input-sm" ng-model="$ctrl.customer.city_province" id="city_province">
                             <option value="">---Chọn Tỉnh/Thành phố---</option>
                             <option ng-repeat="city_province in $ctrl.cities_provinces" value="{{city_province.id}}">{{city_province.name}}</option>
                         </select>
@@ -109,7 +109,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="captcha">Ký tự hiển thị (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="text" ng-model="$ctrl.captcha" id="captcha" class="form-control" placeholder="Nhập mã xác nhận">
+                        <input type="text" ng-model="$ctrl.customer.captcha" id="captcha" class="form-control" placeholder="Nhập mã xác nhận">
                     </div>
                 </div>
                 <input type="hidden" name="_token" value="{{$ctrl.csrf_token}}">

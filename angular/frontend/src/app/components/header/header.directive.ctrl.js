@@ -9,6 +9,7 @@
 
     function ModalInstanceController($scope, $uibModalInstance, commonService) {
         var $ctrl = this;
+        $ctrl.customer = {};
 
         commonService.loadData('init-registration', null, true, function (data) {
             $ctrl.cities_provinces = data.cities_provinces;
@@ -27,7 +28,7 @@
         };
 
         $ctrl.register = function () {
-            console.log($ctrl.city_province);
+            console.log($ctrl.customer);
         };
 
         $ctrl.cancel = function () {
