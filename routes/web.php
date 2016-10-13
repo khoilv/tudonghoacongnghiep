@@ -29,6 +29,11 @@ Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList'
 // get cities/provinces list
 Route::get('/api/cities_provinces', 'CustomerController@getCitiesProvincesList');
 
+// captcha test
+Route::any('/api/captcha-test', 'CustomerController@captchaTest');
+Route::get('/api/generate-captcha', 'CustomerController@generateCaptcha');
+Route::post('/api/send-captcha', 'CustomerController@sendCaptcha');
+
 Route::get('/admin', function () {
    return view('backend/index');
 });

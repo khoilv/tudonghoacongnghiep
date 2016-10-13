@@ -14,6 +14,10 @@
             $ctrl.cities_provinces = data;
         });
 
+        commonService.loadData('generate-captcha', null, true, function (data) {
+            $ctrl.captcha = data;
+        });
+
         $ctrl.ok = function () {
             $uibModalInstance.close(null);
         };
@@ -21,6 +25,12 @@
         $ctrl.cancel = function () {
             $uibModalInstance.dismiss('cancel');
         };
+
+        $ctrl.generateCaptcha = function () {
+            commonService.loadData('generate-captcha', null, true, function (data) {
+                $ctrl.captcha = data;
+            });
+        }
     }
 
 })();

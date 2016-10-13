@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Mews\Captcha\Facades\Captcha;
 
 class CustomerController extends Controller
 {
@@ -20,5 +21,34 @@ class CustomerController extends Controller
         } else {
             return $jsonRes;
         }
+    }
+
+    public function captchaTest(Request $request)
+    {
+        if ($request->getMethod() == 'POST') {
+            $this->validate($request, [
+                'captcha' => 'required|captcha'
+            ]);
+        } else {
+            return captcha();
+        }
+    }
+
+    public function generateCaptcha(Request $request)
+    {
+        $data = ['src' => captcha_src()];
+
+        // return json result
+        $jsonRes = response()->json($data);
+        if ($request->input('callback')) {
+            return $jsonRes->withCallback($request->input('callback'));
+        } else {
+            return $jsonRes;
+        }
+    }
+
+    public function sendCaptcha()
+    {
+        return captcha_img();
     }
 }
