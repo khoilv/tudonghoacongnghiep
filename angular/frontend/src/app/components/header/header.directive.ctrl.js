@@ -10,17 +10,15 @@
     function ModalInstanceController($scope, $uibModalInstance, commonService) {
         var $ctrl = this;
 
-        commonService.loadData('cities_provinces', null, true, function (data) {
-            $ctrl.cities_provinces = data;
-        });
-
-        commonService.loadData('generate-captcha', null, true, function (data) {
-            $ctrl.captchaData = data;
+        commonService.loadData('init-registration', null, true, function (data) {
+            $ctrl.cities_provinces = data.cities_provinces;
+            $ctrl.captcha_src = data.captcha_src;
+            $ctrl.csrf_token = data.csrf_token;
         });
 
         $ctrl.generateCaptcha = function () {
             commonService.loadData('generate-captcha', null, true, function (data) {
-                $ctrl.captchaData = data;
+                $ctrl.captcha_src = data.captcha_src;
             });
         };
 

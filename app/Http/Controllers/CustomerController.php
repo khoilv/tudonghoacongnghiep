@@ -9,10 +9,14 @@ use Mews\Captcha\Facades\Captcha;
 
 class CustomerController extends Controller
 {
-    public function getCitiesProvincesList(Request $request)
+    public function initRegistration(Request $request)
     {
         $path = storage_path() . "/json/cities_provinces.json";
-        $data = json_decode(file_get_contents($path), true);
+        $data = [
+            'csrf_token' => csrf_token(),
+            'captcha_src' => captcha_src(),
+            'cities_provinces' => json_decode(file_get_contents($path), true)
+        ];
 
         // return json result
         $jsonRes = response()->json($data);
@@ -25,7 +29,7 @@ class CustomerController extends Controller
 
     public function generateCaptcha(Request $request)
     {
-        $data = ['src' => captcha_src(), 'csrf_token' => csrf_token()];
+        $data = ['captcha_src' => captcha_src()];
 
         // return json result
         $jsonRes = response()->json($data);

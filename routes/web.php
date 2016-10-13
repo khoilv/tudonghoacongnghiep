@@ -26,8 +26,8 @@ Route::get('/api/faq', 'FaqController@getFaqList');
 // get online support list
 Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList');
 
-// get cities/provinces list
-Route::get('/api/cities_provinces', 'CustomerController@getCitiesProvincesList');
+// get cities/provinces and captcha
+Route::get('/api/init-registration', 'CustomerController@initRegistration');
 
 // captcha test
 Route::any('/api/captcha-test', 'CustomerController@captchaTest');
