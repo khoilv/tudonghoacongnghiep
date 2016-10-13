@@ -47,74 +47,75 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="email-register">Email (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" id="email-register" placeholder="Enter email">
+                        <input type="email" ng-model="$ctrl.email" class="form-control" id="email-register" placeholder="Nhập email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="pwd-register">Mật khẩu (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="pwd-register" placeholder="Enter password">
+                        <input type="password" ng-model="$ctrl.password" class="form-control" id="pwd-register" placeholder="Mật khẩu">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="pwd-register-2">Nhập lại mật khẩu (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="pwd-register-2" placeholder="Enter password">
+                        <input type="password" ng-model="$ctrl.confirmPassword" class="form-control" id="pwd-register-2" placeholder="Xác nhận mật khẩu">
                     </div>
                 </div>
                 <strong>Thông tin cá nhân</strong>
                 <p class="mb20">Nhập thông tin người nhận, địa chỉ mà bạn muốn chúng tôi chuyển hàng tới.</p>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="name-register">Họ đệm (<span class="text-red">*</span>):</label>
+                    <label class="control-label col-sm-3" for="last-name">Họ đệm (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" id="name-register" placeholder="Họ">
+                        <input type="text" ng-model="$ctrl.lastName" class="form-control" id="last-name" placeholder="Họ">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="name-2">Tên (<span class="text-red">*</span>):</label>
+                    <label class="control-label col-sm-3" for="first-name">Tên (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="name-2" placeholder="Tên">
+                        <input type="text" ng-model="$ctrl.firstName" class="form-control" id="first-name" placeholder="Tên">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="company">Công ty :</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="company" placeholder="Công ty">
+                        <input type="text" ng-model="$ctrl.company" class="form-control" id="company" placeholder="Công ty">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="tell">Điện thoại (<span class="text-red">*</span>):</label>
+                    <label class="control-label col-sm-3" for="tel">Điện thoại (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control" id="tell" placeholder="Điện thoại">
+                        <input type="tel" ng-model="$ctrl.tel" class="form-control" id="tel" placeholder="Điện thoại">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="tell">Tỉnh/Thành phố (<span class="text-red">*</span>):</label>
+                    <label class="control-label col-sm-3" for="city_province">Tỉnh/Thành phố (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <select class="form-control input-sm">
+                        <select class="form-control input-sm" ng-model="$ctrl.city_province" id="city_province">
                             <option ng-repeat="city_province in $ctrl.cities_provinces" value="{{city_province.id}}">{{city_province.name}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="tell">Mã xác nhận :</label>
+                    <label class="control-label col-sm-3">Mã xác nhận :</label>
                     <div class="col-sm-9">
-                        <img ng-src="{{$ctrl.captcha.src}}" alt="captcha">
+                        <img ng-src="{{$ctrl.captchaData.src}}" alt="captcha">
+                        <input type="hidden" name="_token" value="{{$ctrl.captchaData.csrf_token}}">
                         <a href="javascript:void(0)" ng-click="$ctrl.generateCaptcha()">
                             <img src="../../../assets/images/frontend/maxacnhan-2.jpg">
                         </a>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="tell">Ký tự hiển thị (<span class="text-red">*</span>):</label>
+                    <label class="control-label col-sm-3" for="captcha">Ký tự hiển thị (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="text" name="captcha" class="form-control" placeholder="Ký tự hiển thị">
+                        <input type="text" ng-model="$ctrl.captcha" id="captcha" class="form-control" placeholder="Ký tự hiển thị">
                     </div>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button class="btn-blue btn-buy" type="button" ng-click="$ctrl.ok()">Đăng ký</button>
+            <button class="btn-blue btn-buy" type="button" ng-click="$ctrl.register()">Đăng ký</button>
             <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Hủy</button>
         </div>
     </script>

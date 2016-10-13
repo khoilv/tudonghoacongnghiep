@@ -15,22 +15,26 @@
         });
 
         commonService.loadData('generate-captcha', null, true, function (data) {
-            $ctrl.captcha = data;
+            $ctrl.captchaData = data;
         });
+
+        $ctrl.generateCaptcha = function () {
+            commonService.loadData('generate-captcha', null, true, function (data) {
+                $ctrl.captchaData = data;
+            });
+        };
 
         $ctrl.ok = function () {
             $uibModalInstance.close(null);
         };
 
+        $ctrl.register = function () {
+            console.log($ctrl.email);
+        };
+
         $ctrl.cancel = function () {
             $uibModalInstance.dismiss('cancel');
         };
-
-        $ctrl.generateCaptcha = function () {
-            commonService.loadData('generate-captcha', null, true, function (data) {
-                $ctrl.captcha = data;
-            });
-        }
     }
 
 })();

@@ -25,7 +25,7 @@ class CustomerController extends Controller
 
     public function generateCaptcha(Request $request)
     {
-        $data = ['src' => captcha_src()];
+        $data = ['src' => captcha_src(), 'csrf_token' => csrf_token()];
 
         // return json result
         $jsonRes = response()->json($data);
