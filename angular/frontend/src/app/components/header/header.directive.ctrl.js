@@ -29,7 +29,7 @@
         };
 
         $ctrl.register = function () {
-            console.log($ctrl.email);
+            console.log($ctrl.city_province);
         };
 
         $ctrl.cancel = function () {

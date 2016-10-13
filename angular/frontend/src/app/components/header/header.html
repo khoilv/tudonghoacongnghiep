@@ -92,6 +92,7 @@
                     <label class="control-label col-sm-3" for="city_province">Tỉnh/Thành phố (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
                         <select class="form-control input-sm" ng-model="$ctrl.city_province" id="city_province">
+                            <option value="">---Chọn Tỉnh/Thành phố---</option>
                             <option ng-repeat="city_province in $ctrl.cities_provinces" value="{{city_province.id}}">{{city_province.name}}</option>
                         </select>
                     </div>
@@ -109,7 +110,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="captcha">Ký tự hiển thị (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="text" ng-model="$ctrl.captcha" id="captcha" class="form-control" placeholder="Ký tự hiển thị">
+                        <input type="text" ng-model="$ctrl.captcha" id="captcha" class="form-control" placeholder="Nhập mã xác nhận">
                     </div>
                 </div>
             </form>
