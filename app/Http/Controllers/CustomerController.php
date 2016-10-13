@@ -23,17 +23,6 @@ class CustomerController extends Controller
         }
     }
 
-    public function captchaTest(Request $request)
-    {
-        if ($request->getMethod() == 'POST') {
-            $this->validate($request, [
-                'captcha' => 'required|captcha'
-            ]);
-        } else {
-            return captcha();
-        }
-    }
-
     public function generateCaptcha(Request $request)
     {
         $data = ['src' => captcha_src()];
@@ -44,6 +33,17 @@ class CustomerController extends Controller
             return $jsonRes->withCallback($request->input('callback'));
         } else {
             return $jsonRes;
+        }
+    }
+
+    public function captchaTest(Request $request)
+    {
+        if ($request->getMethod() == 'POST') {
+            $this->validate($request, [
+                'captcha' => 'required|captcha'
+            ]);
+        } else {
+            return captcha();
         }
     }
 
