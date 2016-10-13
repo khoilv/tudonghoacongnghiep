@@ -31,8 +31,12 @@
             }, function (response) {
                 if (response.status === 422) {
                     generateCaptcha();
-                    var errors = response.data;
-                    console.log(errors);
+                    var errors = {};
+                    angular.forEach(response.data, function (value, key) {
+                        console.log(key + ': ' + value[0]);
+                        errors[key] = value[0];
+                    });
+                    $ctrl.errors = errors;
                 }
             });
         };
