@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -29,10 +30,19 @@ class CustomerController extends Controller
 
     public function registerCustomer(RegisterCustomer $request)
     {
-        $errors = $request->messages();
+        $customer = new Customer();
+        $customer->email = $request->email;
+        $customer->password = $request->password;
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->company = $request->company;
+        $customer->tel = $request->tel;
+        $customer->address = $request->address;
+        $customer->city_province_id = $request->city_province_id;
+        $customer->save();
 
         // return json result
-        $jsonRes = response()->json($errors);
+        $jsonRes = response()->json(['success' => true, 'message' => 'Customer inserted successfully.']);
         if ($request->input('callback')) {
             return $jsonRes->withCallback($request->input('callback'));
         } else {
