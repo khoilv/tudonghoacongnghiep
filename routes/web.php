@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('frontend/index');
 });
 
-// API Routes
+// --------------- API FRONTEND Routes -------------------
 
 // get menu list
 Route::get('/api/menu', 'ProductCategoryController@getMenuList');
@@ -29,10 +29,13 @@ Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList'
 // get cities/provinces and captcha
 Route::get('/api/init-registration', 'CustomerController@initRegistration');
 
-// captcha test
-Route::any('/api/captcha-test', 'CustomerController@captchaTest');
+// generate captcha
 Route::get('/api/generate-captcha', 'CustomerController@generateCaptcha');
+
+Route::any('/api/captcha-test', 'CustomerController@captchaTest');
 Route::post('/api/send-captcha', 'CustomerController@sendCaptcha');
+
+// -----------------------------------------------------
 
 Route::get('/admin', function () {
    return view('backend/index');
