@@ -49,15 +49,17 @@ class RegisterCustomer extends FormRequest
             'email.unique' => 'Email nhập đã tồn tại rồi',
             'password.required' => 'Mật khẩu được yêu cầu nhập',
             'password.min' => 'Mật khẩu phải ít nhất 3 kí tự',
-            'password.confirmed' => 'Mật khẩu chưa được xác nhận',
-            'last_name.required' => 'Họ được yêu cầu nhập',
+            'password.confirmed' => 'Mật khẩu xác nhận không khớp',
+            'last_name.required' => 'Họ đệm được yêu cầu nhập',
             'last_name.string' => 'Họ nhập không hợp lệ',
             'first_name.required' => 'Tên được yêu cầu nhập',
             'first_name.string' => 'Tên nhập không hợp lệ',
             'tel.required' => 'Điện thoại được yêu cầu nhập',
             'tel.numeric' => 'Điện thoại không hợp lệ',
             'city_province_id.required' => 'Tỉnh/Thành phố được yêu cầu nhập',
-            'city_province_id.integer' => 'Tỉnh/Thành phố không hợp lệ'
+            'city_province_id.integer' => 'Tỉnh/Thành phố không hợp lệ',
+            'captcha.required' => 'Mã xác nhận chưa được nhập',
+            'captcha.captcha' => 'Mã xác nhận nhập chưa chính xác'
         ];
     }
 }

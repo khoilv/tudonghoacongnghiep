@@ -39,7 +39,7 @@
                 }
             };
 
-            var postData = function (url, queryParams, jsonp, onSuccess) {
+            var postData = function (url, queryParams, jsonp, onSuccess, onError) {
                 var submitUrl = API_URL + url;
                 if (queryParams == null) queryParams = {};
                 if (jsonp) {
@@ -54,7 +54,7 @@
                             if (typeof(onSuccess) === 'function') onSuccess(response.data);
                         },
                         function (response) {
-                            console.log(response);
+                            if (typeof(onError) === 'function') onError(response);
                         }
                     );
                 } else {
@@ -69,7 +69,7 @@
                             if (typeof(onSuccess) === 'function') onSuccess(response.data);
                         },
                         function (response) {
-                            console.log(response);
+                            if (typeof(onError) === 'function') onError(response);
                         }
                     );
                 }

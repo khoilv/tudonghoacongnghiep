@@ -42,7 +42,7 @@ class CustomerController extends Controller
         $customer->save();
 
         // return json result
-        $jsonRes = response()->json(['success' => true, 'message' => 'Customer inserted successfully.']);
+        $jsonRes = response()->json(['status' => 200, 'statusText' => 'Success']);
         if ($request->input('callback')) {
             return $jsonRes->withCallback($request->input('callback'));
         } else {
