@@ -61,6 +61,7 @@
                     return $http({
                         url: submitUrl,
                         method: 'POST',
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         params: queryParams,
                         paramSerializer: '$httpParamSerializerJQLike'
                     }).then(

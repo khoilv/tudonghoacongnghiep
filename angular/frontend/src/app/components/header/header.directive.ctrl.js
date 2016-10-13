@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -10,8 +10,9 @@
     function ModalInstanceController($scope, $uibModalInstance, commonService) {
         var $ctrl = this;
         $ctrl.customer = {};
+        $ctrl.errors = {};
 
-        commonService.loadData('init-registration', null, true, function (data) {
+        commonService.loadData('register', null, true, function (data) {
             $ctrl.cities_provinces = data.cities_provinces;
             $ctrl.captcha_src = data.captcha_src;
             $ctrl.csrf_token = data.csrf_token;
@@ -28,7 +29,11 @@
         };
 
         $ctrl.register = function () {
-            console.log($ctrl.customer);
+            var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
+            console.log(data);
+            commonService.postData('register', data, false, function (data) {
+                console.log(data);
+            });
         };
 
         $ctrl.cancel = function () {

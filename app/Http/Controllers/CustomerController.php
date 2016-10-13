@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\RegisterCustomer;
 use Mews\Captcha\Facades\Captcha;
 
 class CustomerController extends Controller
 {
-    public function initRegistration(Request $request)
+    public function initCustomerRegistration(Request $request)
     {
         $path = storage_path() . "/json/cities_provinces.json";
         $data = [
@@ -17,9 +18,21 @@ class CustomerController extends Controller
             'captcha_src' => captcha_src(),
             'cities_provinces' => json_decode(file_get_contents($path), true)
         ];
-
         // return json result
         $jsonRes = response()->json($data);
+        if ($request->input('callback')) {
+            return $jsonRes->withCallback($request->input('callback'));
+        } else {
+            return $jsonRes;
+        }
+    }
+
+    public function registerCustomer(RegisterCustomer $request)
+    {
+        $errors = $request->messages();
+
+        // return json result
+        $jsonRes = response()->json($errors);
         if ($request->input('callback')) {
             return $jsonRes->withCallback($request->input('callback'));
         } else {

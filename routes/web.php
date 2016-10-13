@@ -27,7 +27,8 @@ Route::get('/api/faq', 'FaqController@getFaqList');
 Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList');
 
 // get cities/provinces and captcha
-Route::get('/api/init-registration', 'CustomerController@initRegistration');
+Route::get('/api/register', 'CustomerController@initCustomerRegistration');
+Route::post('/api/register', 'CustomerController@registerCustomer');
 
 // generate captcha
 Route::get('/api/generate-captcha', 'CustomerController@generateCaptcha');
