@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\MasterCityProvince;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,12 +14,12 @@ class CustomerController extends Controller
 {
     public function initCustomerRegistration(Request $request)
     {
-        $path = storage_path() . "/json/cities_provinces.json";
         $data = [
             'csrf_token' => csrf_token(),
             'captcha_src' => captcha_src(),
-            'cities_provinces' => json_decode(file_get_contents($path), true)
+            'cities_provinces' => MasterCityProvince::all()->toArray()
         ];
+
         // return json result
         $jsonRes = response()->json($data);
         if ($request->input('callback')) {
