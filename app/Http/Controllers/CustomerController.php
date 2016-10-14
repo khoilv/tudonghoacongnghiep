@@ -21,12 +21,7 @@ class CustomerController extends Controller
         ];
 
         // return json result
-        $jsonRes = response()->json($data);
-        if ($request->input('callback')) {
-            return $jsonRes->withCallback($request->input('callback'));
-        } else {
-            return $jsonRes;
-        }
+        return $this->outputJson($request, $data);
     }
 
     public function registerCustomer(RegisterCustomer $request)
@@ -43,24 +38,14 @@ class CustomerController extends Controller
         $customer->save();
 
         // return json result
-        $jsonRes = response()->json(['status' => 200, 'statusText' => 'Success']);
-        if ($request->input('callback')) {
-            return $jsonRes->withCallback($request->input('callback'));
-        } else {
-            return $jsonRes;
-        }
+        $data = ['status' => 200, 'statusText' => 'Success'];
+        return $this->outputJson($request, $data);
     }
 
     public function generateCaptcha(Request $request)
     {
-        $data = ['captcha_src' => captcha_src()];
-
         // return json result
-        $jsonRes = response()->json($data);
-        if ($request->input('callback')) {
-            return $jsonRes->withCallback($request->input('callback'));
-        } else {
-            return $jsonRes;
-        }
+        $data = ['captcha_src' => captcha_src()];
+        return $this->outputJson($request, $data);
     }
 }
