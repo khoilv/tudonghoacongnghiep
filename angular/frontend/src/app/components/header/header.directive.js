@@ -24,13 +24,33 @@
         /** @ngInject */
         function HeaderController($scope, $location, $uibModal, $log) {
 
-            $scope.open = function () {
+            $scope.openLoginModal = function () {
                 var modalInstance;
+
+                modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'loginModal.html',
+                    size: 'lg',
+                    controller: 'LoginModalInstanceController',
+                    controllerAs: '$ctrl',
+                    resolve: {}
+                });
+
+                modalInstance.result.then(function () {
+                    $log.info('Login modal closed');
+                }, function () {
+                    $log.info('Login modal dismissed at: ' + new Date());
+                });
+            };
+
+            $scope.openRegisterModal = function () {
+                var modalInstance;
+
                 modalInstance = $uibModal.open({
                     animation: true,
                     templateUrl: 'registerModal.html',
                     size: 'lg',
-                    controller: 'ModalInstanceController',
+                    controller: 'RegisterModalInstanceController',
                     controllerAs: '$ctrl',
                     resolve: {
                         /*
@@ -39,10 +59,11 @@
                         }*/
                     }
                 });
+
                 modalInstance.result.then(function () {
-                    $log.info('Modal closed');
+                    $log.info('Register modal closed');
                 }, function () {
-                    $log.info('Modal dismissed at: ' + new Date());
+                    $log.info('Register modal dismissed at: ' + new Date());
                 });
             };
         }

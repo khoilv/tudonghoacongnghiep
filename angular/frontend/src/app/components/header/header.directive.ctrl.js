@@ -3,11 +3,13 @@
 
     angular
         .module('angularSeedApp')
-        .controller('ModalInstanceController', ModalInstanceController);
+        .controller('RegisterModalInstanceController', RegisterModalInstanceController)
+        .controller('LoginModalInstanceController', LoginModalInstanceController);
 
-    ModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService'];
+    RegisterModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService'];
+    LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService'];
 
-    function ModalInstanceController($scope, $uibModalInstance, commonService) {
+    function RegisterModalInstanceController($scope, $uibModalInstance, commonService) {
         var $ctrl = this;
         $ctrl.customer = {};
         $ctrl.errors = {};
@@ -33,10 +35,11 @@
                     generateCaptcha();
                     var errors = {};
                     angular.forEach(response.data, function (value, key) {
-                        console.log(key + ': ' + value[0]);
                         errors[key] = value[0];
                     });
                     $ctrl.errors = errors;
+                } else {
+                    console.log(response);
                 }
             });
         };
@@ -50,6 +53,9 @@
                 $ctrl.captcha_src = data.captcha_src;
             });
         }
+    }
+
+    function LoginModalInstanceController($scope, $uibModalInstance, commonService) {
 
     }
 

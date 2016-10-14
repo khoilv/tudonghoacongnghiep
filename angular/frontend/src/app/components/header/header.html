@@ -9,8 +9,8 @@
                     <li><a href="#">Tài khoản của tôi</a></li>
                     <li><a href="#">Lịch sử đơn hàng</a></li>
                     <li><a href="#">Danh sách ưa thích</a></li>
-                    <li><a href="#">Đăng nhập</a></li>
-                    <li><a href="javascript:void(0)" ng-click="open()">Đăng ký</a></li>
+                    <li><a href="javascript:void(0)" ng-click="openLoginModal()">Đăng nhập</a></li>
+                    <li><a href="javascript:void(0)" ng-click="openRegisterModal()">Đăng ký</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -34,6 +34,53 @@
             </div>
         </div>
     </div>
+
+    <script type="text/ng-template" id="loginModal.html">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Đăng nhập</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Mật khẩu (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label><input type="checkbox">Nhớ mật khẩu</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn-blue btn-buy">Đăng nhập</button>
+                        <a href="#" class="textblue" style="margin-left: 10px">Quên mật khẩu?</a>
+                    </div>
+                </div>
+            </form>
+            <div class="col-lg-offset-2 mt20">
+                <strong>Bạn có thể đăng nhập qua</strong>
+                <ul class="box-login" style="text-align: left">
+                    <li>
+                        <a href="#"><span></span> <p>Đăng nhập với Facebook</p></a>
+                    </li>
+                    <li>
+                        <a href="#"><span></span> <p>Đăng nhập với Google+</p></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </script>
 
     <script type="text/ng-template" id="registerModal.html">
         <div class="modal-header">
