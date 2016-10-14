@@ -7,7 +7,7 @@
         .controller('LoginModalInstanceController', LoginModalInstanceController);
 
     RegisterModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService'];
-    LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService'];
+    LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'loginService'];
 
     function RegisterModalInstanceController($scope, $uibModalInstance, commonService) {
         var $ctrl = this;
@@ -55,8 +55,16 @@
         }
     }
 
-    function LoginModalInstanceController($scope, $uibModalInstance, commonService) {
+    function LoginModalInstanceController($scope, $uibModalInstance, loginService) {
+        $scope.account = {};
 
+        $scope.login = function () {
+            console.log($scope.account);
+        };
+
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        }
     }
 
 })();

@@ -37,7 +37,7 @@
 
     <script type="text/ng-template" id="loginModal.html">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" ng-click="cancel()">&times;</button>
             <h4 class="modal-title">Đăng nhập</h4>
         </div>
         <div class="modal-body">
@@ -45,13 +45,13 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Email (<span class="text-red">*</span>):</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        <input type="email" ng-model="account.email" class="form-control" id="email" placeholder="Enter email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Mật khẩu (<span class="text-red">*</span>):</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                        <input type="password" ng-model="account.password" class="form-control" id="pwd" placeholder="Enter password">
                     </div>
                 </div>
                 <div class="form-group">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn-blue btn-buy">Đăng nhập</button>
+                        <button type="submit" class="btn-blue btn-buy" ng-click="login()">Đăng nhập</button>
                         <a href="#" class="textblue" style="margin-left: 10px">Quên mật khẩu?</a>
                     </div>
                 </div>
