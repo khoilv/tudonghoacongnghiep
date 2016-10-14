@@ -14,7 +14,7 @@
         $ctrl.customer = {};
         $ctrl.errors = {};
 
-        commonService.loadData('customer/signup', null, true, function (data) {
+        commonService.loadData('customer/signup', null, function (data) {
             $ctrl.cities_provinces = data.cities_provinces;
             $ctrl.captcha_src = data.captcha_src;
             $ctrl.csrf_token = data.csrf_token;
@@ -50,7 +50,7 @@
         };
 
         function generateCaptcha() {
-            commonService.loadData('customer/generate-captcha', null, true, function (data) {
+            commonService.loadData('customer/generate-captcha', null, function (data) {
                 $ctrl.captcha_src = data.captcha_src;
             });
         }

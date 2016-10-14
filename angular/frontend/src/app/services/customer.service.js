@@ -4,12 +4,18 @@
         .module('angularSeedApp')
         .factory('customerService', customerService);
 
-    customerService.$inject = ['$http', 'localStorageService', 'API_URL', 'commonService'];
+    customerService.$inject = ['$http', 'localStorageService', 'commonService', 'API_URL'];
 
-    function customerService($http, localStorageService, API_URL, commonService) {
+    function customerService($http, localStorageService, commonService, API_URL) {
 
-        function login(email, password) {
-
+        function login(email, password, onSuccess, onError) {
+            var data = {email: email, password: password};
+            commonService.postData('customer/login', data, function (response) {
+                localStorageService.set('isAuthenticated', true);
+                onSuccess(response);
+            }, function (response) {
+                onError(response);
+            });
         }
 
         function signup(data, onSuccess, onError) {
@@ -21,10 +27,15 @@
         }
 
         function logout() {
-
+            localStorageService.remove('isAuthenticated');
+            $http.get(API_URL + 'customer/logout');
         }
 
         function isAuthenticated() {
+            return localStorageService.get('isAuthenticated') ? true : false;
+        }
+
+        function forgotPassword(email, onSuccess, onError) {
 
         }
 
@@ -32,7 +43,8 @@
             login: login,
             signup: signup,
             logout: logout,
-            isAuthenticated: isAuthenticated
+            isAuthenticated: isAuthenticated,
+            forgotPassword: forgotPassword
         }
     }
 

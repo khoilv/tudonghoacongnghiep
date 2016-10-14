@@ -4,14 +4,14 @@
         .module('angularSeedApp')
         .factory('commonService', commonService);
 
-    commonService.$inject = ['$http', 'API_URL'];
+    commonService.$inject = ['$http', 'API_URL', 'JSONP'];
 
-    function commonService($http, API_URL) {
+    function commonService($http, API_URL, JSONP) {
 
-        function loadData(url, queryParams, jsonp, onSuccess) {
+        function loadData(url, queryParams, onSuccess) {
             var submitUrl = API_URL + url;
             if (queryParams == null) queryParams = {};
-            if (jsonp) {
+            if (JSONP) {
                 angular.extend(queryParams, {callback: 'JSON_CALLBACK'});
                 return $http({
                     method: 'JSONP',
@@ -20,7 +20,7 @@
                     paramSerializer: '$httpParamSerializerJQLike'
                 }).then(
                     function (response) {
-                        onSuccess(response.data);
+                        if (typeof(onSuccess) === 'function') onSuccess(response.data);
                     },
                     function (response) {
                         console.log(response);
@@ -34,7 +34,7 @@
                     paramSerializer: '$httpParamSerializerJQLike'
                 }).then(
                     function (response) {
-                        onSuccess(response.data);
+                        if (typeof(onSuccess) === 'function') onSuccess(response.data);
                     },
                     function (response) {
                         console.log(response);
@@ -53,10 +53,10 @@
                 paramSerializer: '$httpParamSerializerJQLike'
             }).then(
                 function (response) {
-                    onSuccess(response.data);
+                    if (typeof(onSuccess) === 'function') onSuccess(response.data);
                 },
                 function (response) {
-                    onError(response);
+                    if (typeof(onError) === 'function') onError(response);
                 }
             );
         }
