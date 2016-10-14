@@ -43,12 +43,12 @@
                 });
             };
 
-            $scope.openRegisterModal = function () {
+            $scope.openSignupModal = function () {
                 var modalInstance;
 
                 modalInstance = $uibModal.open({
                     animation: true,
-                    templateUrl: 'registerModal.html',
+                    templateUrl: 'signupModal.html',
                     size: 'lg',
                     controller: 'RegisterModalInstanceController',
                     controllerAs: '$ctrl',

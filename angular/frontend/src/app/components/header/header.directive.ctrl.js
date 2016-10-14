@@ -6,15 +6,15 @@
         .controller('RegisterModalInstanceController', RegisterModalInstanceController)
         .controller('LoginModalInstanceController', LoginModalInstanceController);
 
-    RegisterModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService'];
-    LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'loginService'];
+    RegisterModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService', 'customerService'];
+    LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'customerService'];
 
-    function RegisterModalInstanceController($scope, $uibModalInstance, commonService) {
+    function RegisterModalInstanceController($scope, $uibModalInstance, commonService, customerService) {
         var $ctrl = this;
         $ctrl.customer = {};
         $ctrl.errors = {};
 
-        commonService.loadData('customer/register', null, true, function (data) {
+        commonService.loadData('customer/signup', null, true, function (data) {
             $ctrl.cities_provinces = data.cities_provinces;
             $ctrl.captcha_src = data.captcha_src;
             $ctrl.csrf_token = data.csrf_token;
@@ -24,9 +24,10 @@
             generateCaptcha();
         };
 
-        $ctrl.register = function () {
+        $ctrl.signup = function () {
             var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
-            commonService.postData('customer/register', data, false, function (response) {
+
+            customerService.signup(data, function (response) {
                 if (response.status === 200) {
                     $uibModalInstance.close(null);
                 }
