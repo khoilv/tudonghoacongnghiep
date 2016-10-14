@@ -63,20 +63,4 @@ class CustomerController extends Controller
             return $jsonRes;
         }
     }
-
-    public function captchaTest(Request $request)
-    {
-        if ($request->getMethod() == 'POST') {
-            $this->validate($request, [
-                'captcha' => 'required|captcha'
-            ]);
-        } else {
-            return captcha();
-        }
-    }
-
-    public function sendCaptcha()
-    {
-        return captcha_img();
-    }
 }
