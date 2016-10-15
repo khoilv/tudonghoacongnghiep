@@ -27,8 +27,8 @@
         };
 
         $ctrl.signup = function () {
-            //var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
-            customerService.signup($ctrl.customer, function (response) {
+            var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
+            customerService.signup(data, function (response) {
                 if (response.status === 200) {
                     $uibModalInstance.close(null);
                 }
