@@ -19,10 +19,18 @@
         }
 
         function signup(data, onSuccess, onError) {
-            commonService.postData('customer/register', data, function (response) {
-                onSuccess(response);
+            commonService.postData('customer/signup', data, function (response) {
+                if (response.data.status === true) {
+                    onSuccess(response);
+                } else {
+                    console.log(response);
+                }
             }, function (response) {
-                onError(response);
+                if (response.status === 422) {
+                    onError(response);
+                } else {
+                    console.log(response);
+                }
             });
         }
 

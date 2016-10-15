@@ -9,12 +9,12 @@
     RegisterModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService', 'customerService'];
     LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'customerService'];
 
-    function RegisterModalInstanceController($scope, $uibModalInstance, commonService) {
+    function RegisterModalInstanceController($scope, $uibModalInstance, commonService, customerService) {
         var $ctrl = this;
         $ctrl.customer = {};
         $ctrl.errors = {};
 
-        commonService.loadData('customer/register', null, function (response) {
+        commonService.loadData('customer/signup', null, function (response) {
             $ctrl.cities_provinces = response.data.cities_provinces;
             $ctrl.captcha_src = response.data.captcha_src;
             $ctrl.csrf_token = response.data.csrf_token;
@@ -26,27 +26,19 @@
             generateCaptcha();
         };
 
-        $ctrl.register = function () {
+        $ctrl.signup = function () {
             var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
-            if (angular.isUndefined(data.company) || angular.isNull(data.company)) data['company'] = '';
-            commonService.postData('customer/register', data, function (response) {
-                if (response.data.status === true) {
-                    $uibModalInstance.close(null);
-                } else {
-                    console.log(response);
-                }
+            if (angular.isUndefined(data.company)) data['company'] = '';
+
+            customerService.signup(data, function (response) {
+                $uibModalInstance.close(null);
             }, function (response) {
-                if (response.status === 422) {
-                    generateCaptcha();
-                    var errors = {};
-                    angular.forEach(response.data, function (value, key) {
-                        console.log(key + ': ' + value[0]);
-                        errors[key] = value[0];
-                    });
-                    $ctrl.errors = errors;
-                } else {
-                    console.log(response);
-                }
+                generateCaptcha();
+                var errors = {};
+                angular.forEach(response.data, function (value, key) {
+                    errors[key] = value[0];
+                });
+                $ctrl.errors = errors;
             });
         };
 

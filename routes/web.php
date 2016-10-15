@@ -28,8 +28,8 @@ Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList'
 
 // customer api
 Route::post('/api/customer/login', 'CustomerController@login');
-Route::get('/api/customer/register', 'CustomerController@initSignUpCustomer');
-Route::post('/api/customer/register', 'CustomerController@signUpCustomer');
+Route::get('/api/customer/signup', 'CustomerController@initSignUpCustomer');
+Route::post('/api/customer/signup', 'CustomerController@signUpCustomer');
 Route::get('/api/customer/generate-captcha', 'CustomerController@generateCaptcha');
 
 // -----------------------------------------------------
