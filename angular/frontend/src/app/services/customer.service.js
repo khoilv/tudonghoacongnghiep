@@ -18,8 +18,8 @@
             });
         }
 
-        function signup(data, onSuccess, onError) {
-            commonService.postData('customer/signup', data, function (response) {
+        function signUp(data, onSuccess, onError) {
+            commonService.postData('customer/signUp', data, function (response) {
                 if (response.data.status === true) {
                     onSuccess(response);
                 } else {
@@ -49,7 +49,7 @@
 
         return {
             login: login,
-            signup: signup,
+            signUp: signUp,
             logout: logout,
             isAuthenticated: isAuthenticated,
             forgotPassword: forgotPassword

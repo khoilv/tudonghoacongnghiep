@@ -14,7 +14,7 @@
         $ctrl.customer = {};
         $ctrl.errors = {};
 
-        commonService.loadData('customer/signup', null, function (response) {
+        commonService.loadData('customer/signUp', null, function (response) {
             $ctrl.cities_provinces = response.data.cities_provinces;
             $ctrl.captcha_src = response.data.captcha_src;
             $ctrl.csrf_token = response.data.csrf_token;
@@ -26,11 +26,11 @@
             generateCaptcha();
         };
 
-        $ctrl.signup = function () {
+        $ctrl.signUp = function () {
             var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
             if (angular.isUndefined(data.company)) data['company'] = '';
 
-            customerService.signup(data, function (response) {
+            customerService.signUp(data, function (response) {
                 $uibModalInstance.close(null);
             }, function (response) {
                 generateCaptcha();

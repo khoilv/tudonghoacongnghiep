@@ -13,6 +13,11 @@ use Mews\Captcha\Facades\Captcha;
 
 class CustomerController extends Controller
 {
+    public function login()
+    {
+
+    }
+
     public function initSignUpCustomer(Request $request)
     {
         $data = [
