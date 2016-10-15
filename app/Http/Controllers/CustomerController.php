@@ -9,6 +9,7 @@ use Illuminate\Database\QueryException;
 
 use App\Http\Requests;
 use App\Http\Requests\RegisterCustomer;
+use Illuminate\Support\Facades\Hash;
 use Mews\Captcha\Facades\Captcha;
 
 class CustomerController extends Controller
@@ -35,7 +36,7 @@ class CustomerController extends Controller
         try {
             $customer = new Customer();
             $customer->email = $request->email;
-            $customer->password = $request->password;
+            $customer->password = Hash::make($request->password);
             $customer->first_name = $request->first_name;
             $customer->last_name = $request->last_name;
             $customer->company = $request->company;
