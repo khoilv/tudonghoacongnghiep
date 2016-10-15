@@ -5,7 +5,6 @@
     angular
         .module('angularSeedApp')
         .constant('API_URL', 'http://localhost:8000/api/')
-        .constant('JSONP', true)
         .constant('malarkey', malarkey)
         .constant('toastr', toastr)
         .constant('moment', moment);

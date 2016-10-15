@@ -4,43 +4,37 @@
         .module('angularSeedApp')
         .factory('commonService', commonService);
 
-    commonService.$inject = ['$http', 'API_URL', 'JSONP'];
+    commonService.$inject = ['$http', '$httpParamSerializerJQLike', '$location', 'API_URL'];
 
-    function commonService($http, API_URL, JSONP) {
+    function commonService($http, $httpParamSerializerJQLike, $location, API_URL) {
 
         function loadData(url, queryParams, onSuccess) {
             var submitUrl = API_URL + url;
+            var method = 'GET';
             if (queryParams == null) queryParams = {};
-            if (JSONP) {
+            if ($location.port() == 3000) {
                 angular.extend(queryParams, {callback: 'JSON_CALLBACK'});
-                return $http({
-                    method: 'JSONP',
-                    url: submitUrl,
-                    params: queryParams,
-                    paramSerializer: '$httpParamSerializerJQLike'
-                }).then(
-                    function (response) {
-                        if (typeof(onSuccess) === 'function') onSuccess(response.data);
-                    },
-                    function (response) {
-                        console.log(response);
-                    }
-                );
-            } else {
-                return $http({
-                    url: submitUrl,
-                    method: 'GET',
-                    params: queryParams,
-                    paramSerializer: '$httpParamSerializerJQLike'
-                }).then(
-                    function (response) {
-                        if (typeof(onSuccess) === 'function') onSuccess(response.data);
-                    },
-                    function (response) {
-                        console.log(response);
-                    }
-                );
+                method = 'JSONP';
             }
+            return $http({
+                url: submitUrl,
+                method: method,
+                params: queryParams,
+                paramSerializer: '$httpParamSerializerJQLike'
+            }).then(
+                function (response) {
+                    onSuccess({
+                        data: response.data,
+                        status: response.status
+                    });
+                },
+                function (response) {
+                    console.log({
+                        data: response.data || 'Request failed',
+                        status: response.status
+                    });
+                }
+            );
         }
 
         function postData(url, queryParams, onSuccess, onError) {
@@ -48,15 +42,22 @@
             return $http({
                 url: submitUrl,
                 method: 'POST',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                params: queryParams,
-                paramSerializer: '$httpParamSerializerJQLike'
+                data: $httpParamSerializerJQLike(queryParams),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
             }).then(
                 function (response) {
-                    if (typeof(onSuccess) === 'function') onSuccess(response.data);
+                    onSuccess({
+                        data: response.data,
+                        status: response.status
+                    });
                 },
                 function (response) {
-                    if (typeof(onError) === 'function') onError(response);
+                    onError({
+                        data: response.data || 'Request failed',
+                        status: response.status
+                    });
                 }
             );
         }

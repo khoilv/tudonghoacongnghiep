@@ -24,16 +24,16 @@
         /** @ngInject */
         function SidebarController($scope, $location, commonService) {
 
-            commonService.loadData('menu', null, function (data) {
-                $scope.menus = data;
+            commonService.loadData('menu', null, function (response) {
+                $scope.menus = response.data;
             });
 
-            commonService.loadData('faq', null, function (data) {
-                $scope.faqs = data;
+            commonService.loadData('faq', null, function (response) {
+                $scope.faqs = response.data;
             });
 
-            commonService.loadData('online_support', null, function (data) {
-                $scope.supports = data;
+            commonService.loadData('online_support', null, function (response) {
+                $scope.supports = response.data;
             });
 
             $scope.init = function () {

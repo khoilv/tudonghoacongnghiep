@@ -26,15 +26,11 @@ Route::get('/api/faq', 'FaqController@getFaqList');
 // get online support list
 Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList');
 
-// get cities/provinces and captcha
-Route::get('/api/customer/signup', 'CustomerController@initSignupCustomer');
-Route::post('/api/customer/signup', 'CustomerController@signupCustomer');
-
-// generate captcha
-Route::get('/api/customer/generate-captcha', 'CustomerController@generateCaptcha');
-
-Route::any('/api/captcha-test', 'CustomerController@captchaTest');
-Route::post('/api/send-captcha', 'CustomerController@sendCaptcha');
+// customer api
+Route::post('/api/customer/login', 'CustomerController@login');
+Route::get('/api/customer/signup', 'CustomerController@initSignUpCustomer');
+Route::post('/api/customer/signup', 'CustomerController@signUpCustomer');
+Route::get('/api/customer/generate-captcha-token', 'CustomerController@generateCaptcha');
 
 // -----------------------------------------------------
 

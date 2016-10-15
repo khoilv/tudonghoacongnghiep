@@ -14,26 +14,27 @@
         $ctrl.customer = {};
         $ctrl.errors = {};
 
-        commonService.loadData('customer/signup', null, function (data) {
-            $ctrl.cities_provinces = data.cities_provinces;
-            $ctrl.captcha_src = data.captcha_src;
-            $ctrl.csrf_token = data.csrf_token;
+        commonService.loadData('customer/signup', null, function (response) {
+            $ctrl.cities_provinces = response.data.cities_provinces;
+            $ctrl.captcha_src = response.data.captcha_src;
+            $ctrl.csrf_token = response.data.csrf_token;
+        }, function (response) {
+            console.log(response);
         });
 
-        $ctrl.generateCaptcha = function () {
-            generateCaptcha();
+        $ctrl.generateCaptchaToken = function () {
+            generateCaptchaToken();
         };
 
         $ctrl.signup = function () {
-            var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
-
-            customerService.signup(data, function (response) {
+            //var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
+            customerService.signup($ctrl.customer, function (response) {
                 if (response.status === 200) {
                     $uibModalInstance.close(null);
                 }
             }, function (response) {
                 if (response.status === 422) {
-                    generateCaptcha();
+                    generateCaptchaToken();
                     var errors = {};
                     angular.forEach(response.data, function (value, key) {
                         errors[key] = value[0];
@@ -49,18 +50,19 @@
             $uibModalInstance.dismiss('cancel');
         };
 
-        function generateCaptcha() {
-            commonService.loadData('customer/generate-captcha', null, function (data) {
-                $ctrl.captcha_src = data.captcha_src;
+        function generateCaptchaToken() {
+            commonService.loadData('customer/generate-captcha-token', null, function (response) {
+                $ctrl.captcha_src = response.data.captcha_src;
+                $ctrl.csrf_token = response.data.csrf_token;
             });
         }
     }
 
     function LoginModalInstanceController($scope, $uibModalInstance, loginService) {
-        $scope.account = {};
+        $scope.loginData = {};
 
         $scope.login = function () {
-            console.log($scope.account);
+            console.log($scope.loginData);
         };
 
         $scope.cancel = function () {

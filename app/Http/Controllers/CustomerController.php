@@ -12,7 +12,7 @@ use Mews\Captcha\Facades\Captcha;
 
 class CustomerController extends Controller
 {
-    public function initSignupCustomer(Request $request)
+    public function initSignUpCustomer(Request $request)
     {
         $data = [
             'csrf_token' => csrf_token(),
@@ -24,7 +24,7 @@ class CustomerController extends Controller
         return $this->outputJson($request, $data);
     }
 
-    public function signupCustomer(RegisterCustomer $request)
+    public function signUpCustomer(RegisterCustomer $request)
     {
         $customer = new Customer();
         $customer->email = $request->email;
@@ -45,7 +45,7 @@ class CustomerController extends Controller
     public function generateCaptcha(Request $request)
     {
         // return json result
-        $data = ['captcha_src' => captcha_src()];
+        $data = ['captcha_src' => captcha_src(), 'csrf_token' => csrf_token()];
         return $this->outputJson($request, $data);
     }
 }
