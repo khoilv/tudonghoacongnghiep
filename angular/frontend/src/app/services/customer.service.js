@@ -19,7 +19,7 @@
         }
 
         function signup(data, onSuccess, onError) {
-            commonService.postData('customer/signup', data, function (response) {
+            commonService.postData('customer/register', data, function (response) {
                 onSuccess(response);
             }, function (response) {
                 onError(response);

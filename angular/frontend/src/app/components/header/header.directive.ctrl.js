@@ -9,12 +9,12 @@
     RegisterModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService', 'customerService'];
     LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'customerService'];
 
-    function RegisterModalInstanceController($scope, $uibModalInstance, commonService, customerService) {
+    function RegisterModalInstanceController($scope, $uibModalInstance, commonService) {
         var $ctrl = this;
         $ctrl.customer = {};
         $ctrl.errors = {};
 
-        commonService.loadData('customer/signup', null, function (response) {
+        commonService.loadData('customer/register', null, function (response) {
             $ctrl.cities_provinces = response.data.cities_provinces;
             $ctrl.captcha_src = response.data.captcha_src;
             $ctrl.csrf_token = response.data.csrf_token;
@@ -23,20 +23,24 @@
         });
 
         $ctrl.generateCaptchaToken = function () {
-            generateCaptchaToken();
+            generateCaptcha();
         };
 
-        $ctrl.signup = function () {
+        $ctrl.register = function () {
             var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
-            customerService.signup(data, function (response) {
-                if (response.status === 200) {
+            if (angular.isUndefined(data.company) || angular.isNull(data.company)) data['company'] = '';
+            commonService.postData('customer/register', data, function (response) {
+                if (response.data.status === true) {
                     $uibModalInstance.close(null);
+                } else {
+                    console.log(response);
                 }
             }, function (response) {
                 if (response.status === 422) {
-                    generateCaptchaToken();
+                    generateCaptcha();
                     var errors = {};
                     angular.forEach(response.data, function (value, key) {
+                        console.log(key + ': ' + value[0]);
                         errors[key] = value[0];
                     });
                     $ctrl.errors = errors;
@@ -50,10 +54,9 @@
             $uibModalInstance.dismiss('cancel');
         };
 
-        function generateCaptchaToken() {
-            commonService.loadData('customer/generate-captcha-token', null, function (response) {
+        function generateCaptcha() {
+            commonService.loadData('customer/generate-captcha', null, function (response) {
                 $ctrl.captcha_src = response.data.captcha_src;
-                $ctrl.csrf_token = response.data.csrf_token;
             });
         }
     }
