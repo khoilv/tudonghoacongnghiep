@@ -4,14 +4,14 @@
         .module('angularSeedApp')
         .factory('customerService', customerService);
 
-    customerService.$inject = ['$http', 'localStorageService', 'commonService', 'API_URL'];
+    customerService.$inject = ['localStorageService', 'commonService'];
 
-    function customerService($http, localStorageService, commonService, API_URL) {
+    function customerService(localStorageService, commonService) {
 
         function login(credentials, onSuccess, onError) {
             commonService.postData('customer/auth', credentials, function (response) {
-                localStorageService.set('token', response.data.token);
-                localStorageService.set('username', response.data.username);
+                localStorageService.set('token', response.data.token, 'sessionStorage');
+                localStorageService.set('username', response.data.username, 'sessionStorage');
                 onSuccess(response);
             }, function (response) {
                 if (response.status === 422 || response.status == 401) {
@@ -35,22 +35,22 @@
         }
 
         function logout(onSuccess) {
-            localStorageService.remove('token');
-            localStorageService.remove('username');
+            localStorageService.remove('token', 'sessionStorage');
+            localStorageService.remove('username', 'sessionStorage');
             onSuccess();
         }
 
         function isAuthenticated() {
-            return localStorageService.get('token') ? true : false;
+            return localStorageService.get('token', 'sessionStorage') ? true : false;
         }
 
         function getAuthData() {
             return {
-                username: localStorageService.get('username'),
-                token: localStorageService.get('token')
+                username: localStorageService.get('username', 'sessionStorage'),
+                token: localStorageService.get('token', 'sessionStorage')
             }
         }
-
+        
         function forgotPassword(email, onSuccess, onError) {
 
         }

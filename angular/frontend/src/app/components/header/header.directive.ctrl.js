@@ -6,16 +6,24 @@
         .controller('LoginModalInstanceController', LoginModalInstanceController)
         .controller('RegisterModalInstanceController', RegisterModalInstanceController);
 
-    LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'customerService'];
+    LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'localStorageService', 'customerService'];
     RegisterModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService', 'customerService'];
 
     // --- LoginModalInstanceController
-    function LoginModalInstanceController($scope, $uibModalInstance, customerService) {
-        $scope.loginData = {};
+    function LoginModalInstanceController($scope, $uibModalInstance, localStorageService, customerService) {
+        $scope.remember = false;
+        $scope.loginData = {email: null, password: null};
         $scope.errors = {};
+
+        init();
 
         $scope.login = function () {
             customerService.login($scope.loginData, function (response) {
+                if ($scope.remember) {
+                    localStorageService.set('loginData', JSON.stringify($scope.loginData), 'localStorage');
+                } else {
+                    localStorageService.remove('loginData', 'localStorage');
+                }
                 $uibModalInstance.close(response.data);
             }, function (response) {
                 var errors = {};
@@ -32,6 +40,14 @@
 
         $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
+        };
+        
+        function init() {
+            var loginData = localStorageService.get('loginData', 'localStorage');
+            if (loginData) {
+                $scope.loginData = JSON.parse(loginData);
+                $scope.remember = true;
+            }
         }
     }
 
