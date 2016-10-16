@@ -25,12 +25,14 @@
         function HeaderController($scope, $location, $uibModal, $log, customerService) {
             $scope.currentUser = null;
 
+            // logout
             $scope.logout = function () {
                 customerService.logout(function () {
                     $scope.currentUser = null;
                 });
             };
 
+            // login modal
             $scope.openLoginModal = function () {
                 var modalInstance;
 
@@ -44,16 +46,14 @@
                 });
 
                 modalInstance.result.then(function (currentUser) {
-                    if (customerService.isAuthenticated()) {
-                        console.log(currentUser);
-                        $scope.currentUser = currentUser;
-                    }
+                    $scope.currentUser = currentUser;
                 }, function () {
                     $log.info('Login modal dismissed at: ' + new Date());
                 });
             };
 
-            $scope.openSignupModal = function () {
+            // register modal
+            $scope.openRegisterModal = function () {
                 var modalInstance;
 
                 modalInstance = $uibModal.open({
