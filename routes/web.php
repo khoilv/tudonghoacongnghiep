@@ -17,20 +17,29 @@ Route::get('/', function () {
 
 // --------------- API FRONTEND Routes -------------------
 
-// get menu list
-Route::get('/api/menu', 'ProductCategoryController@getMenuList');
+Route::group(['prefix' => 'api'], function () {
 
-// get faq list
-Route::get('/api/faq', 'FaqController@getFaqList');
+    // get menu list
+    Route::get('menu', 'ProductCategoryController@getMenuList');
 
-// get online support list
-Route::get('/api/online_support', 'OnlineSupportController@getOnlineSupportList');
+    // get faq list
+    Route::get('faq', 'FaqController@getFaqList');
 
-// customer api
-Route::post('/api/customer/login', 'CustomerController@login');
-Route::get('/api/customer/signUp', 'CustomerController@initSignUpCustomer');
-Route::post('/api/customer/signUp', 'CustomerController@signUpCustomer');
-Route::get('/api/customer/generate-captcha', 'CustomerController@generateCaptcha');
+    // get online support list
+    Route::get('online_support', 'OnlineSupportController@getOnlineSupportList');
+
+    // customer api
+    Route::post('customer/authenticate', 'CustomerController@authenticate');
+    Route::post('customer/login', 'CustomerController@login');
+    Route::get('customer/signUp', 'CustomerController@initSignUpCustomer');
+    Route::post('customer/signUp', 'CustomerController@signUpCustomer');
+    Route::get('customer/generate-captcha', 'CustomerController@generateCaptcha');
+
+    Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function () {
+
+    });
+
+});
 
 // -----------------------------------------------------
 
