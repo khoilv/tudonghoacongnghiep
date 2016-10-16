@@ -13,7 +13,7 @@
                 localStorageService.set('api_token', response.data.token);
                 onSuccess(response);
             }, function (response) {
-                if (response.status === 422) {
+                if (response.status === 422 || response.status == 401) {
                     onError(response);
                 } else {
                     console.log(response);
