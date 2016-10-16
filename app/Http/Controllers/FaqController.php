@@ -11,14 +11,13 @@ class FaqController extends Controller
 {
     public function getFaqList(Request $request)
     {
-        $faqData = Faq::all(['id', 'question'])->toArray();
+        $data = Faq::all(['id', 'question'])->toArray();
 
         // return json result
-        $jsonRes = response()->json($faqData);
         if ($request->input('callback')) {
-            return $jsonRes->withCallback($request->input('callback'));
+            return response()->json($data)->withCallback($request->input('callback'));
         } else {
-            return $jsonRes;
+            return response()->json($data);
         }
     }
 }

@@ -31,8 +31,8 @@ Route::group(['prefix' => 'api'], function () {
     // customer api
     Route::post('customer/auth', 'CustomerController@authenticate');
     Route::post('customer/login', 'CustomerController@login');
-    Route::get('customer/signUp', 'CustomerController@initSignUpCustomer');
-    Route::post('customer/signUp', 'CustomerController@signUpCustomer');
+    Route::get('customer/register', 'CustomerController@initRegisterCustomer');
+    Route::post('customer/register', 'CustomerController@registerCustomer');
     Route::get('customer/generate-captcha', 'CustomerController@generateCaptcha');
 
     Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function () {

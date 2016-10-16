@@ -14,7 +14,7 @@
         $ctrl.customer = {};
         $ctrl.errors = {};
 
-        commonService.loadData('customer/signUp', null, function (response) {
+        commonService.loadData('customer/register', null, function (response) {
             $ctrl.cities_provinces = response.data.cities_provinces;
             $ctrl.captcha_src = response.data.captcha_src;
             $ctrl.csrf_token = response.data.csrf_token;

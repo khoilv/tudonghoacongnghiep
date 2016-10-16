@@ -47,7 +47,7 @@ class CustomerController extends Controller
         return response()->json(compact('token'));
     }
 
-    public function initSignUpCustomer(Request $request)
+    public function initRegisterCustomer(Request $request)
     {
         $data = [
             'csrf_token' => csrf_token(),
@@ -56,10 +56,14 @@ class CustomerController extends Controller
         ];
 
         // return json result
-        return $this->outputJson($request, $data);
+        if ($request->input('callback')) {
+            return response()->json($data)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($data);
+        }
     }
 
-    public function signUpCustomer(RegisterCustomer $request)
+    public function registerCustomer(RegisterCustomer $request)
     {
         try {
             $customer = $request->only(['email', 'password', 'first_name', 'last_name', 'company', 'tel', 'address', 'city_province_id']);
@@ -67,19 +71,26 @@ class CustomerController extends Controller
             Customer::create($customer);
 
         } catch (QueryException $e) {
-            $data = ['status' => false, 'error' => $e->errorInfo];
-            return $this->outputJson($request, $data);
+            return response()->json(['error' => $e->errorInfo], 500);
         }
 
         // return json result
-        $data = ['status' => true, 'message' => 'Success'];
-        return $this->outputJson($request, $data);
+        $data = ['success' => 'Register customer successfully'];
+        if ($request->input('callback')) {
+            return response()->json($data)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($data);
+        }
     }
 
     public function generateCaptcha(Request $request)
     {
         // return json result
         $data = ['captcha_src' => captcha_src()];
-        return $this->outputJson($request, $data);
+        if ($request->input('callback')) {
+            return response()->json($data)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($data);
+        }
     }
 }

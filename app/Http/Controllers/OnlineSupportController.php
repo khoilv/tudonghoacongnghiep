@@ -14,11 +14,10 @@ class OnlineSupportController extends Controller
         $data = OnlineSupport::where('active', 1)->get()->toArray();
 
         // return json result
-        $jsonRes = response()->json($data);
         if ($request->input('callback')) {
-            return $jsonRes->withCallback($request->input('callback'));
+            return response()->json($data)->withCallback($request->input('callback'));
         } else {
-            return $jsonRes;
+            return response()->json($data);
         }
     }
 }
