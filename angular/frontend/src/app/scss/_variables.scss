@@ -4,8 +4,13 @@ $path-icon: '../../../assets/images/frontend/';
 $path-icon-common: '../../../assets/images/frontend/common/';
 
 // menu icons
-$menu-icons: $path-icon-common + "icon_h02.png", $path-icon-common + "icon_h03.png", $path-icon-common + "icon_h04.png",
-             $path-icon-common + "icon_h06.png", $path-icon-common + "icon_h05.png";
+$menu-icons: $path-icon-common + "icon_h02.png",
+             $path-icon-common + "icon_h03.png",
+             $path-icon-common + "icon_h04.png",
+             $path-icon-common + "icon_h06.png",
+             $path-icon-common + "icon_h05.png",
+             $path-icon-common + "icon_h05.png",
+             $path-icon-common + "icon-logout.png";
 
 // banner
 $banner: $path-icon-common + "banner.jpg";

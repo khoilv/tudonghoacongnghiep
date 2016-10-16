@@ -9,19 +9,6 @@ header {
       display: inline-block;
       padding-left: 25px;
       margin: 3px 15px 0 15px;
-
-      &.signed-in-logout {
-        background-image: url($path-icon-common + "icon-logout.png") !important;
-        background-repeat: no-repeat;
-        background-position: 5px 0;
-      }
-
-      &.signed-in-welcome {
-        background-image: url($path-icon-common + "icon_h05.png") !important;
-        background-repeat: no-repeat;
-        background-position: left center;
-      }
-
       a {
         color: #fff;
         font-size: 13px;
@@ -34,6 +21,12 @@ header {
         &:nth-child(#{$i}) {
           @include background-img(nth($menu-icons, $i));
         }
+      }
+      &:nth-child(6) {
+        @include background-img(nth($menu-icons, 6), left, center);
+      }
+      &:nth-child(7) {
+        @include background-img(nth($menu-icons, 7), 5px, 0);
       }
     }
   }
