@@ -45,13 +45,15 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Email (<span class="text-red">*</span>):</label>
                     <div class="col-sm-10">
-                        <input type="email" ng-model="loginData.email" class="form-control" id="email" placeholder="Enter email">
+                        <input type="email" ng-model="loginData.email" class="form-control" id="email" placeholder="Nhập email">
+                        <span class="error-msg" ng-show="errors.email">{{errors.email}}</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Mật khẩu (<span class="text-red">*</span>):</label>
                     <div class="col-sm-10">
-                        <input type="password" ng-model="loginData.password" class="form-control" id="pwd" placeholder="Enter password">
+                        <input type="password" ng-model="loginData.password" class="form-control" id="pwd" placeholder="Nhập mật khẩu">
+                        <span class="error-msg" ng-show="errors.password">{{errors.password}}</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -82,7 +84,7 @@
         </div>
     </script>
 
-    <script type="text/ng-template" id="signupModal.html">
+    <script type="text/ng-template" id="registerModal.html">
         <div class="modal-header">
             <button type="button" class="close" ng-click="$ctrl.cancel()">&times;</button>
             <h4 class="modal-title">Đăng ký</h4>

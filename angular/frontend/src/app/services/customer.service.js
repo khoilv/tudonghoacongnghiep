@@ -13,17 +13,17 @@
                 localStorageService.set('api_token', response.data.token);
                 onSuccess(response);
             }, function (response) {
-                onError(response);
+                if (response.status === 422) {
+                    onError(response);
+                } else {
+                    console.log(response);
+                }
             });
         }
 
         function register(data, onSuccess, onError) {
             commonService.postData('customer/register', data, function (response) {
-                if (response.data.status === true) {
-                    onSuccess(response);
-                } else {
-                    console.log(response);
-                }
+                onSuccess(response);
             }, function (response) {
                 if (response.status === 422) {
                     onError(response);
@@ -33,9 +33,9 @@
             });
         }
 
-        function logout() {
+        function logout(onSuccess) {
             localStorageService.remove('api_token');
-            $http.get(API_URL + 'customer/logout');
+            onSuccess();
         }
 
         function isAuthenticated() {

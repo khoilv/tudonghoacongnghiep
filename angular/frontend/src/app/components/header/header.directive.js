@@ -48,7 +48,7 @@
 
                 modalInstance = $uibModal.open({
                     animation: true,
-                    templateUrl: 'signupModal.html',
+                    templateUrl: 'registerModal.html',
                     size: 'lg',
                     controller: 'RegisterModalInstanceController',
                     controllerAs: '$ctrl',

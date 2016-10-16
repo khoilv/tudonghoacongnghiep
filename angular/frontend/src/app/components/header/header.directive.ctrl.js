@@ -9,6 +9,7 @@
     RegisterModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService', 'customerService'];
     LoginModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'customerService'];
 
+    // --- RegisterModalInstanceController
     function RegisterModalInstanceController($scope, $uibModalInstance, commonService, customerService) {
         var $ctrl = this;
         $ctrl.customer = {};
@@ -53,14 +54,21 @@
         }
     }
 
+    // --- LoginModalInstanceController
     function LoginModalInstanceController($scope, $uibModalInstance, customerService) {
         $scope.loginData = {};
+        $scope.errors = {};
 
         $scope.login = function () {
             customerService.login($scope.loginData, function (response) {
                 console.log(response);
+                $uibModalInstance.close(null);
             }, function (response) {
-                console.log(response);
+                var errors = {};
+                angular.forEach(response.data, function (value, key) {
+                    errors[key] = value[0];
+                });
+                $scope.errors = errors;
             });
         };
 

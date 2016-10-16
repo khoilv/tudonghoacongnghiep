@@ -9,6 +9,7 @@ use Illuminate\Database\QueryException;
 
 use App\Http\Requests;
 use App\Http\Requests\RegisterCustomer;
+use App\Http\Requests\LoginCustomer;
 use Illuminate\Support\Facades\Hash;
 use Mews\Captcha\Facades\Captcha;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -26,7 +27,7 @@ class CustomerController extends Controller
         //$this->middleware('jwt.auth', ['except' => ['authenticate']]);
     }
 
-    public function authenticate(Request $request)
+    public function authenticate(LoginCustomer $request)
     {
         $credentials = $request->only(['email', 'password']);
 
