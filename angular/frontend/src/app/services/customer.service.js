@@ -4,12 +4,19 @@
         .module('angularSeedApp')
         .factory('customerService', customerService);
 
-    customerService.$inject = ['localStorageService', 'commonService'];
+    customerService.$inject = ['$sanitize', 'localStorageService', 'commonService'];
 
-    function customerService(localStorageService, commonService) {
+    function customerService($sanitize, localStorageService, commonService) {
+
+        var sanitizeCredentials = function (credentials) {
+            return {
+                email: $sanitize(credentials.email),
+                password: $sanitize(credentials.password)
+            }
+        };
 
         function login(credentials, onSuccess, onError) {
-            commonService.postData('customer/auth', credentials, function (response) {
+            commonService.postData('customer/auth', sanitizeCredentials(credentials), function (response) {
                 localStorageService.set('token', response.data.token, 'sessionStorage');
                 localStorageService.set('username', response.data.username, 'sessionStorage');
                 onSuccess(response);
