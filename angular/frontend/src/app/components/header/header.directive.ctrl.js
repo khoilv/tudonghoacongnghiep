@@ -62,7 +62,7 @@
         $scope.login = function () {
             customerService.login($scope.loginData, function (response) {
                 console.log(response);
-                $uibModalInstance.close(null);
+                $uibModalInstance.close(response.data);
             }, function (response) {
                 var errors = {};
                 if (response.status == 422) {

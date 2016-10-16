@@ -19,10 +19,17 @@
             bindToController: false
         };
 
-        HeaderController.$inject = ['$scope', '$location', '$uibModal', '$log'];
+        HeaderController.$inject = ['$scope', '$location', '$uibModal', '$log', 'customerService'];
 
         /** @ngInject */
-        function HeaderController($scope, $location, $uibModal, $log) {
+        function HeaderController($scope, $location, $uibModal, $log, customerService) {
+            $scope.currentUser = null;
+
+            $scope.logout = function () {
+                customerService.logout(function () {
+                    $scope.currentUser = null;
+                });
+            };
 
             $scope.openLoginModal = function () {
                 var modalInstance;
@@ -36,8 +43,11 @@
                     resolve: {}
                 });
 
-                modalInstance.result.then(function () {
-                    $log.info('Login modal closed');
+                modalInstance.result.then(function (currentUser) {
+                    if (customerService.isAuthenticated()) {
+                        console.log(currentUser);
+                        $scope.currentUser = currentUser;
+                    }
                 }, function () {
                     $log.info('Login modal dismissed at: ' + new Date());
                 });
@@ -54,9 +64,10 @@
                     controllerAs: '$ctrl',
                     resolve: {
                         /*
-                        items: function () {
-                            return $ctrl.items;
-                        }*/
+                        currentUser: function () {
+                            return $ctrl.currentUser;
+                        }
+                        */
                     }
                 });
 

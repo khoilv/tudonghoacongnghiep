@@ -44,8 +44,11 @@ class CustomerController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
+        $customer = Customer::where('email', $credentials['email'])->first();
+        $username = $customer->last_name . ' ' . $customer->first_name;
+
         // if no errors are encountered we can return a JWT
-        return response()->json(compact('token'));
+        return response()->json(compact('token', 'username'));
     }
 
     public function initRegisterCustomer(Request $request)
