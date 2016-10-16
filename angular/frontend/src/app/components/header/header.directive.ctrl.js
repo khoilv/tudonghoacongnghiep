@@ -65,9 +65,13 @@
                 $uibModalInstance.close(null);
             }, function (response) {
                 var errors = {};
-                angular.forEach(response.data, function (value, key) {
-                    errors[key] = value[0];
-                });
+                if (response.status == 422) {
+                    angular.forEach(response.data, function (value, key) {
+                        errors[key] = value[0];
+                    });
+                } else if (response.status == 401) {
+                    errors['password'] = 'Email hoặc mật khẩu đăng nhập không hợp lệ';
+                }
                 $scope.errors = errors;
             });
         };
