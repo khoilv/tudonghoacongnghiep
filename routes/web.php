@@ -29,7 +29,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('online_support', 'OnlineSupportController@getOnlineSupportList');
 
     // customer api
-    Route::post('customer/authenticate', 'CustomerController@authenticate');
+    Route::post('customer/auth', 'CustomerController@authenticate');
     Route::post('customer/login', 'CustomerController@login');
     Route::get('customer/signUp', 'CustomerController@initSignUpCustomer');
     Route::post('customer/signUp', 'CustomerController@signUpCustomer');

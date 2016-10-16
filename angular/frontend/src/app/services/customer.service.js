@@ -8,18 +8,17 @@
 
     function customerService($http, localStorageService, commonService, API_URL) {
 
-        function login(email, password, onSuccess, onError) {
-            var data = {email: email, password: password};
-            commonService.postData('customer/login', data, function (response) {
-                localStorageService.set('isAuthenticated', true);
+        function login(credentials, onSuccess, onError) {
+            commonService.postData('customer/auth', credentials, function (response) {
+                localStorageService.set('api_token', response.data.token);
                 onSuccess(response);
             }, function (response) {
                 onError(response);
             });
         }
 
-        function signUp(data, onSuccess, onError) {
-            commonService.postData('customer/signUp', data, function (response) {
+        function register(data, onSuccess, onError) {
+            commonService.postData('customer/register', data, function (response) {
                 if (response.data.status === true) {
                     onSuccess(response);
                 } else {
@@ -35,12 +34,12 @@
         }
 
         function logout() {
-            localStorageService.remove('isAuthenticated');
+            localStorageService.remove('api_token');
             $http.get(API_URL + 'customer/logout');
         }
 
         function isAuthenticated() {
-            return localStorageService.get('isAuthenticated') ? true : false;
+            return localStorageService.get('api_token') ? true : false;
         }
 
         function forgotPassword(email, onSuccess, onError) {
@@ -49,7 +48,7 @@
 
         return {
             login: login,
-            signUp: signUp,
+            register: register,
             logout: logout,
             isAuthenticated: isAuthenticated,
             forgotPassword: forgotPassword

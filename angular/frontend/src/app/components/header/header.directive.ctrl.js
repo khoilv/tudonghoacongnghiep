@@ -26,11 +26,11 @@
             generateCaptcha();
         };
 
-        $ctrl.signUp = function () {
+        $ctrl.register = function () {
             var data = angular.extend($ctrl.customer, {'_token': $ctrl.csrf_token});
             if (angular.isUndefined(data.company)) data['company'] = '';
 
-            customerService.signUp(data, function (response) {
+            customerService.register(data, function (response) {
                 $uibModalInstance.close(null);
             }, function (response) {
                 generateCaptcha();
@@ -53,11 +53,15 @@
         }
     }
 
-    function LoginModalInstanceController($scope, $uibModalInstance, loginService) {
+    function LoginModalInstanceController($scope, $uibModalInstance, customerService) {
         $scope.loginData = {};
 
         $scope.login = function () {
-            console.log($scope.loginData);
+            customerService.login($scope.loginData, function (response) {
+                console.log(response);
+            }, function (response) {
+                console.log(response);
+            });
         };
 
         $scope.cancel = function () {

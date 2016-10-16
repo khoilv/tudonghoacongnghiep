@@ -42,13 +42,9 @@ class CustomerController extends Controller
             // something went wrong
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
+
         // if no errors are encountered we can return a JWT
         return response()->json(compact('token'));
-    }
-
-    public function login(Request $request)
-    {
-
     }
 
     public function initSignUpCustomer(Request $request)
@@ -66,18 +62,12 @@ class CustomerController extends Controller
     public function signUpCustomer(RegisterCustomer $request)
     {
         try {
-            $customer = new Customer();
-            $customer->email = $request->email;
-            $customer->password = Hash::make($request->password);
-            $customer->first_name = $request->first_name;
-            $customer->last_name = $request->last_name;
-            $customer->company = $request->company;
-            $customer->tel = $request->tel;
-            $customer->address = $request->address;
-            $customer->city_province_id = $request->city_province_id;
-            $customer->save();
+            $customer = $request->only(['email', 'password', 'first_name', 'last_name', 'company', 'tel', 'address', 'city_province_id']);
+            $customer['password'] = Hash::make($customer['password']);
+            Customer::create($customer);
+
         } catch (QueryException $e) {
-            $data = ['status' => false, 'message' => $e->errorInfo];
+            $data = ['status' => false, 'error' => $e->errorInfo];
             return $this->outputJson($request, $data);
         }
 
