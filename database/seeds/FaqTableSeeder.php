@@ -24,10 +24,7 @@ class FaqTableSeeder extends Seeder
             ],
             [
                 'question' => 'Ngành Kỹ thuật điều khiển và tự động hóa ra trường làm gì?',
-                'answer' => 'Học ngành Kỹ thuật điều khiển và tự động hóa, bạn có thể làm việc tại các nhà máy điện, nhà máy, xí nghiệp sản xuất; công ty thương mại dịch vụ kỹ thuật điều khiển và tự động hóa; các Công ty, Tập đoàn trong và ngoài nước về điều khiển và tự động hóa;... với những vị trí cụ thể như: 
-- Kỹ sư thiết kế, vận hành, bảo trì kỹ thuật ở các dây chuyền sản xuất hiện đại trong công nghiệp như dây chuyền lắp ráp ô tô, tự động hóa phục vụ hàng không, nhà máy điện, các nhà máy chế biến thực phẩm, dây chuyền sản xuất vật liệu xây dựng, dây chuyền sản xuất giấy,... 
-- Chuyên viên tư vấn, thiết kế, phân tích mô phỏng hoặc cán bộ quản lý kỹ thuật tại các nhà máy, tập đoàn, công ty thương mại dịch vụ kỹ thuật điều khiển và tự động hóa.
-- Thăng tiến trở thành giám đốc kỹ thuật, Trưởng bộ phận kỹ thuật',
+                'answer' => 'Học ngành Kỹ thuật điều khiển và tự động hóa, bạn có thể làm việc tại các nhà máy điện, nhà máy, xí nghiệp sản xuất; công ty thương mại dịch vụ kỹ thuật điều khiển và tự động hóa; các Công ty, Tập đoàn trong và ngoài nước về điều khiển và tự động hóa;... với những vị trí cụ thể như: - Kỹ sư thiết kế, vận hành, bảo trì kỹ thuật ở các dây chuyền sản xuất hiện đại trong công nghiệp như dây chuyền lắp ráp ô tô, tự động hóa phục vụ hàng không, nhà máy điện, các nhà máy chế biến thực phẩm, dây chuyền sản xuất vật liệu xây dựng, dây chuyền sản xuất giấy,... - Chuyên viên tư vấn, thiết kế, phân tích mô phỏng hoặc cán bộ quản lý kỹ thuật tại các nhà máy, tập đoàn, công ty thương mại dịch vụ kỹ thuật điều khiển và tự động hóa. - Thăng tiến trở thành giám đốc kỹ thuật, Trưởng bộ phận kỹ thuật',
                 'note' => 'example'
             ],
             [
