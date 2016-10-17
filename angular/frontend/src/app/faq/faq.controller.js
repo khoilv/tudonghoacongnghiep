@@ -15,7 +15,6 @@
 
         commonService.loadData(url, null, function (response) {
             $scope.faqs = response.data;
-            console.log(response.data);
         });
 
         $scope.isActiveFaq = function (faq_id) {

@@ -36,6 +36,25 @@
                 $scope.supports = response.data;
             });
 
+            // faq list marquee
+            window.setTimeout(function() {
+                $('.marquee > ul').show();
+                $('.marquee').marquee({
+                    //speed in milliseconds of the marquee
+                    duration: 5000,
+                    //gap in pixels between the tickers
+                    gap: 10,
+                    //time in milliseconds before the marquee will start animating
+                    delayBeforeStart: 0,
+                    //'left' or 'right'
+                    direction: 'up',
+                    //true or false - should the marquee be duplicated to show an effect of continues flow
+                    duplicated: true,
+                    //pause the marquee when the mouse hovers on it
+                    pauseOnHover: true
+                });
+            }, 2000);
+
             $scope.init = function () {
                 // product category menu
                 $('ul.product-list-content').on('click', 'li > a', function () {

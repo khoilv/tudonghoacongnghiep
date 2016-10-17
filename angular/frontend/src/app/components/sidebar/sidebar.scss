@@ -62,9 +62,10 @@
     border-bottom: 1px solid #ccc;
 
   }
-  ul {
-    //max-height: 325px;
-    overflow-y: auto;
+  .marquee {
+    overflow: hidden;
+    height: 325px;
+    //border: 1px dotted #ccc;
   }
 }
 
