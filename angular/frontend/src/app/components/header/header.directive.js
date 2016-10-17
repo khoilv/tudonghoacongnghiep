@@ -19,23 +19,27 @@
             bindToController: false
         };
 
-        HeaderController.$inject = ['$scope', '$location', '$uibModal', '$log', 'customerService'];
+        HeaderController.$inject = ['$scope', '$location', '$timeout', '$interval', '$uibModal', '$log', 'customerService'];
 
         /** @ngInject */
-        function HeaderController($scope, $location, $uibModal, $log, customerService) {
+        function HeaderController($scope, $location, $timeout, $interval, $uibModal, $log, customerService) {
             $scope.currentUser = null;
 
-            window.setTimeout(function () {
+            $timeout(function () {
                 angular.element('.menu_m').addClass('original').clone().insertAfter('.menu_m').addClass('cloned').css('position', 'fixed')
                     .css('top', '0').css('margin-top', '0').css('z-index', '500').removeClass('original').hide();
-                setInterval(stickIt, 10);
-            }, 2000);
+                $interval(stickIt, 10);
+            }, 0);
 
             $scope.init = function () {
                 if (customerService.isAuthenticated()) {
                     $scope.currentUser = customerService.getAuthData();
                 }
             };
+
+            $scope.apply(function () {
+
+            });
 
             // logout
             $scope.logout = function () {
@@ -115,7 +119,6 @@
             }
 
             function stickIt() {
-
                 var orgElementPos = angular.element('.original').offset();
                 var orgElementTop = orgElementPos.top;
 
@@ -136,6 +139,7 @@
                     angular.element('.original').css('visibility', 'visible');
                 }
             }
+
         }
 
         return directive;

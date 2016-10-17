@@ -19,10 +19,10 @@
             bindToController: false
         };
 
-        SidebarController.$inject = ['$scope', '$location', 'commonService'];
+        SidebarController.$inject = ['$scope', '$location', '$timeout', 'commonService'];
 
         /** @ngInject */
-        function SidebarController($scope, $location, commonService) {
+        function SidebarController($scope, $location, $timeout, commonService) {
 
             commonService.loadData('menu', null, function (response) {
                 $scope.menus = response.data;
@@ -37,7 +37,7 @@
             });
 
             // faq list marquee
-            window.setTimeout(function() {
+            $timeout(function() {
                 angular.element('.marquee > ul').show();
                 angular.element('.marquee').marquee({
                     //speed in milliseconds of the marquee
