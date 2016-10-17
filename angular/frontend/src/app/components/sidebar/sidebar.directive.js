@@ -38,8 +38,8 @@
 
             // faq list marquee
             window.setTimeout(function() {
-                $('.marquee > ul').show();
-                $('.marquee').marquee({
+                angular.element('.marquee > ul').show();
+                angular.element('.marquee').marquee({
                     //speed in milliseconds of the marquee
                     duration: 5000,
                     //gap in pixels between the tickers
@@ -57,13 +57,13 @@
 
             $scope.init = function () {
                 // product category menu
-                $('ul.product-list-content').on('click', 'li > a', function () {
-                    if ($(this).hasClass('active')) {
-                        $(this).removeClass('active').next('ul').hide(400);
+                angular.element('ul.product-list-content').on('click', 'li > a', function () {
+                    if (angular.element(this).hasClass('active')) {
+                        angular.element(this).removeClass('active').next('ul').hide(400);
                     } else {
-                        var a = $(this).parent().parent().find('a.active');
-                        $(a).removeClass('active').next('ul').hide(400);
-                        $(this).addClass('active').next('ul').show(400);
+                        var a = angular.element(this).parent().parent().find('a.active');
+                        angular.element(a).removeClass('active').next('ul').hide(400);
+                        angular.element(this).addClass('active').next('ul').show(400);
                     }
                 });
             };

@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -24,6 +24,12 @@
         /** @ngInject */
         function HeaderController($scope, $location, $uibModal, $log, customerService) {
             $scope.currentUser = null;
+
+            window.setTimeout(function () {
+                angular.element('.menu_m').addClass('original').clone().insertAfter('.menu_m').addClass('cloned').css('position', 'fixed')
+                    .css('top', '0').css('margin-top', '0').css('z-index', '500').removeClass('original').hide();
+                setInterval(stickIt, 10);
+            }, 2000);
 
             $scope.init = function () {
                 if (customerService.isAuthenticated()) {
@@ -56,10 +62,10 @@
                     controllerAs: '$ctrl',
                     resolve: {
                         /*
-                        currentUser: function () {
-                            return $ctrl.currentUser;
-                        }
-                        */
+                         currentUser: function () {
+                         return $ctrl.currentUser;
+                         }
+                         */
                     }
                 });
 
@@ -105,6 +111,29 @@
                     $location.path(redirectToPath);
                 } else {
                     openLoginModal(redirectToPath);
+                }
+            }
+
+            function stickIt() {
+
+                var orgElementPos = angular.element('.original').offset();
+                var orgElementTop = orgElementPos.top;
+
+                if (angular.element(window).scrollTop() >= (orgElementTop)) {
+                    // scrolled past the original position; now only show the cloned, sticky element.
+
+                    // Cloned element should always have same left position and width as original element.
+                    var orgElement = angular.element('.original');
+                    var coordsOrgElement = orgElement.offset();
+                    var leftOrgElement = coordsOrgElement.left;
+                    var widthOrgElement = orgElement.css('width');
+
+                    angular.element('.cloned').css('left', leftOrgElement + 'px').css('top', 0).css('width', widthOrgElement).show();
+                    angular.element('.original').css('visibility', 'hidden');
+                } else {
+                    // not scrolled past the menu_m; only show the original menu_m.
+                    angular.element('.cloned').hide();
+                    angular.element('.original').css('visibility', 'visible');
                 }
             }
         }
