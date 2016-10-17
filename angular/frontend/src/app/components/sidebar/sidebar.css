@@ -1,0 +1,62 @@
+.side-bar-title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 10px 10px 50px;
+  margin-top: 0;
+  text-align: left; }
+  .support-online .side-bar-title, .bar-product-list .side-bar-title {
+    background-color: #19a1b5; }
+  .qaa .side-bar-title {
+    background-color: #323232; }
+  .support-online .side-bar-title {
+    background-image: url("../../../assets/images/frontend/icon_03.png") !important;
+    background-repeat: no-repeat;
+    background-position: 15px center; }
+  .bar-product-list .side-bar-title {
+    background-image: url("../../../assets/images/frontend/icon_01.png") !important;
+    background-repeat: no-repeat;
+    background-position: 15px center; }
+  .qaa .side-bar-title {
+    background-image: url("../../../assets/images/frontend/icon_04.png") !important;
+    background-repeat: no-repeat;
+    background-position: 15px center; }
+
+.bar-product-list > ul > li > a {
+  background: url("../../../assets/images/frontend/icon_02.png") no-repeat left 10px;
+  border-bottom: 1px dashed #19a1b5;
+  display: block;
+  padding: 5px 5px 5px 10px;
+  cursor: pointer; }
+.bar-product-list ul ul li a {
+  padding: 5px 5px 5px 20px;
+  display: block;
+  border-bottom: 1px dashed #19a1b5; }
+
+.support-online {
+  text-align: center;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px; }
+  .support-online h4 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px; }
+  .support-online p {
+    font-size: 13px;
+    line-height: 14px; }
+  .support-online li:nth-child(1) {
+    margin-bottom: 20px; }
+
+.qaa li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc; }
+.qaa .marquee {
+  overflow: hidden;
+  height: 325px; }
+
+.product-list-content li ul {
+  display: none; }
+
+/*# sourceMappingURL=sidebar.css.map */

@@ -25,6 +25,12 @@
         function HeaderController($scope, $location, $uibModal, $log, customerService) {
             $scope.currentUser = null;
 
+            $scope.init = function () {
+                if (customerService.isAuthenticated()) {
+                    $scope.currentUser = customerService.getAuthData();
+                }
+            };
+
             // logout
             $scope.logout = function () {
                 customerService.logout(function () {
@@ -69,11 +75,11 @@
                 if (customerService.isAuthenticated()) {
                     $location.path('/my-account');
                 } else {
-                    openLoginModal();
+                    openLoginModal('/my-account');
                 }
             };
 
-            function openLoginModal() {
+            function openLoginModal(targetPath) {
                 var modalInstance;
 
                 modalInstance = $uibModal.open({
@@ -87,6 +93,7 @@
 
                 modalInstance.result.then(function (currentUser) {
                     $scope.currentUser = currentUser;
+                    if (angular.isDefined(targetPath)) $location.path(targetPath);
                 }, function () {
                     $log.info('Login modal dismissed at: ' + new Date());
                 });
