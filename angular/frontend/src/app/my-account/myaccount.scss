@@ -1,0 +1,40 @@
+@import "../../../bower_components/compass-sass-mixins/lib/compass/css3";
+@import "../scss/mixins";
+@import "../scss/variables";
+
+.my-account-list {
+  & > div {
+    text-align: center;
+    padding: {
+      top: 10px;
+      bottom: 15px;
+    }
+  ;
+    min-height: 225px;
+    &:nth-child(even) {
+      border-left: 2px dashed #07a0b4;
+    }
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-bottom: 2px dashed #07a0b4;
+    }
+    a {
+      padding-top: 110px;
+      display: block;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 5px;
+      &:hover {
+        @include opacity(0.8);
+        @include transition(all ease 0.3s);
+      }
+    }
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) a {
+        @include background-img(nth($account-icon, $i), top, center);
+        background-size: 100px;
+      }
+    }
+
+  }
+}

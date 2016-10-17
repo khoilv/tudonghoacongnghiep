@@ -19,6 +19,12 @@
                 templateUrl: 'app/faq/faq.html',
                 controller: 'FaqController',
                 controllerAs: 'faq'
+            })
+            .state('my-account', {
+                url: '/my-account',
+                templateUrl: 'app/my-account/my-account.html',
+                controller: 'MyAccountController',
+                controllerAs: 'myAcc'
             });
 
         $urlRouterProvider.otherwise('/');

@@ -29,27 +29,13 @@
             $scope.logout = function () {
                 customerService.logout(function () {
                     $scope.currentUser = null;
+                    $location.path('/');
                 });
             };
 
             // login modal
             $scope.openLoginModal = function () {
-                var modalInstance;
-
-                modalInstance = $uibModal.open({
-                    animation: true,
-                    templateUrl: 'loginModal.html',
-                    size: 'lg',
-                    controller: 'LoginModalInstanceController',
-                    controllerAs: '$ctrl',
-                    resolve: {}
-                });
-
-                modalInstance.result.then(function (currentUser) {
-                    $scope.currentUser = currentUser;
-                }, function () {
-                    $log.info('Login modal dismissed at: ' + new Date());
-                });
+                openLoginModal();
             };
 
             // register modal
@@ -77,6 +63,34 @@
                     $log.info('Register modal dismissed at: ' + new Date());
                 });
             };
+
+            // my account
+            $scope.myAccount = function () {
+                if (customerService.isAuthenticated()) {
+                    $location.path('/my-account');
+                } else {
+                    openLoginModal();
+                }
+            };
+
+            function openLoginModal() {
+                var modalInstance;
+
+                modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'loginModal.html',
+                    size: 'lg',
+                    controller: 'LoginModalInstanceController',
+                    controllerAs: '$ctrl',
+                    resolve: {}
+                });
+
+                modalInstance.result.then(function (currentUser) {
+                    $scope.currentUser = currentUser;
+                }, function () {
+                    $log.info('Login modal dismissed at: ' + new Date());
+                });
+            }
         }
 
         return directive;
