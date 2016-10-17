@@ -1,0 +1,24 @@
+@import "../../../bower_components/compass-sass-mixins/lib/compass/css3";
+
+.pagination {
+	float: right;
+	a {
+		font-size: 13px;
+		font-weight: bold;
+		padding: 5px 10px;
+		background-color: #fff !important;
+		@include box-shadow(0 0 5px #ccc inset);
+		margin: 0 10px;
+		color: #000 !important;
+		@include border-radius(0 !important);
+		&:hover {
+			background-color: #19a1b5 !important;
+			@include box-shadow(0 0 5px #08434c inset !important);
+			color: #fff !important;
+			@include transition(all ease 0.3s);
+		}
+		&:last-child {
+			margin: 0 0 0 10px !important;
+		}
+	}
+}

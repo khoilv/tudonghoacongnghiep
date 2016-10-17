@@ -1,0 +1,17 @@
+@import "../../../bower_components/compass-sass-mixins/lib/compass/css3";
+
+.order-management{
+  border:1px solid red;
+}
+.table tr th,
+.table tr td{
+  text-align: center;
+}
+.table a{
+  color: #44c1ff;
+  font-weight: bold;
+  font-size: 12px;
+  &:hover{
+    @include opacity(0.6);
+  }
+}

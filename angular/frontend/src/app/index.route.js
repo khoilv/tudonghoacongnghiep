@@ -25,6 +25,12 @@
                 templateUrl: 'app/my-account/my-account.html',
                 controller: 'MyAccountController',
                 controllerAs: 'myAcc'
+            })
+            .state('order-history', {
+                url: '/order-history',
+                templateUrl: 'app/order-history/order-history.html',
+                controller: 'OrderHistoryController',
+                controllerAs: 'orderHistory'
             });
 
         $urlRouterProvider.otherwise('/');

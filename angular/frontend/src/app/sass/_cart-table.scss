@@ -1,0 +1,31 @@
+@import "variables";
+
+.table {
+  border-bottom: 1px solid #ccc;
+  td:last-child {
+    text-align: center;
+  }
+  th {
+    font-weight: bold;
+  }
+}
+
+.table input {
+  width: 70px;
+}
+
+.btn-delete {
+  width: 15px;
+  height: 15px;
+  display: block;
+  background: url($path-icon + "icon-delete.png") no-repeat center center;
+  margin: 0 auto;
+}
+
+.all-money {
+  font-weight: bold;
+  text-align: right;
+  color: #19a1b5;
+  padding: 20px 0;
+  display: block;
+}

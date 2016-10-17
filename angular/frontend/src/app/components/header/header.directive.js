@@ -70,16 +70,17 @@
                 });
             };
 
-            // my account
+            // my-account
             $scope.myAccount = function () {
-                if (customerService.isAuthenticated()) {
-                    $location.path('/my-account');
-                } else {
-                    openLoginModal('/my-account');
-                }
+                checkCustomerLoggedIn('/my-account');
             };
 
-            function openLoginModal(targetPath) {
+            // order-history
+            $scope.orderHistory = function () {
+                checkCustomerLoggedIn('/order-history');
+            };
+
+            function openLoginModal(redirectToPath) {
                 var modalInstance;
 
                 modalInstance = $uibModal.open({
@@ -93,10 +94,18 @@
 
                 modalInstance.result.then(function (currentUser) {
                     $scope.currentUser = currentUser;
-                    if (angular.isDefined(targetPath)) $location.path(targetPath);
+                    if (angular.isDefined(redirectToPath)) $location.path(redirectToPath);
                 }, function () {
                     $log.info('Login modal dismissed at: ' + new Date());
                 });
+            }
+
+            function checkCustomerLoggedIn(redirectToPath) {
+                if (customerService.isAuthenticated()) {
+                    $location.path(redirectToPath);
+                } else {
+                    openLoginModal(redirectToPath);
+                }
             }
         }
 
