@@ -24,6 +24,7 @@ Route::group(['prefix' => 'api'], function () {
 
     // get faq list
     Route::get('faq', 'FaqController@getFaqList');
+    Route::get('faq/{id}', 'FaqController@getFaqList');
 
     // get online support list
     Route::get('online_support', 'OnlineSupportController@getOnlineSupportList');

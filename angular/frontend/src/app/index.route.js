@@ -13,6 +13,12 @@
                 templateUrl: 'app/main/main.html',
                 controller: 'MainController',
                 controllerAs: 'main'
+            })
+            .state('faq', {
+                url: '/faq/:faq_id',
+                templateUrl: 'app/faq/faq.html',
+                controller: 'FaqController',
+                controllerAs: 'faq'
             });
 
         $urlRouterProvider.otherwise('/');

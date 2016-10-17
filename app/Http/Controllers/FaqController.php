@@ -9,9 +9,10 @@ use App\Faq;
 
 class FaqController extends Controller
 {
-    public function getFaqList(Request $request)
+    public function getFaqList(Request $request, $id = 0)
     {
-        $data = Faq::all(['id', 'question'])->toArray();
+        $columns = $id ? ['id', 'question', 'answer'] : ['id', 'question'];
+        $data = Faq::all($columns)->toArray();
 
         // return json result
         if ($request->input('callback')) {
