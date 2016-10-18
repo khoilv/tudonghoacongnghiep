@@ -15,72 +15,17 @@
         <div class="row">
             <com-sidebar></com-sidebar>
 
-            <div class="col-lg-9 news-list">
+            <div class="col-lg-9 project-list">
                 <h2 class="title-cm"><a ng-href="#/">Trang chủ</a> > Dự án</h2>
                 <ul>
-                    <li>
-                        <div class="wrap-img-news col-lg-3 pl0 pr0">
-                            <img src="../../assets/images/frontend/img_news01.jpg">
+                    <li ng-repeat="p in projects">
+                        <div class="wrap-img-project col-lg-3 pl0 pr0">
+                            <img ng-src="{{p.project_image}}">
                         </div>
-                        <div class="col-lg-9 news-item-content">
-                            <a href="#">Khai mạc triển lãm lớn nhất về đèn LED và thiết bị chiếu sáng</a>
-                            <span>20/12/2016 | 08:40</span>
-                            <p>Bộ dụng cụ sẽ giúp cho các kỹ thuật viên hay nhân viên kỹ thuật của Đại lý trong các công việc khi di chuyển bên ngoài phạm vi của Đại lý, tuy nhiên vẫn đảm bảo được sự hoàn thành các công việc kiểm tra, chuẩn đoán, điều chỉnh và khác phục các trục trặc đơn giản của chiếc xe.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li>
-                        <div class="wrap-img-news col-lg-3 pl0 pr0">
-                            <img src="../../assets/images/frontend/img_news01.jpg">
-                        </div>
-                        <div class="col-lg-9 news-item-content">
-                            <a href="#">Khai mạc triển lãm lớn nhất về đèn LED và thiết bị chiếu sáng</a>
-                            <span>20/12/2016 | 08:40</span>
-                            <p>Bộ dụng cụ sẽ giúp cho các kỹ thuật viên hay nhân viên kỹ thuật của Đại lý trong các công việc khi di chuyển bên ngoài phạm vi của Đại lý, tuy nhiên vẫn đảm bảo được sự hoàn thành các công việc kiểm tra, chuẩn đoán, điều chỉnh và khác phục các trục trặc đơn giản của chiếc xe.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li>
-                        <div class="wrap-img-news col-lg-3 pl0 pr0">
-                            <img src="../../assets/images/frontend/img_news01.jpg">
-                        </div>
-                        <div class="col-lg-9 news-item-content">
-                            <a href="#">Khai mạc triển lãm lớn nhất về đèn LED và thiết bị chiếu sáng</a>
-                            <span>20/12/2016 | 08:40</span>
-                            <p>Bộ dụng cụ sẽ giúp cho các kỹ thuật viên hay nhân viên kỹ thuật của Đại lý trong các công việc khi di chuyển bên ngoài phạm vi của Đại lý, tuy nhiên vẫn đảm bảo được sự hoàn thành các công việc kiểm tra, chuẩn đoán, điều chỉnh và khác phục các trục trặc đơn giản của chiếc xe.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li>
-                        <div class="wrap-img-news col-lg-3 pl0 pr0">
-                            <img src="../../assets/images/frontend/img_news01.jpg">
-                        </div>
-                        <div class="col-lg-9 news-item-content">
-                            <a href="#">Khai mạc triển lãm lớn nhất về đèn LED và thiết bị chiếu sáng</a>
-                            <span>20/12/2016 | 08:40</span>
-                            <p>Bộ dụng cụ sẽ giúp cho các kỹ thuật viên hay nhân viên kỹ thuật của Đại lý trong các công việc khi di chuyển bên ngoài phạm vi của Đại lý, tuy nhiên vẫn đảm bảo được sự hoàn thành các công việc kiểm tra, chuẩn đoán, điều chỉnh và khác phục các trục trặc đơn giản của chiếc xe.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li>
-                        <div class="wrap-img-news col-lg-3 pl0 pr0">
-                            <img src="../../assets/images/frontend/img_news01.jpg">
-                        </div>
-                        <div class="col-lg-9 news-item-content">
-                            <a href="../../assets/images/frontend">Khai mạc triển lãm lớn nhất về đèn LED và thiết bị chiếu sáng</a>
-                            <span>20/12/2016 | 08:40</span>
-                            <p>Bộ dụng cụ sẽ giúp cho các kỹ thuật viên hay nhân viên kỹ thuật của Đại lý trong các công việc khi di chuyển bên ngoài phạm vi của Đại lý, tuy nhiên vẫn đảm bảo được sự hoàn thành các công việc kiểm tra, chuẩn đoán, điều chỉnh và khác phục các trục trặc đơn giản của chiếc xe.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li>
-                        <div class="wrap-img-news col-lg-3 pl0 pr0">
-                            <img src="../../assets/images/frontend/img_news01.jpg">
-                        </div>
-                        <div class="col-lg-9 news-item-content">
-                            <a href="#">Khai mạc triển lãm lớn nhất về đèn LED và thiết bị chiếu sáng</a>
-                            <span>20/12/2016 | 08:40</span>
-                            <p>Bộ dụng cụ sẽ giúp cho các kỹ thuật viên hay nhân viên kỹ thuật của Đại lý trong các công việc khi di chuyển bên ngoài phạm vi của Đại lý, tuy nhiên vẫn đảm bảo được sự hoàn thành các công việc kiểm tra, chuẩn đoán, điều chỉnh và khác phục các trục trặc đơn giản của chiếc xe.</p>
+                        <div class="col-lg-9 project-item-content">
+                            <a href="#">{{p.project_name}}</a>
+                            <span>{{p.start_date}}</span>
+                            <p>{{p.project_description}}</p>
                         </div>
                         <div class="clearfix"></div>
                     </li>
