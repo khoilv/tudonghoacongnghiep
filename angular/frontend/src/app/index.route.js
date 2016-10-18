@@ -37,6 +37,12 @@
                 templateUrl: 'app/favorite-product-list/favorite-product-list.html',
                 controller: 'FavoriteProductListController',
                 controllerAs: 'favorite'
+            })
+            .state('project-list', {
+                url: '/project-list',
+                templateUrl: 'app/project-list/project-list.html',
+                controller: 'ProjectListController',
+                controllerAs: 'projectList'
             });
 
         $urlRouterProvider.otherwise('/');

@@ -19,10 +19,25 @@
             bindToController: true
         };
 
-        return directive;
+        TopicsController.$inject = ['$scope', '$location'];
 
         /** @ngInject */
-        function TopicsController() {}
+        function TopicsController($scope, $location) {
+
+            $scope.goToProjects = function () {
+                $location.path('/project-list')
+            };
+
+            $scope.goToTrainingAndTechnology = function () {
+
+            };
+
+            $scope.goToTechnicalServices = function () {
+
+            };
+        }
+
+        return directive;
     }
 
 })();
