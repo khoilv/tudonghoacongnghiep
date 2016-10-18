@@ -17,5 +17,100 @@
     ],
     "project_note": "",
     "active": 1
+  },
+  {
+    "project_name": "Máy ngắm bắn tự động",
+    "project_description": "Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.",
+    "project_content": "- Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.<br>Đối với súng tiểu liên AK ở cự li 50m, đầu đạn dần dần tách ra khỏi đường phóng đồng thời chuyển động theo quán tính.<br>Vì vậy để đạn trúng điểm mục tiêu, không thể đưa thẳng nòng súng vào điểm định bắn mà phải hướng nòng súng chếch lên một góc nhất định (góc bắn) để điểm chạm (điểm rơi) của đầu đạn trúng vào điểm định bắn trúng.<br>Nếu gọi đường đạn là đường do trọng tâm đầu đạn vạch ra trong không gian, có thể hình dung đường đạn là đường không cân đối, đoạn đi lên bao giờ cũng dài hơn đoạn đi xuống.<br>- Để lấy hướng bắn và góc bắn nhanh chóng, chính xác người ta làm sẵn bộ phận ngắm trên súng. Sau khi người bắn ước lượng cự li bắn, lấy thước ngắm tương ứng, dùng bộ phận ngắm, ngắm vào mục tiêu, khi lấy được đường ngắm chính xác thực hiện bóp cò. Làm như vậy gọi là ngắm và bắn.<br>- Thực chất của ngắm bắn là dóng súng vào mục tiêu, lấy góc bắn và hướng bắn để đưa quỹ đạo đường đạn vào điểm định bắn.",
+    "project_duration": "6 tháng",
+    "start_date": "20/05/2016",
+    "end_date": "30/10/2016",
+    "project_status": 1,
+    "project_owner": "Viện vũ khí",
+    "project_role": "Trưởng nhóm kỹ thuật dự án",
+    "project_evaluation": "Hoàn thành xuất sắc",
+    "project_images": [
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+    ],
+    "project_note": "",
+    "active": 1
+  },
+  {
+    "project_name": "Máy ngắm bắn tự động",
+    "project_description": "Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.",
+    "project_content": "- Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.<br>Đối với súng tiểu liên AK ở cự li 50m, đầu đạn dần dần tách ra khỏi đường phóng đồng thời chuyển động theo quán tính.<br>Vì vậy để đạn trúng điểm mục tiêu, không thể đưa thẳng nòng súng vào điểm định bắn mà phải hướng nòng súng chếch lên một góc nhất định (góc bắn) để điểm chạm (điểm rơi) của đầu đạn trúng vào điểm định bắn trúng.<br>Nếu gọi đường đạn là đường do trọng tâm đầu đạn vạch ra trong không gian, có thể hình dung đường đạn là đường không cân đối, đoạn đi lên bao giờ cũng dài hơn đoạn đi xuống.<br>- Để lấy hướng bắn và góc bắn nhanh chóng, chính xác người ta làm sẵn bộ phận ngắm trên súng. Sau khi người bắn ước lượng cự li bắn, lấy thước ngắm tương ứng, dùng bộ phận ngắm, ngắm vào mục tiêu, khi lấy được đường ngắm chính xác thực hiện bóp cò. Làm như vậy gọi là ngắm và bắn.<br>- Thực chất của ngắm bắn là dóng súng vào mục tiêu, lấy góc bắn và hướng bắn để đưa quỹ đạo đường đạn vào điểm định bắn.",
+    "project_duration": "6 tháng",
+    "start_date": "20/05/2016",
+    "end_date": "30/10/2016",
+    "project_status": 1,
+    "project_owner": "Viện vũ khí",
+    "project_role": "Trưởng nhóm kỹ thuật dự án",
+    "project_evaluation": "Hoàn thành xuất sắc",
+    "project_images": [
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+    ],
+    "project_note": "",
+    "active": 1
+  },
+  {
+    "project_name": "Máy ngắm bắn tự động",
+    "project_description": "Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.",
+    "project_content": "- Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.<br>Đối với súng tiểu liên AK ở cự li 50m, đầu đạn dần dần tách ra khỏi đường phóng đồng thời chuyển động theo quán tính.<br>Vì vậy để đạn trúng điểm mục tiêu, không thể đưa thẳng nòng súng vào điểm định bắn mà phải hướng nòng súng chếch lên một góc nhất định (góc bắn) để điểm chạm (điểm rơi) của đầu đạn trúng vào điểm định bắn trúng.<br>Nếu gọi đường đạn là đường do trọng tâm đầu đạn vạch ra trong không gian, có thể hình dung đường đạn là đường không cân đối, đoạn đi lên bao giờ cũng dài hơn đoạn đi xuống.<br>- Để lấy hướng bắn và góc bắn nhanh chóng, chính xác người ta làm sẵn bộ phận ngắm trên súng. Sau khi người bắn ước lượng cự li bắn, lấy thước ngắm tương ứng, dùng bộ phận ngắm, ngắm vào mục tiêu, khi lấy được đường ngắm chính xác thực hiện bóp cò. Làm như vậy gọi là ngắm và bắn.<br>- Thực chất của ngắm bắn là dóng súng vào mục tiêu, lấy góc bắn và hướng bắn để đưa quỹ đạo đường đạn vào điểm định bắn.",
+    "project_duration": "6 tháng",
+    "start_date": "20/05/2016",
+    "end_date": "30/10/2016",
+    "project_status": 1,
+    "project_owner": "Viện vũ khí",
+    "project_role": "Trưởng nhóm kỹ thuật dự án",
+    "project_evaluation": "Hoàn thành xuất sắc",
+    "project_images": [
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+    ],
+    "project_note": "",
+    "active": 1
+  },
+  {
+    "project_name": "Máy ngắm bắn tự động",
+    "project_description": "Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.",
+    "project_content": "- Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.<br>Đối với súng tiểu liên AK ở cự li 50m, đầu đạn dần dần tách ra khỏi đường phóng đồng thời chuyển động theo quán tính.<br>Vì vậy để đạn trúng điểm mục tiêu, không thể đưa thẳng nòng súng vào điểm định bắn mà phải hướng nòng súng chếch lên một góc nhất định (góc bắn) để điểm chạm (điểm rơi) của đầu đạn trúng vào điểm định bắn trúng.<br>Nếu gọi đường đạn là đường do trọng tâm đầu đạn vạch ra trong không gian, có thể hình dung đường đạn là đường không cân đối, đoạn đi lên bao giờ cũng dài hơn đoạn đi xuống.<br>- Để lấy hướng bắn và góc bắn nhanh chóng, chính xác người ta làm sẵn bộ phận ngắm trên súng. Sau khi người bắn ước lượng cự li bắn, lấy thước ngắm tương ứng, dùng bộ phận ngắm, ngắm vào mục tiêu, khi lấy được đường ngắm chính xác thực hiện bóp cò. Làm như vậy gọi là ngắm và bắn.<br>- Thực chất của ngắm bắn là dóng súng vào mục tiêu, lấy góc bắn và hướng bắn để đưa quỹ đạo đường đạn vào điểm định bắn.",
+    "project_duration": "6 tháng",
+    "start_date": "20/05/2016",
+    "end_date": "30/10/2016",
+    "project_status": 1,
+    "project_owner": "Viện vũ khí",
+    "project_role": "Trưởng nhóm kỹ thuật dự án",
+    "project_evaluation": "Hoàn thành xuất sắc",
+    "project_images": [
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+    ],
+    "project_note": "",
+    "active": 1
+  },
+  {
+    "project_name": "Máy ngắm bắn tự động",
+    "project_description": "Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.",
+    "project_content": "- Tại sao phải ngắm bắn? Trong bắn súng muốn bắn trúng mục tiêu phải ngắm bắn. Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài không khí chịu tác động của không khí và lực hút trái đất tạo thành đường cong không cân đối. Nên người bắn phải xác định góc bắn và hướng bắn để cho quỹ đạo đường đạn đi qua điểm định bắn trúng trên mục tiêu.<br>Đối với súng tiểu liên AK ở cự li 50m, đầu đạn dần dần tách ra khỏi đường phóng đồng thời chuyển động theo quán tính.<br>Vì vậy để đạn trúng điểm mục tiêu, không thể đưa thẳng nòng súng vào điểm định bắn mà phải hướng nòng súng chếch lên một góc nhất định (góc bắn) để điểm chạm (điểm rơi) của đầu đạn trúng vào điểm định bắn trúng.<br>Nếu gọi đường đạn là đường do trọng tâm đầu đạn vạch ra trong không gian, có thể hình dung đường đạn là đường không cân đối, đoạn đi lên bao giờ cũng dài hơn đoạn đi xuống.<br>- Để lấy hướng bắn và góc bắn nhanh chóng, chính xác người ta làm sẵn bộ phận ngắm trên súng. Sau khi người bắn ước lượng cự li bắn, lấy thước ngắm tương ứng, dùng bộ phận ngắm, ngắm vào mục tiêu, khi lấy được đường ngắm chính xác thực hiện bóp cò. Làm như vậy gọi là ngắm và bắn.<br>- Thực chất của ngắm bắn là dóng súng vào mục tiêu, lấy góc bắn và hướng bắn để đưa quỹ đạo đường đạn vào điểm định bắn.",
+    "project_duration": "6 tháng",
+    "start_date": "20/05/2016",
+    "end_date": "30/10/2016",
+    "project_status": 1,
+    "project_owner": "Viện vũ khí",
+    "project_role": "Trưởng nhóm kỹ thuật dự án",
+    "project_evaluation": "Hoàn thành xuất sắc",
+    "project_images": [
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+    ],
+    "project_note": "",
+    "active": 1
   }
 ]

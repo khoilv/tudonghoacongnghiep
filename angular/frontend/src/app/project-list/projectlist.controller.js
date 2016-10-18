@@ -12,4 +12,5 @@
     function ProjectListController($scope, $stateParams, commonService) {
 
     }
+
 })();
