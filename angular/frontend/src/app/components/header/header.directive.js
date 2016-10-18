@@ -19,10 +19,10 @@
             bindToController: false
         };
 
-        HeaderController.$inject = ['$scope', '$location', '$timeout', '$interval', '$uibModal', '$log', 'customerService'];
+        HeaderController.$inject = ['$scope', '$location', '$timeout', '$interval', '$window', '$uibModal', '$log', 'customerService'];
 
         /** @ngInject */
-        function HeaderController($scope, $location, $timeout, $interval, $uibModal, $log, customerService) {
+        function HeaderController($scope, $location, $timeout, $interval, $window, $uibModal, $log, customerService) {
             $scope.currentUser = null;
 
             $timeout(function () {
@@ -100,7 +100,9 @@
 
                 modalInstance.result.then(function (currentUser) {
                     $scope.currentUser = currentUser;
-                    if (angular.isDefined(redirectToPath)) $location.path(redirectToPath);
+                    if (angular.isDefined(redirectToPath)) {
+                        $location.path(redirectToPath);
+                    }
                 }, function () {
                     $log.info('Login modal dismissed at: ' + new Date());
                 });
@@ -117,11 +119,11 @@
             function stickIt() {
                 var orgElement = angular.element('.original');
                 var orgElementPos = orgElement.offset();
-                var orgElementPosTop = angular.isUndefined(orgElementPos.top) ? 0 : orgElementPos.top;
-                var orgElementPosLeft = orgElementPos.left;
+                var orgElementPosTop = angular.isUndefined(orgElementPos) ? 0 : orgElementPos.top;
+                var orgElementPosLeft = angular.isUndefined(orgElementPos) ? 0 : orgElementPos.left;
                 var orgElementWidth = orgElement.css('width');
 
-                if (angular.element(window).scrollTop() >= (orgElementPosTop)) {
+                if (angular.element($window).scrollTop() >= (orgElementPosTop)) {
                     // scrolled past the original position; now only show the cloned, sticky element.
                     // Cloned element should always have same left position and width as original element.
                     angular.element('.cloned').css('left', orgElementPosLeft + 'px').css('top', '0').css('width', orgElementWidth).show();
