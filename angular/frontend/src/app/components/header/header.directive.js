@@ -117,7 +117,7 @@
             function stickIt() {
                 var orgElement = angular.element('.original');
                 var orgElementPos = orgElement.offset();
-                var orgElementPosTop = orgElementPos.top;
+                var orgElementPosTop = angular.isUndefined(orgElementPos.top) ? 0 : orgElementPos.top;
                 var orgElementPosLeft = orgElementPos.left;
                 var orgElementWidth = orgElement.css('width');
 
