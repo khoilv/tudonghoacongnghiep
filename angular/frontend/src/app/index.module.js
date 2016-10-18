@@ -10,7 +10,8 @@
             'ngResource',
             'ui.router',
             'ui.bootstrap',
-            'LocalStorageModule'
+            'LocalStorageModule',
+            'angular-jwt'
         ]);
 
 })();

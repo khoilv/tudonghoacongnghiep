@@ -37,10 +37,6 @@
                 }
             };
 
-            $scope.apply(function () {
-
-            });
-
             // logout
             $scope.logout = function () {
                 customerService.logout(function () {
@@ -119,19 +115,16 @@
             }
 
             function stickIt() {
-                var orgElementPos = angular.element('.original').offset();
-                var orgElementTop = orgElementPos.top;
+                var orgElement = angular.element('.original');
+                var orgElementPos = orgElement.offset();
+                var orgElementPosTop = orgElementPos.top;
+                var orgElementPosLeft = orgElementPos.left;
+                var orgElementWidth = orgElement.css('width');
 
-                if (angular.element(window).scrollTop() >= (orgElementTop)) {
+                if (angular.element(window).scrollTop() >= (orgElementPosTop)) {
                     // scrolled past the original position; now only show the cloned, sticky element.
-
                     // Cloned element should always have same left position and width as original element.
-                    var orgElement = angular.element('.original');
-                    var coordsOrgElement = orgElement.offset();
-                    var leftOrgElement = coordsOrgElement.left;
-                    var widthOrgElement = orgElement.css('width');
-
-                    angular.element('.cloned').css('left', leftOrgElement + 'px').css('top', 0).css('width', widthOrgElement).show();
+                    angular.element('.cloned').css('left', orgElementPosLeft + 'px').css('top', '0').css('width', orgElementWidth).show();
                     angular.element('.original').css('visibility', 'hidden');
                 } else {
                     // not scrolled past the menu_m; only show the original menu_m.

@@ -17,7 +17,7 @@
 
         function login(credentials, onSuccess, onError) {
             commonService.postData('customer/auth', sanitizeCredentials(credentials), function (response) {
-                localStorageService.set('token', response.data.token, 'sessionStorage');
+                localStorageService.set('id_token', response.data.token, 'sessionStorage');
                 localStorageService.set('username', response.data.username, 'sessionStorage');
                 onSuccess(response);
             }, function (response) {
@@ -42,19 +42,23 @@
         }
 
         function logout(onSuccess) {
-            localStorageService.remove('token', 'sessionStorage');
+            localStorageService.remove('id_token', 'sessionStorage');
             localStorageService.remove('username', 'sessionStorage');
             onSuccess();
         }
 
         function isAuthenticated() {
-            return localStorageService.get('token', 'sessionStorage') ? true : false;
+            return localStorageService.get('id_token', 'sessionStorage') ? true : false;
+        }
+
+        function getAccessToken() {
+            return localStorageService.get('id_token', 'sessionStorage');
         }
 
         function getAuthData() {
             return {
                 username: localStorageService.get('username', 'sessionStorage'),
-                token: localStorageService.get('token', 'sessionStorage')
+                token: localStorageService.get('id_token', 'sessionStorage')
             }
         }
         
@@ -67,6 +71,7 @@
             register: register,
             logout: logout,
             isAuthenticated: isAuthenticated,
+            getAccessToken: getAccessToken,
             getAuthData: getAuthData,
             forgotPassword: forgotPassword
         }

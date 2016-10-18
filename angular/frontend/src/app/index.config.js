@@ -5,10 +5,21 @@
         .module('angularSeedApp')
         .config(config);
 
-    config.$inject = ['$logProvider', '$compileProvider', '$sceDelegateProvider', 'localStorageServiceProvider', 'toastr'];
+    config.$inject = ['$httpProvider', 'jwtOptionsProvider', '$logProvider', '$compileProvider', '$sceDelegateProvider', 'localStorageServiceProvider', 'toastr'];
 
     /** @ngInject */
-    function config($logProvider, $compileProvider, $sceDelegateProvider, localStorageServiceProvider, toastr) {
+    function config($httpProvider, jwtOptionsProvider, $logProvider, $compileProvider, $sceDelegateProvider, localStorageServiceProvider, toastr) {
+
+        // Please note we're annotating the function so that the $injector works when the file is minified
+        jwtOptionsProvider.config({
+            tokenGetter: ['customerService', function(customerService) {
+                return customerService.getAccessToken();
+            }],
+            whiteListedDomains: ['api.tudonghoacongnghiep.com', 'localhost']
+        });
+
+        $httpProvider.interceptors.push('jwtInterceptor');
+
         // Enable log
         $logProvider.debugEnabled(true);
 
