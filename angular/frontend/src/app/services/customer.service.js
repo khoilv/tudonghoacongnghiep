@@ -55,6 +55,10 @@
             return localStorageService.get('id_token', 'sessionStorage');
         }
 
+        function getUserName() {
+            return localStorageService.get('username', 'sessionStorage');
+        }
+
         function getAuthData() {
             return {
                 username: localStorageService.get('username', 'sessionStorage'),
@@ -72,6 +76,7 @@
             logout: logout,
             isAuthenticated: isAuthenticated,
             getAccessToken: getAccessToken,
+            getUserName: getUserName,
             getAuthData: getAuthData,
             forgotPassword: forgotPassword
         }

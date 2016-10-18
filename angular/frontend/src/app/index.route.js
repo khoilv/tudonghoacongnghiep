@@ -31,6 +31,12 @@
                 templateUrl: 'app/order-history/order-history.html',
                 controller: 'OrderHistoryController',
                 controllerAs: 'orderHistory'
+            })
+            .state('favorite-product-list', {
+                url: '/favorite-product-list',
+                templateUrl: 'app/favorite-product-list/favorite-product-list.html',
+                controller: 'FavoriteProductListController',
+                controllerAs: 'favorite'
             });
 
         $urlRouterProvider.otherwise('/');

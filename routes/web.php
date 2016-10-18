@@ -37,7 +37,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('customer/generate-captcha', 'CustomerController@generateCaptcha');
 
     Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function () {
-
+        //Route::get('faq', 'FaqController@getFaqList');
     });
 
 });

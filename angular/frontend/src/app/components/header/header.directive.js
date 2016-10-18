@@ -86,6 +86,11 @@
                 checkCustomerLoggedIn('/order-history');
             };
 
+            // favorite-product-list
+            $scope.favoriteProductList = function () {
+                checkCustomerLoggedIn('/favorite-product-list');
+            };
+
             function openLoginModal(redirectToPath) {
                 var modalInstance;
 

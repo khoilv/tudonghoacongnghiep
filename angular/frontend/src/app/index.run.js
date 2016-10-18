@@ -6,7 +6,10 @@
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock($log) {
+    function runBlock($log, authManager) {
+
+        // Getting Authentication State on Page Refresh
+        authManager.checkAuthOnRefresh();
 
         $log.debug('runBlock end');
     }
