@@ -24,7 +24,7 @@
                 } else {
                     localStorageService.remove('loginData', 'localStorage');
                 }
-                $uibModalInstance.close(response.data);
+                $uibModalInstance.close(response.data.username);
             }, function (response) {
                 var errors = {};
                 if (response.status == 422) {

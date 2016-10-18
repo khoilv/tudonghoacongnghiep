@@ -22,10 +22,10 @@ header {
           @include background-img(nth($menu-icons, $i));
         }
       }
-      &:nth-child(6) {
+      &.welcome {
         @include background-img(nth($menu-icons, 6), left, center);
       }
-      &:nth-child(7) {
+      &.logout {
         @include background-img(nth($menu-icons, 7), 5px, 0);
       }
     }

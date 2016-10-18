@@ -33,7 +33,7 @@
 
             $scope.init = function () {
                 if (customerService.isAuthenticated()) {
-                    $scope.currentUser = customerService.getAuthData();
+                    $scope.currentUser = customerService.getUserName();
                 }
             };
 
