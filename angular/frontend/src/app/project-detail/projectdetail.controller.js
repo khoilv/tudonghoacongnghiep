@@ -5,18 +5,20 @@
         .module('angularSeedApp')
         .controller('ProjectDetailController', ProjectDetailController);
 
-    ProjectDetailController.$inject = ['$scope', '$stateParams', '$sanitize', 'commonService'];
+    ProjectDetailController.$inject = ['$scope', '$stateParams', '$sanitize', '$sce', 'commonService'];
 
     /** @ngInject */
-    function ProjectDetailController($scope, $stateParams, $sanitize, commonService) {
+    function ProjectDetailController($scope, $stateParams, $sanitize, $sce, commonService) {
         $scope.myInterval = 5000;
         $scope.active = 0;
         $scope.noWrapSlides = false;
         $scope.slides = [];
+        $scope.projectContent = null;
 
         var url = 'project/' + $sanitize($stateParams.slug);
         commonService.loadData(url, {slug: $stateParams.slug}, function (response) {
             $scope.project = response.data;
+            //$scope.project.project_content = $sce.trustAsHtml(response.data.project_content);
             initSlide(response.data.project_images);
         });
 
