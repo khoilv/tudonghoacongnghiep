@@ -1,0 +1,59 @@
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.new-date {
+  font-size: 13px;
+  font-weight: bold;
+  color: #909090;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#project_img_slider {
+  padding: 15px 0;
+  border: 1px solid #ccc;
+}
+
+.title-cm,
+.title-cm a {
+  font-size: 17px;
+}
+
+.wrap-img-detail {
+  border: 2px solid #ccc !important;
+  height: 208px;
+  img {
+    max: {
+      width: 100%;
+      height: 100%;
+    }
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.small-project {
+  text-align: center;
+  li {
+    width: 28%;
+    display: inline-block;
+    border: 2px solid #ccc;
+    height: 70px;
+    img {
+      max: {
+        width: 100%;
+        height: 100%;
+      }
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+.project-detail {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}

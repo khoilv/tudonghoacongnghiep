@@ -43,6 +43,12 @@
                 templateUrl: 'app/project-list/project-list.html',
                 controller: 'ProjectListController',
                 controllerAs: 'projectList'
+            })
+            .state('project-detail', {
+                url: '/project-detail/:project_id',
+                templateUrl: 'app/project-detail/project-detail.html',
+                controller: 'ProjectDetailController',
+                controllerAs: 'projectDetail'
             });
 
         $urlRouterProvider.otherwise('/');

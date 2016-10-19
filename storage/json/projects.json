@@ -13,7 +13,10 @@
     "project_images": [
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
-      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/project_img01.jpg", "note": "Muốn bắn trúng mục tiêu phải ngắm bắn", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Người bắn phải xác định góc bắn và hướng bắn", "main": 0}
     ],
     "project_note": "",
     "active": 1
@@ -32,7 +35,10 @@
     "project_images": [
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
-      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/project_img01.jpg", "note": "Muốn bắn trúng mục tiêu phải ngắm bắn", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Người bắn phải xác định góc bắn và hướng bắn", "main": 0}
     ],
     "project_note": "",
     "active": 1
@@ -50,7 +56,10 @@
   "project_images": [
     {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
     {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
-    {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+    {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+    {"image": "../../assets/images/frontend/project_img01.jpg", "note": "Muốn bắn trúng mục tiêu phải ngắm bắn", "main": 0},
+    {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài", "main": 0},
+    {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Người bắn phải xác định góc bắn và hướng bắn", "main": 0}
   ],
   "project_note": "",
   "active": 1
@@ -69,7 +78,10 @@
     "project_images": [
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
-      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/project_img01.jpg", "note": "Muốn bắn trúng mục tiêu phải ngắm bắn", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Người bắn phải xác định góc bắn và hướng bắn", "main": 0}
     ],
     "project_note": "",
     "active": 1
@@ -88,7 +100,10 @@
     "project_images": [
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
-      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/project_img01.jpg", "note": "Muốn bắn trúng mục tiêu phải ngắm bắn", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Người bắn phải xác định góc bắn và hướng bắn", "main": 0}
     ],
     "project_note": "",
     "active": 1
@@ -107,7 +122,10 @@
     "project_images": [
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
       {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
-      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1}
+      {"image": "../../assets/images/frontend/img_news01.jpg", "note": "", "main": 1},
+      {"image": "../../assets/images/frontend/project_img01.jpg", "note": "Muốn bắn trúng mục tiêu phải ngắm bắn", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài", "main": 0},
+      {"image": "../../assets/images/frontend/project_img02.jpg", "note": "Người bắn phải xác định góc bắn và hướng bắn", "main": 0}
     ],
     "project_note": "",
     "active": 1
