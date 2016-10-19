@@ -42,3 +42,4 @@ Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function () {
 
 // project
 Route::get('project/list', 'ProjectController@getProjectList');
+Route::get('project/{slug}', 'ProjectController@getProjectBySlug');

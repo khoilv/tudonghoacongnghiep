@@ -16,7 +16,7 @@
             <com-sidebar></com-sidebar>
 
             <div class="col-lg-9">
-                <h2 class="title-cm"><a ng-href="#/">Trang chủ</a> > <a href="#">Dự án</a> > Máy ngắm bắn tự động</h2>
+                <h2 class="title-cm"><a ng-href="#/">Trang chủ</a> > <a ng-href="#/du-an">Dự án</a> > Máy ngắm bắn tự động</h2>
                 <div class="row">
                     <div class="col-lg-5 mt20">
                         <div class="wrap-img-detail">
@@ -39,7 +39,7 @@
                         </p>
                         <p class="mt10"><strong>Thời gian dự án</strong> : 6 tháng</p>
                         <p class="mt10">
-                            <strong>Tình trạng dự án</strong> : Đã kết thúc
+                            <strong>Trạng thái dự án</strong> : Đã kết thúc
                         </p>
                         <p class="mt10">
                             <strong>Chủ dự án</strong> : Viện vũ khí
@@ -74,9 +74,9 @@
 
                 <div id="project_img_slider" class="mt20" uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                     <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" class="item">
-                        <div ng-repeat="project in slide.items" class="col-lg-4">
-                            <img ng-src="{{project.image}}">
-                            <p class="mt5">{{project.note}}</p>
+                        <div ng-repeat="item in slide.items" class="col-lg-4">
+                            <img ng-src="{{item.image}}">
+                            <p class="mt5">{{item.note}}</p>
                         </div>
                     </div>
                 </div>

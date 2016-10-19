@@ -11,7 +11,7 @@ class ProjectController extends Controller
 {
     public function getProjectList(Request $request)
     {
-        $columns = ['id', 'project_name', 'project_description', 'start_date', 'project_images'];
+        $columns = ['id', 'project_name', 'slug', 'project_description', 'start_date', 'project_images'];
         $projects = Project::where('active', 1)->get($columns)->toArray();
         $data = $p = [];
         $maxLength = 360;
@@ -40,6 +40,19 @@ class ProjectController extends Controller
             }
             array_push($data, $p);
         }
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($data)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($data);
+        }
+    }
+
+    public function getProjectBySlug(Request $request, $slug = null)
+    {
+        $data = Project::where('slug', $slug)->first()->toArray();
+        $data['project_images'] = json_decode($data['project_images'], true);
 
         // return json result
         if ($request->input('callback')) {

@@ -5,44 +5,42 @@
         .module('angularSeedApp')
         .controller('ProjectDetailController', ProjectDetailController);
 
-    ProjectDetailController.$inject = ['$scope', '$stateParams', 'commonService'];
+    ProjectDetailController.$inject = ['$scope', '$stateParams', '$sanitize', 'commonService'];
 
     /** @ngInject */
-    function ProjectDetailController($scope, $stateParams, commonService) {
+    function ProjectDetailController($scope, $stateParams, $sanitize, commonService) {
         $scope.myInterval = 5000;
         $scope.active = 0;
         $scope.noWrapSlides = false;
         $scope.slides = [];
 
-        /*
-        commonService.loadData('project/list', null, function (response) {
-           $scope.projects = response.data;
-            console.log(response);
+        var url = 'project/' + $sanitize($stateParams.slug);
+        commonService.loadData(url, {slug: $stateParams.slug}, function (response) {
+            $scope.project = response.data;
+            initSlide(response.data.project_images);
         });
-        */
 
-        init();
 
-        function init() {
-            var i, slide = [];
 
-            slide.push({
-                image: '../../assets/images/frontend/project_img01.jpg',
-                note: 'Muốn bắn trúng mục tiêu phải ngắm bắn'
-            });
-            slide.push({
-                image: '../../assets/images/frontend/project_img02.jpg',
-                note: 'Khi bắn đầu đạn chuyển động trong nòng súng ra ngoài'
-            });
-            slide.push({
-                image: '../../assets/images/frontend/project_img03.jpg',
-                note: 'Người bắn phải xác định góc bắn và hướng bắn'
+        function initSlide(projectImages) {
+            var slide, items = [], itemCount = 0, slideCount = 0;
+
+            angular.forEach(projectImages, function (item, key) {
+                if (item.main == 0) {
+                    items.push(item);
+                    if (++itemCount % 3 == 0) {
+                        ++slideCount;
+                        slide = {id: slideCount - 1, items: items};
+                        $scope.slides.push(slide);
+                        items = [];
+                    }
+                }
             });
 
-            for (i = 0; i < 2; i++) {
+            if (slideCount == 1 && slide) {
                 $scope.slides.push({
-                    id: i,
-                    items: slide
+                    id: 1,
+                    items: slide.items
                 });
             }
         }

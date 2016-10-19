@@ -39,13 +39,13 @@
                 controllerAs: 'favorite'
             })
             .state('project-list', {
-                url: '/project-list',
+                url: '/du-an',
                 templateUrl: 'app/project-list/project-list.html',
                 controller: 'ProjectListController',
                 controllerAs: 'projectList'
             })
             .state('project-detail', {
-                url: '/project-detail/:project_id',
+                url: '/chi-tiet-du-an/:slug',
                 templateUrl: 'app/project-detail/project-detail.html',
                 controller: 'ProjectDetailController',
                 controllerAs: 'projectDetail'

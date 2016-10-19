@@ -11,7 +11,6 @@
     function ProjectListController($scope, $stateParams, commonService) {
         commonService.loadData('project/list', null, function (response) {
            $scope.projects = response.data;
-            console.log(response);
         });
     }
 
