@@ -20,12 +20,10 @@
                 <div class="row">
                     <div class="col-lg-5 mt20">
                         <div class="wrap-img-detail">
-                            <img src="../../assets/images/frontend/product_img01.jpg">
+                            <img ng-src="{{mainItems[0].image}}">
                         </div>
                         <ul class="small-project mt20">
-                            <li><img src="../../assets/images/frontend/product_img01.jpg"></li>
-                            <li><img src="../../assets/images/frontend/product_img02.jpg"></li>
-                            <li><img src="../../assets/images/frontend/product_img02.jpg"></li>
+                            <li ng-repeat="mainItem in mainItems"><img ng-src="{{mainItem.image}}"></li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -35,9 +33,9 @@
                         <p class="mt10" style="border-top:1px solid #ccc;padding-top: 10px;">
                             <strong>Ngày bắt đầu</strong> : {{project.start_date}} &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; <strong>Ngày kết thúc</strong> : {{project.end_date}}
                         </p>
-                        <p class="mt10"><strong>Thời gian dự án</strong> : {{project.project_duration}}</p>
+                        <p class="mt10"><strong>Thời gian thực hiện dự án</strong> : {{project.project_duration}}</p>
                         <p class="mt10">
-                            <strong>Trạng thái dự án</strong> : Đã kết thúc
+                            <strong>Trạng thái dự án</strong> : {{project.project_status}}
                         </p>
                         <p class="mt10">
                             <strong>Chủ dự án</strong> : {{project.project_owner}}
@@ -58,7 +56,7 @@
                 </div>
                 <div class="clearfix"></div>
 
-                <h4 class="mt30">Thư viện hình ảnh dự án</h4>
+                <h4 class="mt30">Thư viện hình ảnh dự án (xem thêm)</h4>
 
                 <div id="project_img_slider" class="mt20" uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                     <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" class="item">
