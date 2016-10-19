@@ -19,11 +19,11 @@
                 <h2 class="title-cm"><a ng-href="#/">Trang chủ</a> > <a ng-href="#/du-an">Dự án</a> > {{project.project_name}}</h2>
                 <div class="row">
                     <div class="col-lg-5 mt20">
-                        <div class="wrap-img-detail">
-                            <img ng-src="{{mainItems[0].image}}">
-                        </div>
+                        <div class="wrap-img-detail"><img ng-src="{{bigImage}}"></div>
                         <ul class="small-project mt20">
-                            <li ng-repeat="mainItem in mainItems"><img ng-src="{{mainItem.image}}"></li>
+                            <li ng-repeat="mainItem in mainItems">
+                                <a ng-click="changeMainImage(mainItem.image)"><img ng-src="{{mainItem.image}}"></a>
+                            </li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -34,22 +34,15 @@
                             <strong>Ngày bắt đầu</strong> : {{project.start_date}} &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; <strong>Ngày kết thúc</strong> : {{project.end_date}}
                         </p>
                         <p class="mt10"><strong>Thời gian thực hiện dự án</strong> : {{project.project_duration}}</p>
-                        <p class="mt10">
-                            <strong>Trạng thái dự án</strong> : {{project.project_status}}
-                        </p>
-                        <p class="mt10">
-                            <strong>Chủ dự án</strong> : {{project.project_owner}}
-                        </p>
-                        <p class="mt10">
-                            <strong>Vai trò thực hiện</strong> : {{project.project_role}}
-                        </p>
-                        <p class="mt10">
-                            <strong>Đánh giá dự án</strong> : {{project.project_evaluation}}
-                        </p>
+                        <p class="mt10"><strong>Trạng thái dự án</strong> : {{project.project_status}}</p>
+                        <p class="mt10"><strong>Chủ dự án</strong> : {{project.project_owner}}</p>
+                        <p class="mt10"><strong>Vai trò thực hiện</strong> : {{project.project_role}}</p>
+                        <p class="mt10"><strong>Đánh giá dự án</strong> : {{project.project_evaluation}}</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
+
                 <div class="project-detail col-lg-12">
                     <strong>Mô tả chi tiết dự án</strong>
                     <p class="mt15" ng-bind-html="project.project_content"></p>
@@ -57,7 +50,6 @@
                 <div class="clearfix"></div>
 
                 <h4 class="mt30">Thư viện hình ảnh dự án (xem thêm)</h4>
-
                 <div id="project_img_slider" class="mt20" uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                     <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" class="item">
                         <div ng-repeat="item in slide.items" class="col-lg-4">

@@ -14,6 +14,7 @@
         $scope.noWrapSlides = false;
         $scope.slides = [];
         $scope.mainItems = [];
+        $scope.bigImage = null;
 
         var listProjectStatus = {
             project_status_1: "Đã hoàn thành",
@@ -30,8 +31,12 @@
             initProjectImages(project.project_images);
         });
 
+        $scope.changeMainImage = function (mainImage) {
+            $scope.bigImage = mainImage;
+        };
+
         function initProjectImages(projectImages) {
-            var slide, slideItems = [], slideItemCount = 0, slideCount = 0;
+            var slide, slideItems = [], mainItems = [], slideItemCount = 0, slideCount = 0;
             angular.forEach(projectImages, function (item, key) {
                 if (item.main == 0) {
                     slideItems.push(item);
@@ -42,7 +47,7 @@
                         slideItems = [];
                     }
                 } else {
-                    $scope.mainItems.push(item);
+                    mainItems.push(item);
                 }
             });
             if (slideCount == 1 && slide) {
@@ -51,6 +56,8 @@
                     items: slide.items
                 });
             }
+            $scope.mainItems = mainItems;
+            $scope.bigImage = mainItems[0].image;
         }
     }
 
