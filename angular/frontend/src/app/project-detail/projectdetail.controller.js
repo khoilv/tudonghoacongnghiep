@@ -13,7 +13,6 @@
         $scope.active = 0;
         $scope.noWrapSlides = false;
         $scope.slides = [];
-        $scope.projectContent = null;
 
         var url = 'project/' + $sanitize($stateParams.slug);
         commonService.loadData(url, {slug: $stateParams.slug}, function (response) {
@@ -26,7 +25,6 @@
 
         function initSlide(projectImages) {
             var slide, items = [], itemCount = 0, slideCount = 0;
-
             angular.forEach(projectImages, function (item, key) {
                 if (item.main == 0) {
                     items.push(item);
@@ -38,7 +36,6 @@
                     }
                 }
             });
-
             if (slideCount == 1 && slide) {
                 $scope.slides.push({
                     id: 1,
