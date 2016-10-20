@@ -47,10 +47,6 @@ class ProjectController extends Controller
 
         $paginationResult = [
             "total" => Project::where('active', 1)->count(),
-            "per_page" => $itemsPerPage,
-            "current_page" => $page,
-            "from" => $offset + 1,
-            "to" => $offset + $itemsPerPage,
             "data" => $data
         ];
 
