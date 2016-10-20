@@ -12,7 +12,7 @@ class ProjectController extends Controller
     public function getProjectList(Request $request)
     {
         $page = $request->input('page');
-        $itemsPerPage = $request->input('items_per_page');
+        $itemsPerPage = $request->input('per_page');
         $offset = ($page - 1) * $itemsPerPage;
 
         $columns = ['id', 'project_name', 'slug', 'project_description', 'start_date', 'project_images'];
