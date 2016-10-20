@@ -78,17 +78,17 @@
 
             // my-account
             $scope.myAccount = function () {
-                checkCustomerLoggedIn('/my-account');
+                checkCustomerLoggedIn('/tai-khoan-cua-toi');
             };
 
             // order-history
             $scope.orderHistory = function () {
-                checkCustomerLoggedIn('/order-history');
+                checkCustomerLoggedIn('/lich-su-don-hang');
             };
 
             // favorite-product-list
             $scope.favoriteProductList = function () {
-                checkCustomerLoggedIn('/favorite-product-list');
+                checkCustomerLoggedIn('/danh-sach-ua-thich');
             };
 
             function openLoginModal(redirectToPath) {

@@ -21,19 +21,19 @@
                 controllerAs: 'faq'
             })
             .state('my-account', {
-                url: '/my-account',
+                url: '/tai-khoan-cua-toi',
                 templateUrl: 'app/my-account/my-account.html',
                 controller: 'MyAccountController',
                 controllerAs: 'myAcc'
             })
             .state('order-history', {
-                url: '/order-history',
+                url: '/lich-su-don-hang',
                 templateUrl: 'app/order-history/order-history.html',
                 controller: 'OrderHistoryController',
                 controllerAs: 'orderHistory'
             })
             .state('favorite-product-list', {
-                url: '/favorite-product-list',
+                url: '/danh-sach-ua-thich',
                 templateUrl: 'app/favorite-product-list/favorite-product-list.html',
                 controller: 'FavoriteProductListController',
                 controllerAs: 'favorite'
@@ -61,6 +61,12 @@
                 templateUrl: 'app/technical-services/technical-services.html',
                 controller: 'TechnicalServicesController',
                 controllerAs: 'techServices'
+            })
+            .state('address-book', {
+                url: '/so-dia-chi',
+                templateUrl: 'app/address-book/address-book.html',
+                controller: 'AddressBookController',
+                controllerAs: 'addressBook'
             });
 
         $urlRouterProvider.otherwise('/');

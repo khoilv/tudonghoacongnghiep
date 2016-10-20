@@ -1,0 +1,23 @@
+.address-book {
+  .table th:nth-last-child(1),
+  .table th:nth-last-child(2),
+  .table th:nth-last-child(3),
+  .table td:nth-last-child(1),
+  .table td:nth-last-child(2),
+  .table td:nth-last-child(3) {
+    text-align: center;
+  }
+  a.glyphicon-pencil {
+    color: #333 !important;
+  }
+}
+
+.btn-delete-cart {
+  background: #dbdbdb;
+  padding: 5px 10px 8px 10px;
+  span {
+    color: #8c8c8c;
+    padding: 0 10px 0 0;
+    font-size: 16px;
+  }
+}
