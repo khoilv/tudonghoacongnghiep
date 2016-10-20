@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('project_name');
             $table->string('slug')->unique();
+            $table->bigInteger('project_budget');
             $table->text('project_description');
             $table->longText('project_content');
             $table->string('project_duration');
