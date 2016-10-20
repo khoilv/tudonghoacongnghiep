@@ -5,7 +5,15 @@
         .module('angularSeedApp')
         .config(config);
 
-    config.$inject = ['$httpProvider', 'jwtOptionsProvider', '$logProvider', '$compileProvider', '$sceDelegateProvider', 'localStorageServiceProvider', 'toastr'];
+    config.$inject = [
+        '$httpProvider',
+        'jwtOptionsProvider',
+        '$logProvider',
+        '$compileProvider',
+        '$sceDelegateProvider',
+        'localStorageServiceProvider',
+        'toastr'
+    ];
 
     /** @ngInject */
     function config($httpProvider, jwtOptionsProvider, $logProvider, $compileProvider, $sceDelegateProvider, localStorageServiceProvider, toastr) {
@@ -34,7 +42,7 @@
         // Set local storage config
         localStorageServiceProvider
             .setPrefix('tudonghoacongnghiep')
-            .setStorageType('sessionStorage');
+            .setStorageType('localStorage');
 
         // Set options third-party lib
         toastr.options.timeOut = 3000;

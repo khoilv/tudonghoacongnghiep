@@ -45,10 +45,11 @@ class CustomerController extends Controller
         }
 
         $customer = Customer::where('email', $credentials['email'])->first();
+        $customerId = $customer->id;
         $username = $customer->last_name . ' ' . $customer->first_name;
 
         // if no errors are encountered we can return a JWT
-        return response()->json(compact('token', 'username'));
+        return response()->json(compact('token', 'username', 'customerId'));
     }
 
     public function initRegisterCustomer(Request $request)
