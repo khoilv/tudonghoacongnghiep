@@ -21,37 +21,6 @@ h2 {
   font-size: 17px;
 }
 
-.wrap-img-detail {
-  border: 2px solid #ccc !important;
-  height: 208px;
-  img {
-    max: {
-      width: 100%;
-      height: 100%;
-    }
-    margin: 0 auto;
-    display: block;
-  }
-}
-
-.small-project {
-  text-align: center;
-  li {
-    width: 28%;
-    display: inline-block;
-    border: 2px solid #ccc;
-    height: 70px;
-    img {
-      max: {
-        width: 100%;
-        height: 100%;
-      }
-      margin: 0 auto;
-      display: block;
-    }
-  }
-}
-
 .project-detail {
   margin-top: 20px;
   padding-top: 20px;
