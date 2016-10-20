@@ -9,20 +9,23 @@
 
     /** @ngInject */
     function ProjectListController($scope, $log, $stateParams, commonService) {
-        $scope.totalItems = 64;
         $scope.currentPage = 1;
         $scope.maxSize = 5;
+        $scope.itemsPerPage = 6;
+        $scope.totalItems = 0;
 
-        commonService.loadData('project/list', null, function (response) {
-           $scope.projects = response.data;
+        var queryParams = {page: 1, items_per_page: $scope.itemsPerPage};
+        commonService.loadData('project/list', queryParams, function (response) {
+           $scope.projects = response.data.data;
+            $scope.totalItems = response.data.total;
         });
 
-        $scope.setPage = function (pageNo) {
-            $scope.currentPage = pageNo;
-        };
-
         $scope.pageChanged = function() {
-            $log.log('Page changed to: ' + $scope.currentPage);
+            queryParams = {page: $scope.currentPage, items_per_page: $scope.itemsPerPage};
+            commonService.loadData('project/list', queryParams, function (response) {
+                $scope.projects = response.data.data;
+                $scope.totalItems = response.data.total;
+            });
         };
     }
 
