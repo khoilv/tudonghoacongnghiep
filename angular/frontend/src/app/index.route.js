@@ -49,6 +49,18 @@
                 templateUrl: 'app/project-detail/project-detail.html',
                 controller: 'ProjectDetailController',
                 controllerAs: 'projectDetail'
+            })
+            .state('technology-training', {
+                url: '/dao-tao-chuyen-giao-cong-nghe',
+                templateUrl: 'app/technology-training/technology-training.html',
+                controller: 'TechnologyTrainingController',
+                controllerAs: 'techTraining'
+            })
+            .state('technical-services', {
+                url: '/dich-vu-ky-thuat',
+                templateUrl: 'app/technical-services/technical-services.html',
+                controller: 'TechnicalServicesController',
+                controllerAs: 'techServices'
             });
 
         $urlRouterProvider.otherwise('/');
