@@ -11,7 +11,7 @@
                     <li><a ng-click="favoriteProductList()">Danh sách ưa thích</a></li>
                     <li ng-if="!currentUser"><a ng-click="openLoginModal()">Đăng nhập</a></li>
                     <li ng-if="!currentUser"><a ng-click="openRegisterModal()">Đăng ký</a></li>
-                    <li ng-if="currentUser" class="welcome"><a>Xin chào: {{currentUser}}</a></li>
+                    <li ng-if="currentUser" class="welcome"><a>Xin chào: {{currentUser | trim}}</a></li>
                     <li ng-if="currentUser" class="logout"><a ng-click="logout()">Thoát</a></li>
                 </ul>
                 <div class="clearfix"></div>

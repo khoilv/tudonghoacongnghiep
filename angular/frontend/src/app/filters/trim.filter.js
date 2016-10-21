@@ -8,7 +8,6 @@
                 if (!angular.isString(value)) {
                     return value;
                 }
-
                 return (!value) ? '' : value.replace(/^\s+|\s+$/g, '');
             };
         });
