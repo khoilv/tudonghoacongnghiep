@@ -31,11 +31,11 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="address in addresses">
-                            <td>{{address.last_name + ' ' + address.first_name}}</td>
+                            <td>{{address.last_name + ' ' + address.first_name | trim}}</td>
                             <td>{{address.address_1}}</td>
                             <td>{{address.address_2}}</td>
                             <td>{{address.tel}}</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
+                            <td><a href="#" class="glyphicon glyphicon-pencil"></a></td>
                             <td><button class="btn-delete"></button></td>
                         </tr>
                         </tbody>
