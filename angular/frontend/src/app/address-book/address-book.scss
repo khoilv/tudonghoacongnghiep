@@ -13,8 +13,11 @@
 }
 
 .btn-delete-cart {
-  background: #dbdbdb;
-  padding: 5px 10px 8px 10px;
+  background: {
+    color: #dbdbdb;
+    image: none !important;
+  }
+  padding: 5px 10px 8px 10px !important;
   span {
     color: #8c8c8c;
     padding: 0 10px 0 0;
