@@ -34,7 +34,7 @@ class Project extends Model
         'start_date',
         'end_date',
         'project_status',
-        'project_owner',
+        'project_partner',
         'project_role',
         'project_evaluation',
         'project_images',

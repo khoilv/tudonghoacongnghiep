@@ -24,7 +24,7 @@ class CreateProjectsTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->tinyInteger('project_status');
-            $table->string('project_owner');
+            $table->string('project_partner');
             $table->string('project_role');
             $table->string('project_evaluation');
             $table->text('project_images');
