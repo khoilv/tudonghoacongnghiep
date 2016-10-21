@@ -5,9 +5,9 @@
         .module('angularSeedApp')
         .factory('customerService', customerService);
 
-    customerService.$inject = ['$sanitize', 'localStorageService', 'commonService'];
+    customerService.$inject = ['$http', '$sanitize', 'localStorageService', 'commonService', 'API_URL'];
 
-    function customerService($sanitize, localStorageService, commonService) {
+    function customerService($http, $sanitize, localStorageService, commonService, API_URL) {
         var storageType = 'sessionStorage';
         var sanitizeCredentials = function (credentials) {
             return {
@@ -28,6 +28,21 @@
                 } else {
                     console.log(response);
                 }
+            });
+        }
+
+        function getRefreshToken(token) {
+            return $http({
+                url: API_URL + 'customer/token',
+                skipAuthorization : true,
+                method: 'GET',
+                headers : { Authorization : 'Bearer '+ token}
+            }).then(function (response) {
+                localStorageService.set('id_token', response.data.token, storageType);
+                return response.data.token;
+            }, function (response) {
+                localStorageService.remove('id_token', storageType);
+                localStorageService.remove('username', storageType);
             });
         }
 
@@ -84,6 +99,7 @@
             getAccessToken: getAccessToken,
             getUserName: getUserName,
             getCustomerId: getCustomerId,
+            getRefreshToken: getRefreshToken,
             getAuthData: getAuthData,
             forgotPassword: forgotPassword
         }

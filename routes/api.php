@@ -31,6 +31,7 @@ Route::get('online_support', 'OnlineSupportController@getOnlineSupportList');
 
 // customer api
 Route::post('customer/auth', 'CustomerController@authenticate');
+Route::get('customer/token', 'CustomerController@authenticate');
 Route::post('customer/login', 'CustomerController@login');
 Route::get('customer/register', 'CustomerController@initRegisterCustomer');
 Route::post('customer/register', 'CustomerController@registerCustomer');

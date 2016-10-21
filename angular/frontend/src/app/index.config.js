@@ -20,10 +20,16 @@
 
         // Please note we're annotating the function so that the $injector works when the file is minified
         jwtOptionsProvider.config({
-            tokenGetter: ['customerService', function(customerService) {
-                return customerService.getAccessToken();
+            tokenGetter: ['jwtHelper', 'customerService', function(jwtHelper, customerService) {
+                var token = customerService.getAccessToken();
+                if (token && jwtHelper.isTokenExpired(token)) {
+                    return customerService.getRefreshToken(token);
+                } else {
+                    return token;
+                }
             }],
-            whiteListedDomains: ['api.tudonghoacongnghiep.com', 'localhost']
+            whiteListedDomains: ['api.tudonghoacongnghiep.com', 'localhost'],
+            unauthenticatedRedirectPath: '/'
         });
 
         $httpProvider.interceptors.push('jwtInterceptor');

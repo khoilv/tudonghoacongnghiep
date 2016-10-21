@@ -12,6 +12,9 @@ use App\Http\Requests\RegisterCustomer;
 use App\Http\Requests\LoginCustomer;
 use Illuminate\Support\Facades\Hash;
 use Mews\Captcha\Facades\Captcha;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
@@ -51,6 +54,20 @@ class CustomerController extends Controller
 
         // if no errors are encountered we can return a JWT
         return response()->json(compact('token', 'username', 'customerId'));
+    }
+
+    public function token()
+    {
+        $token = JWTAuth::getToken();
+        if (!$token) {
+            throw new BadRequestHttpException('Token not provided');
+        }
+        try {
+            $token = JWTAuth::refresh($token);
+        } catch (TokenInvalidException $e) {
+            throw new AccessDeniedException('The token is invalid');
+        }
+        return response()->json(compact('token'));
     }
 
     public function initRegisterCustomer(Request $request)
