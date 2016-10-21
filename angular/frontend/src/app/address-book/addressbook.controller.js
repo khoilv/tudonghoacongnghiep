@@ -13,7 +13,6 @@
         var queryParams = {customer_id: customerService.getCustomerId()};
         commonService.loadData('customer/address-book', queryParams, function (response) {
             $scope.addresses = response.data;
-            console.log(response.data);
         });
 
     }

@@ -36,8 +36,10 @@
                 $scope.supports = response.data;
             });
 
+            clearExistingTimeouts();
+
             // faq list marquee
-            $timeout(function() {
+            $timeout(function () {
                 angular.element('.marquee > ul').show();
                 angular.element('.marquee').marquee({
                     //speed in milliseconds of the marquee
@@ -68,6 +70,13 @@
                 });
             };
 
+            // clear all existing timeouts
+            function clearExistingTimeouts() {
+                var id = window.setTimeout(function() {}, 0);
+                while (id--) {
+                    window.clearTimeout(id); // will do nothing if no timeout with id is present
+                }
+            }
         }
 
         return directive;
