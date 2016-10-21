@@ -7,7 +7,7 @@
     customerService.$inject = ['$sanitize', 'localStorageService', 'commonService'];
 
     function customerService($sanitize, localStorageService, commonService) {
-
+        var storageType = 'sessionStorage';
         var sanitizeCredentials = function (credentials) {
             return {
                 email: $sanitize(credentials.email),
@@ -17,9 +17,9 @@
 
         function login(credentials, onSuccess, onError) {
             commonService.postData('customer/auth', sanitizeCredentials(credentials), function (response) {
-                localStorageService.set('id_token', response.data.token);
-                localStorageService.set('username', response.data.username);
-                localStorageService.set('customer_id', response.data.customerId);
+                localStorageService.set('id_token', response.data.token, storageType);
+                localStorageService.set('username', response.data.username, storageType);
+                localStorageService.set('customer_id', response.data.customerId, storageType);
                 onSuccess(response);
             }, function (response) {
                 if (response.status === 422 || response.status == 401) {
@@ -43,31 +43,31 @@
         }
 
         function logout(onSuccess) {
-            localStorageService.remove('id_token');
-            localStorageService.remove('username');
+            localStorageService.remove('id_token', storageType);
+            localStorageService.remove('username', storageType);
             onSuccess();
         }
 
         function isAuthenticated() {
-            return localStorageService.get('id_token') ? true : false;
+            return localStorageService.get('id_token', storageType) ? true : false;
         }
 
         function getAccessToken() {
-            return localStorageService.get('id_token');
+            return localStorageService.get('id_token', storageType);
         }
 
         function getUserName() {
-            return localStorageService.get('username');
+            return localStorageService.get('username', storageType);
         }
 
         function getCustomerId() {
-            return localStorageService.get('customer_id');
+            return localStorageService.get('customer_id', storageType);
         }
 
         function getAuthData() {
             return {
-                username: localStorageService.get('username'),
-                token: localStorageService.get('id_token')
+                username: localStorageService.get('username', storageType),
+                token: localStorageService.get('id_token', storageType)
             }
         }
         

@@ -42,7 +42,7 @@
         // Set local storage config
         localStorageServiceProvider
             .setPrefix('tudonghoacongnghiep')
-            .setStorageType('localStorage');
+            .setStorageType('sessionStorage');
 
         // Set options third-party lib
         toastr.options.timeOut = 3000;

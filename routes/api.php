@@ -36,7 +36,12 @@ Route::get('customer/register', 'CustomerController@initRegisterCustomer');
 Route::post('customer/register', 'CustomerController@registerCustomer');
 Route::get('customer/generate-captcha', 'CustomerController@generateCaptcha');
 
+/*
 Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function () {
+    Route::get('customer/address-book', 'AddressBookController@getAddressBook');
+});
+*/
+Route::group(['middleware' => ['jwt.auth']], function () {
     Route::get('customer/address-book', 'AddressBookController@getAddressBook');
 });
 

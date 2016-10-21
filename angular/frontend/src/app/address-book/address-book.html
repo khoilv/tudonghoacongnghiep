@@ -30,99 +30,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
-                            <td><button class="btn-delete"></button></td>
-                        </tr>
-                        <tr>
-                            <td>Chang Chang</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>Đức Diễn- Từ liêm - Hà Nội</td>
-                            <td>0988455592</td>
+                        <tr ng-repeat="address in addresses">
+                            <td>{{address.last_name + ' ' + address.first_name}}</td>
+                            <td>{{address.address_1}}</td>
+                            <td>{{address.address_2}}</td>
+                            <td>{{address.tel}}</td>
                             <td><a href="#" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit"></a></td>
                             <td><button class="btn-delete"></button></td>
                         </tr>
