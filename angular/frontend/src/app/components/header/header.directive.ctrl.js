@@ -75,9 +75,11 @@
             }, function (response) {
                 generateCaptcha();
                 var errors = {};
-                angular.forEach(response.data, function (value, key) {
-                    errors[key] = value[0];
-                });
+                if (response.status == 422) {
+                    angular.forEach(response.data, function (value, key) {
+                        errors[key] = value[0];
+                    });
+                }
                 $ctrl.errors = errors;
             });
         };

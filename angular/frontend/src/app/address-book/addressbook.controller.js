@@ -11,12 +11,8 @@
 
     /** @ngInject */
     function AddressBookController($scope, $uibModal, $log, commonService, customerService) {
-
-        var queryParams = {customer_id: customerService.getCustomerId()};
-        commonService.loadData('customer/address-list', queryParams, function (response) {
-            $scope.addresses = response.data;
-        });
-
+        // initialize screen
+        showAddressList();
 
         // add new address modal
         $scope.openAddressModal = function (customerId, addressId) {
@@ -40,17 +36,26 @@
             });
 
             modalInstance.result.then(function () {
-                $log.info('Address modal closed');
+                showAddressList();
             }, function () {
                 $log.info('Address modal dismissed at: ' + new Date());
             });
         };
+
+        // show address list
+        function showAddressList() {
+            var queryParams = {customer_id: customerService.getCustomerId()};
+            commonService.loadData('customer/address-list', queryParams, function (response) {
+                $scope.addresses = response.data;
+            });
+        }
     }
 
     function AddressModalInstanceController($scope, $uibModalInstance, commonService, input) {
         if (input.addressId === null) {
             $scope.formTitle = 'Thêm mới địa chỉ';
             $scope.address = {
+                id: null,
                 first_name: null,
                 last_name: null,
                 company: null,
@@ -79,6 +84,20 @@
         $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
         };
+
+        $scope.store = function () {
+            commonService.postData('customer/address', $scope.address, function (response) {
+                console.log(response);
+            }, function (response) {
+                var errors = {};
+                if (response.status == 422) {
+                    angular.forEach(response.data, function (value, key) {
+                        errors[key] = value[0];
+                    });
+                }
+                $scope.errors = errors;
+            });
+        }
     }
 
 })();

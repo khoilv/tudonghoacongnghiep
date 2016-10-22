@@ -62,6 +62,7 @@
                                 <label class="control-label col-sm-3">Tên (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" placeholder="Tên" ng-model="address.first_name">
+                                    <span class="error-msg" ng-show="errors.first_name">{{errors.first_name}}</span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -74,6 +75,7 @@
                                 <label class="control-label col-sm-3">Địa chỉ 1 (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" placeholder="Địa chỉ 1" ng-model="address.address_1">
+                                    <span class="error-msg" ng-show="errors.address_1">{{errors.address_1}}</span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -85,7 +87,8 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Số điện thoại (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Số điện thoại" ng-model="address.tel">
+                                    <input type="tel" class="form-control" placeholder="Số điện thoại" ng-model="address.tel">
+                                    <span class="error-msg" ng-show="errors.tel">{{errors.tel}}</span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -95,12 +98,15 @@
                                             ng-options="city_province.id as city_province.name for city_province in cities_provinces">
                                         <!--<option value="">---Chọn Tỉnh/Thành phố---</option>-->
                                     </select>
+                                    <span class="error-msg" ng-show="errors.city_province_id">{{errors.city_province_id}}</span>
                                 </div>
                             </div>
+                            <input type="hidden" name="id" ng-model="address.id">
+                            <input type="hidden" name="customer_id" ng-model="address.customer_id">
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn-yellow">Cập nhật</button>
+                        <button class="btn-yellow" ng-click="store()">Cập nhật</button>
                         <button class="btn-delete-cart" ng-click="cancel()"><span class="glyphicon glyphicon-repeat"></span>Quay lại</button>
                     </div>
                 </script>
