@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\AddressBook as AddressBookRequest;
 use App\AddressBook;
+use Illuminate\Database\QueryException;
 
 class AddressBookController extends Controller
 {
@@ -38,7 +39,22 @@ class AddressBookController extends Controller
 
     public function store(AddressBookRequest $request)
     {
-        $data = $request->only(['id', 'first_name', 'last_name', 'company', 'tel', 'address_1', 'address_2', 'city_province_id', 'customer_id']);
+        $input = $request->only(['id', 'first_name', 'last_name', 'company', 'tel', 'address_1', 'address_2', 'city_province_id', 'customer_id']);
+        if ($input['id']) {
+            try {
+                AddressBook::where('id', $input['id'])->update($input);
+                $data = ['success' => 'Update address successfully'];
+            } catch (QueryException $e) {
+                return response()->json(['error' => $e->errorInfo], 500);
+            }
+        } else {
+            try {
+                AddressBook::create($input);
+                $data = ['success' => 'Add address successfully'];
+            } catch (QueryException $e) {
+                return response()->json(['error' => $e->errorInfo], 500);
+            }
+        }
 
         // return json result
         if ($request->input('callback')) {

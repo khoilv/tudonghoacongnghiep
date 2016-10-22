@@ -54,6 +54,7 @@
     function AddressModalInstanceController($scope, $uibModalInstance, commonService, input) {
         if (input.addressId === null) {
             $scope.formTitle = 'Thêm mới địa chỉ';
+            $scope.buttonText = 'Thêm mới';
             $scope.address = {
                 id: null,
                 first_name: null,
@@ -67,6 +68,7 @@
             };
         } else {
             $scope.formTitle = 'Chỉnh sửa địa chỉ';
+            $scope.buttonText = 'Cập nhật';
             commonService.loadData('customer/address', {address_id: input.addressId}, function (response) {
                 $scope.address = response.data;
             });
@@ -87,6 +89,7 @@
 
         $scope.store = function () {
             commonService.postData('customer/address', $scope.address, function (response) {
+                $uibModalInstance.dismiss('cancel');
                 console.log(response);
             }, function (response) {
                 var errors = {};

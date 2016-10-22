@@ -94,9 +94,9 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="city_province">Tỉnh/Thành phố (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control input-sm" id="city_province" ng-model="address.city_province_id"
+                                    <select class="form-control input-sm" id="city_province"
+                                            ng-model="address.city_province_id"
                                             ng-options="city_province.id as city_province.name for city_province in cities_provinces">
-                                        <!--<option value="">---Chọn Tỉnh/Thành phố---</option>-->
                                     </select>
                                     <span class="error-msg" ng-show="errors.city_province_id">{{errors.city_province_id}}</span>
                                 </div>
@@ -106,7 +106,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn-yellow" ng-click="store()">Cập nhật</button>
+                        <button class="btn-yellow" ng-click="store()">{{buttonText}}</button>
                         <button class="btn-delete-cart" ng-click="cancel()"><span class="glyphicon glyphicon-repeat"></span>Quay lại</button>
                     </div>
                 </script>
