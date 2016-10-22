@@ -26,7 +26,7 @@ class AddressBook extends FormRequest
         return [
             'first_name' => 'required|string',
             'address_1' => 'required|string',
-            'tel' => 'required|numeric|min:10',
+            'tel' => 'required|numeric|digits_between:10,11',
             'city_province_id' => 'required|integer',
         ];
     }
@@ -43,7 +43,7 @@ class AddressBook extends FormRequest
             'first_name.string' => 'Tên nhập không hợp lệ',
             'tel.required' => 'Số điện thoại được yêu cầu nhập',
             'tel.numeric' => 'Số điện thoại không hợp lệ',
-            'tel.min' => 'Số điện thoại phải ít nhất 10 số',
+            'tel.digits_between' => 'Số điện thoại phải là 10 hoặc 11 số',
             'address_1.required' => 'Địa chỉ 1 được yêu cầu nhập',
             'city_province_id.required' => 'Tỉnh/Thành phố được yêu cầu nhập',
             'city_province_id.integer' => 'Tỉnh/Thành phố không hợp lệ'
