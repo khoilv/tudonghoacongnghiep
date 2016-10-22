@@ -57,7 +57,7 @@
                 tel: null,
                 address_1: null,
                 address_2: null,
-                city_province_id: 0,
+                city_province_id: '',
                 customer_id: input.customerId
             };
         } else {
@@ -68,8 +68,12 @@
         }
 
         commonService.loadData('cities-provinces', null, function (response) {
-            $scope.cities_provinces = response.data;
-            console.log(response.data);
+            var cities_provinces = [];
+            cities_provinces.push({ id: '', name: '---Chọn Tỉnh/Thành phố---'});
+            angular.forEach(response.data, function (city_province) {
+                cities_provinces.push(city_province);
+            });
+            $scope.cities_provinces = cities_provinces;
         });
 
         $scope.cancel = function () {

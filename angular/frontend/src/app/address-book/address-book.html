@@ -34,7 +34,7 @@
                             <td>{{address.last_name + ' ' + address.first_name | trim}}</td>
                             <td>{{address.address_1}}</td>
                             <td>{{address.address_2}}</td>
-                            <td>{{address.tel}}</td>
+                            <td>{{address.tel | tel}}</td>
                             <td><a class="glyphicon glyphicon-pencil" ng-click="openAddressModal(address.customer_id, address.id)"></a></td>
                             <td><button class="btn-delete"></button></td>
                         </tr>
@@ -91,10 +91,9 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="city_province">Tỉnh/Thành phố (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control input-sm" id="city_province" ng-model="address.city_province_id">
-                                        <option>Hà Nội</option>
-                                        <option>Hà Nội</option>
-                                        <option>Hà Nội</option>
+                                    <select class="form-control input-sm" id="city_province" ng-model="address.city_province_id"
+                                            ng-options="city_province.id as city_province.name for city_province in cities_provinces">
+                                        <!--<option value="">---Chọn Tỉnh/Thành phố---</option>-->
                                     </select>
                                 </div>
                             </div>
