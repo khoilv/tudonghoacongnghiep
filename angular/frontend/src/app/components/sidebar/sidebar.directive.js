@@ -36,7 +36,7 @@
                 $scope.supports = response.data;
             });
 
-            clearExistingTimeouts();
+            //clearExistingTimeouts();
 
             // faq list marquee
             $timeout(function () {
