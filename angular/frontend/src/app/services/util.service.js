@@ -13,7 +13,7 @@
             commonService.loadData('customer/generate-captcha', null, true, function (data) {
                 onSuccess(data);
             });
-        }
+        };
 
         return {
             generateCaptcha: generateCaptcha

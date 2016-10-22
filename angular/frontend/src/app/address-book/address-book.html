@@ -35,63 +35,63 @@
                             <td>{{address.address_1}}</td>
                             <td>{{address.address_2}}</td>
                             <td>{{address.tel}}</td>
-                            <td><a href="#" class="glyphicon glyphicon-pencil"></a></td>
+                            <td><a class="glyphicon glyphicon-pencil" ng-click="openAddressModal(address.customer_id, address.id)"></a></td>
                             <td><button class="btn-delete"></button></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="clearfix"></div>
-                <button class="btn-blue pull-right" ng-click="openNewAddressModal()">Thêm mới</button>
+                <button class="btn-blue pull-right" ng-click="openAddressModal(null, null)">Thêm mới</button>
 
                 <!-- add new address modal -->
-                <script type="text/ng-template" id="newAddressModal.html">
+                <script type="text/ng-template" id="addressModal.html">
                     <div class="modal-header">
                         <button type="button" class="close">&times;</button>
-                        <h4 class="modal-title">Chỉnh sửa địa chỉ</h4>
+                        <h4 class="modal-title">{{formTitle}}</h4>
                     </div>
                     <div class="modal-body">
                         <form class="form-horizontal mt20">
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Họ đệm :</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Họ đệm">
+                                    <input type="text" class="form-control" placeholder="Họ đệm" ng-model="address.last_name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Tên (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Tên">
+                                    <input type="text" class="form-control" placeholder="Tên" ng-model="address.first_name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Công ty :</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Công ty">
+                                    <input type="text" class="form-control" placeholder="Công ty" ng-model="address.company">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Địa chỉ 1 (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Địa chỉ">
+                                    <input type="text" class="form-control" placeholder="Địa chỉ 1" ng-model="address.address_1">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Địa chỉ 2:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Địa chỉ">
+                                    <input type="text" class="form-control" placeholder="Địa chỉ 2" ng-model="address.address_2">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Số điện thoại (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="Số điện thoại">
+                                    <input type="text" class="form-control" placeholder="Số điện thoại" ng-model="address.tel">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="city_province">Tỉnh/Thành phố (<span class="text-red">*</span>):</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control input-sm" id="city_province">
+                                    <select class="form-control input-sm" id="city_province" ng-model="address.city_province_id">
                                         <option>Hà Nội</option>
                                         <option>Hà Nội</option>
                                         <option>Hà Nội</option>
