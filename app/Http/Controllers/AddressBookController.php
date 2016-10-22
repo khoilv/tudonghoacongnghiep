@@ -39,22 +39,41 @@ class AddressBookController extends Controller
 
     public function store(AddressBookRequest $request)
     {
-        $input = $request->only(['id', 'first_name', 'last_name', 'company', 'tel', 'address_1', 'address_2', 'city_province_id', 'customer_id']);
-        if ($input['id']) {
+        $addressId = $request->input('addressId');
+        $data = $request->only(['first_name', 'last_name', 'company', 'tel', 'address_1', 'address_2', 'city_province_id', 'customer_id']);
+        if ($addressId) {
             try {
-                AddressBook::where('id', $input['id'])->update($input);
-                $data = ['success' => 'Update address successfully'];
+                AddressBook::where('id', $addressId)->update($data);
+                $result = ['success' => 'Update address successfully'];
             } catch (QueryException $e) {
                 return response()->json(['error' => $e->errorInfo], 500);
             }
         } else {
             try {
-                AddressBook::create($input);
-                $data = ['success' => 'Add address successfully'];
+                AddressBook::create($data);
+                $result = ['success' => 'Add address successfully'];
             } catch (QueryException $e) {
                 return response()->json(['error' => $e->errorInfo], 500);
             }
         }
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($result)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($result);
+        }
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        try {
+            $address = AddressBook::find($id);
+            $address->delete();
+        } catch (QueryException $e) {
+            return response()->json(['error' => $e->errorInfo], 500);
+        }
+        $data = ['success' => 'Delete address successfully'];
 
         // return json result
         if ($request->input('callback')) {

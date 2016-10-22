@@ -1,16 +1,18 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('angularSeedApp')
         .controller('AddressBookController', AddressBookController)
-        .controller('AddressModalInstanceController', AddressModalInstanceController);
+        .controller('AddressModalInstanceController', AddressModalInstanceController)
+        .controller('ConfirmModalInstanceController', ConfirmModalInstanceController);
 
-    AddressBookController.$inject = ['$scope', '$uibModal', '$log', 'commonService', 'customerService'];
+    AddressBookController.$inject = ['$scope', '$uibModal', '$log', '$http', 'commonService', 'customerService', 'API_URL'];
     AddressModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'commonService', 'input'];
+    ConfirmModalInstanceController.$inject = ['$scope', '$uibModalInstance'];
 
     /** @ngInject */
-    function AddressBookController($scope, $uibModal, $log, commonService, customerService) {
+    function AddressBookController($scope, $uibModal, $log, $http, commonService, customerService, API_URL) {
         // initialize screen
         showAddressList();
 
@@ -25,7 +27,7 @@
             modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'addressModal.html',
-                size: 'lg',
+                size: 'lg', // sm, md, lg
                 controller: 'AddressModalInstanceController',
                 controllerAs: '$ctrl',
                 resolve: {
@@ -37,6 +39,28 @@
 
             modalInstance.result.then(function () {
                 showAddressList();
+            }, function () {
+                $log.info('Address modal dismissed at: ' + new Date());
+            });
+        };
+
+        $scope.openConfirmModal = function (addressId) {
+            var modalInstance;
+
+            modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'confirmModal.html',
+                size: 'md', // sm, md, lg
+                controller: 'ConfirmModalInstanceController',
+                controllerAs: '$ctrl'
+            });
+
+            modalInstance.result.then(function () {
+                var submitUrl = API_URL + 'customer/address/' + addressId;
+                $http.delete(submitUrl).success(function (response) {
+                    showAddressList();
+                    $log.info(response);
+                });
             }, function () {
                 $log.info('Address modal dismissed at: ' + new Date());
             });
@@ -57,12 +81,12 @@
             $scope.buttonText = 'Thêm mới';
             $scope.address = {
                 id: null,
-                first_name: null,
-                last_name: null,
-                company: null,
-                tel: null,
-                address_1: null,
-                address_2: null,
+                first_name: '',
+                last_name: '',
+                company: '',
+                tel: '',
+                address_1: '',
+                address_2: '',
                 city_province_id: '',
                 customer_id: input.customerId
             };
@@ -76,7 +100,7 @@
 
         commonService.loadData('cities-provinces', null, function (response) {
             var cities_provinces = [];
-            cities_provinces.push({ id: '', name: '---Chọn Tỉnh/Thành phố---'});
+            cities_provinces.push({id: '', name: '---Chọn Tỉnh/Thành phố---'});
             angular.forEach(response.data, function (city_province) {
                 cities_provinces.push(city_province);
             });
@@ -103,4 +127,13 @@
         }
     }
 
+    function ConfirmModalInstanceController($scope, $uibModalInstance) {
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
+
+        $scope.delete = function () {
+            $uibModalInstance.close(null);
+        }
+    }
 })();

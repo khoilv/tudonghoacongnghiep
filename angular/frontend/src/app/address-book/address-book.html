@@ -36,7 +36,7 @@
                             <td>{{address.address_2}}</td>
                             <td>{{address.tel | tel}}</td>
                             <td><a class="glyphicon glyphicon-pencil" ng-click="openAddressModal(address.customer_id, address.id)"></a></td>
-                            <td><button class="btn-delete"></button></td>
+                            <td><button class="btn-delete" ng-click="openConfirmModal(address.id)"></button></td>
                         </tr>
                         </tbody>
                     </table>
@@ -107,6 +107,21 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn-yellow" ng-click="store()">{{buttonText}}</button>
+                        <button class="btn-delete-cart" ng-click="cancel()"><span class="glyphicon glyphicon-repeat"></span>Quay lại</button>
+                    </div>
+                </script>
+
+                <!-- confirm address deletion modal -->
+                <script type="text/ng-template" id="confirmModal.html">
+                    <div class="modal-header">
+                        <button type="button" class="close" ng-click="cancel()">&times;</button>
+                        <h4 class="modal-title">Xác nhận</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn có chắc chắn muốn xóa địa chỉ này khỏi sổ địa chỉ của bạn không?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-yellow" ng-click="delete()">Xóa</button>
                         <button class="btn-delete-cart" ng-click="cancel()"><span class="glyphicon glyphicon-repeat"></span>Quay lại</button>
                     </div>
                 </script>
