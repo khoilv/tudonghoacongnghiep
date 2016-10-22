@@ -39,7 +39,7 @@ class AddressBookController extends Controller
 
     public function store(AddressBookRequest $request)
     {
-        $addressId = $request->input('addressId');
+        $addressId = $request->input('id');
         $data = $request->only(['first_name', 'last_name', 'company', 'tel', 'address_1', 'address_2', 'city_province_id', 'customer_id']);
         if ($addressId) {
             try {
