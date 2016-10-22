@@ -59,14 +59,7 @@
                     templateUrl: 'registerModal.html',
                     size: 'lg',
                     controller: 'RegisterModalInstanceController',
-                    controllerAs: '$ctrl',
-                    resolve: {
-                        /*
-                         currentUser: function () {
-                         return $ctrl.currentUser;
-                         }
-                         */
-                    }
+                    controllerAs: '$ctrl'
                 });
 
                 modalInstance.result.then(function () {
@@ -99,8 +92,7 @@
                     templateUrl: 'loginModal.html',
                     size: 'lg',
                     controller: 'LoginModalInstanceController',
-                    controllerAs: '$ctrl',
-                    resolve: {}
+                    controllerAs: '$ctrl'
                 });
 
                 modalInstance.result.then(function (currentUser) {
