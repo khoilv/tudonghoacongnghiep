@@ -89,7 +89,7 @@
 
         $scope.store = function () {
             commonService.postData('customer/address', $scope.address, function (response) {
-                $uibModalInstance.dismiss('cancel');
+                $uibModalInstance.close(null);
                 console.log(response);
             }, function (response) {
                 var errors = {};
