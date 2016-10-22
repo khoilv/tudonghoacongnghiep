@@ -5,18 +5,25 @@
         .module('angularSeedApp')
         .factory('utilService', utilService);
 
-    utilService.$inject = ['$http', 'localStorageService', 'API_URL', 'commonService'];
+    utilService.$inject = ['commonService'];
 
-    function utilService($http, localStorageService, API_URL, commonService) {
+    function utilService(commonService) {
 
         function generateCaptcha(onSuccess) {
-            commonService.loadData('customer/generate-captcha', null, true, function (data) {
+            commonService.loadData('generate-captcha', null, function (data) {
                 onSuccess(data);
             });
-        };
+        }
+
+        function getCitiesProvinces(onSuccess) {
+            commonService.loadData('cities-provinces', null, function (data) {
+                onSuccess(data);
+            });
+        }
 
         return {
-            generateCaptcha: generateCaptcha
+            generateCaptcha: generateCaptcha,
+            getCitiesProvinces: getCitiesProvinces
         }
     }
 

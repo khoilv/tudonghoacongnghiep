@@ -35,7 +35,6 @@ Route::get('customer/token', 'CustomerController@authenticate');
 Route::post('customer/login', 'CustomerController@login');
 Route::get('customer/register', 'CustomerController@initRegisterCustomer');
 Route::post('customer/register', 'CustomerController@registerCustomer');
-Route::get('customer/generate-captcha', 'CustomerController@generateCaptcha');
 
 /*
 Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function () {
@@ -50,3 +49,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 // project
 Route::get('project/list', 'ProjectController@getProjectList');
 Route::get('project/{slug}', 'ProjectController@getProjectBySlug');
+
+// utils
+Route::get('generate-captcha', 'UtilsController@generateCaptcha');
+Route::get('cities-provinces', 'UtilsController@getCitiesProvinces');

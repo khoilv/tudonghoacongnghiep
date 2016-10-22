@@ -67,6 +67,14 @@
             });
         }
 
+        commonService.loadData('cities-provinces', null, function (response) {
+            $scope.cities_provinces = response.data;
+            console.log(response.data);
+        });
+
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
     }
 
 })();

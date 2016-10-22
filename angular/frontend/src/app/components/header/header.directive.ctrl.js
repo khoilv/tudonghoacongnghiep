@@ -15,7 +15,12 @@
         $scope.loginData = {email: null, password: null};
         $scope.errors = {};
 
-        init();
+        // check login data
+        var loginData = localStorageService.get('loginData', 'localStorage');
+        if (loginData) {
+            $scope.loginData = JSON.parse(loginData);
+            $scope.remember = true;
+        }
 
         $scope.login = function () {
             customerService.login($scope.loginData, function (response) {
@@ -41,14 +46,6 @@
         $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
         };
-        
-        function init() {
-            var loginData = localStorageService.get('loginData', 'localStorage');
-            if (loginData) {
-                $scope.loginData = JSON.parse(loginData);
-                $scope.remember = true;
-            }
-        }
     }
 
     // --- RegisterModalInstanceController
@@ -90,7 +87,7 @@
         };
 
         function generateCaptcha() {
-            commonService.loadData('customer/generate-captcha', null, function (response) {
+            commonService.loadData('generate-captcha', null, function (response) {
                 $ctrl.captcha_src = response.data.captcha_src;
             });
         }

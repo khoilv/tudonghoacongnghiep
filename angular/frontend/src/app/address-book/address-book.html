@@ -47,7 +47,7 @@
                 <!-- add new address modal -->
                 <script type="text/ng-template" id="addressModal.html">
                     <div class="modal-header">
-                        <button type="button" class="close">&times;</button>
+                        <button type="button" class="close" ng-click="cancel()">&times;</button>
                         <h4 class="modal-title">{{formTitle}}</h4>
                     </div>
                     <div class="modal-body">
@@ -102,7 +102,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn-yellow">Cập nhật</button>
-                        <button class="btn-delete-cart"><span class="glyphicon glyphicon-repeat"></span>Quay lại</button>
+                        <button class="btn-delete-cart" ng-click="cancel()"><span class="glyphicon glyphicon-repeat"></span>Quay lại</button>
                     </div>
                 </script>
             </div>

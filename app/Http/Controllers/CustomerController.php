@@ -105,15 +105,4 @@ class CustomerController extends Controller
             return response()->json($data);
         }
     }
-
-    public function generateCaptcha(Request $request)
-    {
-        // return json result
-        $data = ['captcha_src' => captcha_src()];
-        if ($request->input('callback')) {
-            return response()->json($data)->withCallback($request->input('callback'));
-        } else {
-            return response()->json($data);
-        }
-    }
 }
