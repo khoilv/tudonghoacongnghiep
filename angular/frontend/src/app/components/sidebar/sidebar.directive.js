@@ -19,10 +19,10 @@
             bindToController: false
         };
 
-        SidebarController.$inject = ['$scope', '$location', '$timeout', 'commonService'];
+        SidebarController.$inject = ['$scope', '$location', '$timeout', 'commonService', 'localStorageService'];
 
         /** @ngInject */
-        function SidebarController($scope, $location, $timeout, commonService) {
+        function SidebarController($scope, $location, $timeout, commonService, localStorageService) {
 
             commonService.loadData('menu', null, function (response) {
                 $scope.menus = response.data;
@@ -36,26 +36,8 @@
                 $scope.supports = response.data;
             });
 
-            //clearExistingTimeouts();
-
             // faq list marquee
-            $timeout(function () {
-                angular.element('.marquee > ul').show();
-                angular.element('.marquee').marquee({
-                    //speed in milliseconds of the marquee
-                    duration: 5000,
-                    //gap in pixels between the tickers
-                    gap: 10,
-                    //time in milliseconds before the marquee will start animating
-                    delayBeforeStart: 0,
-                    //'left' or 'right'
-                    direction: 'up',
-                    //true or false - should the marquee be duplicated to show an effect of continues flow
-                    duplicated: true,
-                    //pause the marquee when the mouse hovers on it
-                    pauseOnHover: true
-                });
-            }, 2000);
+            initMarquee();
 
             $scope.init = function () {
                 // product category menu
@@ -70,12 +52,30 @@
                 });
             };
 
-            // clear all existing timeouts
-            function clearExistingTimeouts() {
-                var id = window.setTimeout(function() {}, 0);
-                while (id--) {
-                    window.clearTimeout(id); // will do nothing if no timeout with id is present
+            function initMarquee() {
+                var timer;
+                timer = localStorageService.get('marquee_timer', 'localStorage');
+                if (timer) {
+                    window.clearTimeout(parseInt(timer));
                 }
+                timer = window.setTimeout(function () {
+                    angular.element('.marquee > ul').show();
+                    angular.element('.marquee').marquee({
+                        //speed in milliseconds of the marquee
+                        duration: 5000,
+                        //gap in pixels between the tickers
+                        gap: 10,
+                        //time in milliseconds before the marquee will start animating
+                        delayBeforeStart: 0,
+                        //'left' or 'right'
+                        direction: 'up',
+                        //true or false - should the marquee be duplicated to show an effect of continues flow
+                        duplicated: true,
+                        //pause the marquee when the mouse hovers on it
+                        pauseOnHover: true
+                    });
+                }, 2000);
+                localStorageService.set('marquee_timer', timer, 'localStorage');
             }
         }
 
