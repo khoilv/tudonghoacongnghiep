@@ -6,10 +6,10 @@
         .controller('AccountInfoController', AccountInfoController);
 
 
-    AccountInfoController.$inject = ['$scope', 'commonService'];
+    AccountInfoController.$inject = ['$scope', '$location', 'commonService'];
 
     /** @ngInject */
-    function AccountInfoController($scope, commonService) {
+    function AccountInfoController($scope, $location, commonService) {
         $scope.datePicker = {
             opened: false,
             dateFormat: 'dd/MM/yyyy',
@@ -38,6 +38,10 @@
 
         $scope.openDatePicker = function () {
             $scope.datePicker.opened = true;
+        };
+
+        $scope.cancel = function () {
+            $location.path('/tai-khoan-cua-toi');
         }
     }
 
