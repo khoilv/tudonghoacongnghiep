@@ -1,11 +1,15 @@
 @import "../sass/variables";
 @import "../sass/mixins";
 
-.btn-list .btn-delete-cart {
-  @include background-img($path-icon + "back-icon.png", 10px, center);
-  background-color: #dbdbdb;
-}
-
-.btn-list button {
-  margin-right: 10px;
+.account-info {
+  .btn-list {
+    .btn-delete-cart {
+      @include background-img($path-icon + "back-icon.png", 10px, center);
+      background-color: #dbdbdb;
+      padding: 5px 10px 8px 40px !important;
+    }
+    button {
+      margin-right: 10px;
+    }
+  }
 }
