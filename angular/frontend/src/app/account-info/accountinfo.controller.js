@@ -6,11 +6,10 @@
         .controller('AccountInfoController', AccountInfoController);
 
 
-    AccountInfoController.$inject = ['$scope', '$locale', 'commonService'];
+    AccountInfoController.$inject = ['$scope', 'commonService'];
 
     /** @ngInject */
-    function AccountInfoController($scope, $locale, commonService) {
-        $locale.id = 'vi';
+    function AccountInfoController($scope, commonService) {
         $scope.datePicker = {
             opened: false,
             dateFormat: 'dd/MM/yyyy',
