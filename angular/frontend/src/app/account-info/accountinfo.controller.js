@@ -11,14 +11,15 @@
     /** @ngInject */
     function AccountInfoController($scope, commonService) {
         $scope.datePicker = {
-            opened: false
-        };
-        $scope.dateFormat = 'dd/MM/yyyy';
-        $scope.dateOptions = {
-            formatYear: 'yyyy',
-            maxDate: new Date(2020, 5, 22),
-            minDate: new Date(1920, 5, 22),
-            startingDay: 1
+            opened: false,
+            dateFormat: 'dd/MM/yyyy',
+            altInputFormats: ['dd/MM/yyyy'],
+            dateOptions: {
+                formatYear: 'yyyy',
+                maxDate: new Date(),
+                minDate: new Date(1940, 12, 22),
+                startingDay: 1
+            }
         };
         $scope.account = {
             birth_date: null,
