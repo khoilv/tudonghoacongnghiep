@@ -10,6 +10,9 @@
 
     /** @ngInject */
     function AccountInfoController($scope, commonService) {
+        $scope.datePicker = {
+            opened: false
+        };
         $scope.dateFormat = 'dd/MM/yyyy';
         $scope.dateOptions = {
             formatYear: 'yyyy',
@@ -30,6 +33,10 @@
             });
             $scope.cities_provinces = cities_provinces;
         });
+
+        $scope.openDatePicker = function () {
+            $scope.datePicker.opened = true;
+        }
     }
 
 })();
