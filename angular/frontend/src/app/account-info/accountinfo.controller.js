@@ -10,7 +10,15 @@
 
     /** @ngInject */
     function AccountInfoController($scope, commonService) {
+        $scope.dateFormat = 'dd/MM/yyyy';
+        $scope.dateOptions = {
+            formatYear: 'yyyy',
+            maxDate: new Date(2020, 5, 22),
+            minDate: new Date(1920, 5, 22),
+            startingDay: 1
+        };
         $scope.account = {
+            birth_date: null,
             city_province_id: ''
         };
 
