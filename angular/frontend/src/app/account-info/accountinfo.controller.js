@@ -6,16 +6,16 @@
         .controller('AccountInfoController', AccountInfoController);
 
 
-    AccountInfoController.$inject = ['$scope', 'commonService'];
+    AccountInfoController.$inject = ['$scope', '$locale', 'commonService'];
 
     /** @ngInject */
-    function AccountInfoController($scope, commonService) {
+    function AccountInfoController($scope, $locale, commonService) {
+        $locale.id = 'vi';
         $scope.datePicker = {
             opened: false,
             dateFormat: 'dd/MM/yyyy',
             altInputFormats: ['dd/MM/yyyy'],
             datePickerOptions: {
-                rtl: true,
                 language: 'vi',
                 formatYear: 'yyyy',
                 maxDate: new Date(),
