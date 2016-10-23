@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MasterCitiesProvincesTableSeeder::class);
         $this->call(ProjectsTableSeeder::class);
         $this->call(AddressBookSeeder::class);
+        $this->call(BrandsTableSeeder::class);
     }
 }
