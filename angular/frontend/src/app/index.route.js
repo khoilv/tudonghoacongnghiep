@@ -67,6 +67,12 @@
                 templateUrl: 'app/address-book/address-book.html',
                 controller: 'AddressBookController',
                 controllerAs: 'addressBook'
+            })
+            .state('account-info', {
+                url: '/thong-tin-tai-khoan',
+                templateUrl: 'app/account-info/account-info.html',
+                controller: 'AccountInfoController',
+                controllerAs: 'accountInfo'
             });
 
         $urlRouterProvider.otherwise('/');
