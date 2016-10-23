@@ -11,7 +11,8 @@
             'ui.router',
             'ui.bootstrap',
             'LocalStorageModule',
-            'angular-jwt'
+            'angular-jwt',
+            'ngLocale'
         ]);
 
 })();

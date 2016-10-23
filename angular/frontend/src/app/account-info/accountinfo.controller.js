@@ -14,7 +14,9 @@
             opened: false,
             dateFormat: 'dd/MM/yyyy',
             altInputFormats: ['dd/MM/yyyy'],
-            dateOptions: {
+            datePickerOptions: {
+                rtl: true,
+                language: 'vi',
                 formatYear: 'yyyy',
                 maxDate: new Date(),
                 minDate: new Date(1940, 12, 22),

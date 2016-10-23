@@ -19,7 +19,8 @@
     "compass-sass-mixins": "*",
     "angular-local-storage": "^0.5.2",
     "jquery.marquee": "jQuery.Marquee#^1.4.0",
-    "angular-jwt": "^0.1.6"
+    "angular-jwt": "^0.1.6",
+    "angular-i18n": "^1.5.8"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.8"
