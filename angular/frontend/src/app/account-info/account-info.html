@@ -20,33 +20,42 @@
                 <div class="account-info mt20">
                     <form class="form-horizontal mt20">
                         <div class="form-group">
-                            <label class="control-label col-sm-3">Họ đệm :</label>
+                            <label class="control-label col-sm-3" for="last_name">Họ đệm :</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" placeholder="Họ">
+                                <input type="text" id="last_name" class="form-control" placeholder="Họ">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-3">Tên (<span class="text-red">*</span>):</label>
+                            <label class="control-label col-sm-3" for="first_name">Tên (<span class="text-red">*</span>):</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" placeholder="Tên">
+                                <input type="text" id="first_name" class="form-control" placeholder="Tên">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-3">Ngày sinh :</label>
+                            <label class="control-label col-sm-3" for="birth_date">Ngày sinh :</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" placeholder="Ngày sinh">
+                                <input type="text" id="birth_date" class="form-control" placeholder="Ngày sinh">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-3">Công ty :</label>
+                            <label class="control-label col-sm-3" for="sex">Giới tính :</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" placeholder="Công ty">
+                                <select class="form-control" id="sex">
+                                    <option value="1">Nam</option>
+                                    <option value="0">Nữ</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-3">Điện thoại (<span class="text-red">*</span>):</label>
+                            <label class="control-label col-sm-3" for="company">Công ty :</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" placeholder="Điện thoại">
+                                <input type="text" id="company" class="form-control" placeholder="Công ty">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="tel">Điện thoại (<span class="text-red">*</span>):</label>
+                            <div class="col-sm-9">
+                                <input type="password" id="tel" class="form-control" placeholder="Điện thoại">
                             </div>
                         </div>
                         <div class="form-group">

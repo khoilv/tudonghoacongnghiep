@@ -19,6 +19,8 @@ class CreateCustomersTable extends Migration
             $table->string('password');
             $table->string('first_name');
             $table->string('last_name');
+            $table->date('birth_date');
+            $table->tinyInteger('sex', false, true);
             $table->string('company');
             $table->string('tel');
             $table->string('address');
