@@ -3,13 +3,16 @@
 
     angular
         .module('angularSeedApp')
-        .controller('AccountInfoController', AccountInfoController);
+        .controller('AccountInfoController', AccountInfoController)
+        .controller('UpdateModalInstanceController', UpdateModalInstanceController);
 
 
-    AccountInfoController.$inject = ['$scope', '$location', 'uibDateParser', 'commonService', 'customerService', 'API_URL'];
+    AccountInfoController.$inject = ['$scope', '$location', '$uibModal', 'uibDateParser', 'commonService', 'customerService'];
+    UpdateModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'message'];
+
 
     /** @ngInject */
-    function AccountInfoController($scope, $location, uibDateParser, commonService, customerService, API_URL) {
+    function AccountInfoController($scope, $location, $uibModal, uibDateParser, commonService, customerService) {
         $scope.datePicker = {
             opened: false,
             dateFormat: 'dd/MM/yyyy',
@@ -53,6 +56,18 @@
             var url = 'customers/' + customerService.getCustomerId();
             commonService.putData(url, $scope.account, $scope, function (response) {
                 console.log(response);
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'updateModal.html',
+                    size: 'md', // sm, md, lg
+                    controller: 'UpdateModalInstanceController',
+                    controllerAs: '$ctrl',
+                    resolve: {
+                        message: function () {
+                            return {text: 'cập nhật thông tin tài khoản'};
+                        }
+                    }
+                });
             });
         };
 
@@ -74,6 +89,15 @@
                 $scope.account.birth_date = uibDateParser.parse($scope.account.birth_date, 'yyyy-mm-dd', new Date());
             });
         }
+    }
+
+    // UpdateModalInstanceController
+    function UpdateModalInstanceController($scope, $uibModalInstance, message) {
+        $scope.updateText = message.text;
+
+        $scope.close = function () {
+            $uibModalInstance.close(null);
+        };
     }
 
 })();

@@ -127,6 +127,7 @@
         }
     }
 
+    // ConfirmModalInstanceController
     function ConfirmModalInstanceController($scope, $uibModalInstance) {
         $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
