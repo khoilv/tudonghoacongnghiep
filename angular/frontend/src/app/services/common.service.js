@@ -81,6 +81,21 @@
                 });
         }
 
+        function patchData(url, queryParams, scope, onSuccess) {
+            var submitUrl = API_URL + url;
+            $http.patch(submitUrl, queryParams)
+                .success(function (data, status, headers, config) {
+                    _resetError(scope);
+                    onSuccess({
+                        data: data,
+                        status: status
+                    });
+                })
+                .error(function (data, status, header, config) {
+                    _parseError(scope, data, status);
+                });
+        }
+
         // private function
         function _parseError(scope, data, status) {
             if (status == 422) {
@@ -102,7 +117,8 @@
         return {
             loadData: loadData,
             postData: postData,
-            putData: putData
+            putData: putData,
+            patchData: patchData
         }
     }
 

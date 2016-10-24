@@ -86,17 +86,26 @@
                         <div class="form-group mt10">
                             <label class="control-label col-sm-3">Mật khẩu cũ (<span class="text-red">*</span>):</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" placeholder="Nhập mật khẩu">
+                                <input type="password" class="form-control" placeholder="Nhập mật khẩu" ng-model="passwordData.old_password">
+                                <span class="error-msg" ng-show="errors.old_password">{{errors.old_password}}</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">Mật khẩu mới (<span class="text-red">*</span>):</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control" placeholder="Mật khẩu mới">
+                                <input type="password" class="form-control" placeholder="Mật khẩu mới" ng-model="passwordData.new_password">
+                                <span class="error-msg" ng-show="errors.new_password">{{errors.new_password}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Xác nhận mật khẩu mới (<span class="text-red">*</span>):</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" placeholder="Mật khẩu mới" ng-model="passwordData.new_password_confirmation">
+                                <span class="error-msg" ng-show="errors.new_password_confirmation">{{errors.new_password_confirmation}}</span>
                             </div>
                         </div>
                         <div class="btn-list col-sm-9 col-lg-offset-3 mt10">
-                            <button class="btn-blue">Đổi mật khẩu</button>
+                            <button class="btn-blue" ng-click="changePassword()">Đổi mật khẩu</button>
                         </div>
                     </form>
 

@@ -12,6 +12,7 @@ use App\Http\Requests;
 use App\Http\Requests\RegisterCustomer;
 use App\Http\Requests\LoginCustomer;
 use App\Http\Requests\UpdateCustomer;
+use App\Http\Requests\ChangePassword;
 use Illuminate\Support\Facades\Hash;
 use Mews\Captcha\Facades\Captcha;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
@@ -22,7 +23,6 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class CustomerController extends Controller
 {
-
 
     public function __construct()
     {
@@ -138,6 +138,34 @@ class CustomerController extends Controller
 
             // return json result
             $result = ['success' => 'Update customer successfully'];
+            if ($request->input('callback')) {
+                return response()->json($result)->withCallback($request->input('callback'));
+            } else {
+                return response()->json($result);
+            }
+        } else {
+            return response()->json(['error' => 'Invalid request'], 500);
+        }
+    }
+
+    public function changePassword(ChangePassword $request, $id)
+    {
+        if ($request->isMethod('PATCH')) {
+            $input = $request->all();
+            $customer = Customer::find($id);
+            if (!Hash::check($input['old_password'], $customer->password)) {
+                return response()->json(['old_password' => ['Mật khẩu đã nhập không khớp']], 422);
+            } else {
+                try {
+                    $customer->password = Hash::make($input['new_password']);
+                    $customer->save();
+                } catch (QueryException $e) {
+                    return response()->json(['error' => $e->errorInfo], 500);
+                }
+            }
+
+            // return json result
+            $result = ['success' => 'Change password successfully', 'id' => $id];
             if ($request->input('callback')) {
                 return response()->json($result)->withCallback($request->input('callback'));
             } else {

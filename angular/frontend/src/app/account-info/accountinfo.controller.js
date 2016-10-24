@@ -13,6 +13,11 @@
 
     /** @ngInject */
     function AccountInfoController($scope, $location, $uibModal, uibDateParser, commonService, customerService) {
+        $scope.passwordData = {
+            old_password: null,
+            new_password: null,
+            new_password_confirmation: null
+        };
         $scope.datePicker = {
             opened: false,
             dateFormat: 'dd/MM/yyyy',
@@ -55,7 +60,6 @@
         $scope.updateAccount = function () {
             var url = 'customers/' + customerService.getCustomerId();
             commonService.putData(url, $scope.account, $scope, function (response) {
-                console.log(response);
                 $uibModal.open({
                     animation: true,
                     templateUrl: 'updateModal.html',
@@ -69,6 +73,25 @@
                     }
                 });
             });
+        };
+
+        $scope.changePassword = function () {
+            console.log($scope.passwordData);
+            var url = 'customers/' + customerService.getCustomerId();
+            commonService.patchData(url, $scope.passwordData, $scope, function (response) {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'updateModal.html',
+                    size: 'md', // sm, md, lg
+                    controller: 'UpdateModalInstanceController',
+                    controllerAs: '$ctrl',
+                    resolve: {
+                        message: function () {
+                            return {text: 'thay đổi mật khẩu'};
+                        }
+                    }
+                });
+            })
         };
 
         function initCitiesProvinces() {

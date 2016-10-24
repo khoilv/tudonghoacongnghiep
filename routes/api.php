@@ -47,6 +47,7 @@ Route::group(['middleware' => ['jwt.auth' /*, 'jwt.refresh'*/]], function () {
     // update customer
     Route::get('customers/{id}/edit', 'CustomerController@edit')->name('customers.edit');
     Route::put('customers/{id}', 'CustomerController@update')->name('customers.update');
+    Route::patch('customers/{id}', 'CustomerController@changePassword')->name('customers.changePassword');
 });
 
 // project
