@@ -91,6 +91,7 @@
                         }
                     }
                 });
+                $scope.passwordData = {old_password: null, new_password: null, new_password_confirmation: null};
             })
         };
 
