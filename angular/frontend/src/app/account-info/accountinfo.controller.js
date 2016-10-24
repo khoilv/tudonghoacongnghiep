@@ -6,10 +6,10 @@
         .controller('AccountInfoController', AccountInfoController);
 
 
-    AccountInfoController.$inject = ['$scope', '$location', '$http', 'commonService', 'customerService', 'API_URL'];
+    AccountInfoController.$inject = ['$scope', '$location', '$http', 'uibDateParser', 'commonService', 'customerService', 'API_URL'];
 
     /** @ngInject */
-    function AccountInfoController($scope, $location, $http, commonService, customerService, API_URL) {
+    function AccountInfoController($scope, $location, $http, uibDateParser, commonService, customerService, API_URL) {
         $scope.datePicker = {
             opened: false,
             dateFormat: 'dd/MM/yyyy',
@@ -22,6 +22,10 @@
                 startingDay: 1
             }
         };
+        $scope.sexOptions = [
+            {id: 0, name: 'Nữ'},
+            {id: 1, name: 'Nam'}
+        ];
         $scope.account = {
             birth_date: null,
             city_province_id: ''
@@ -53,7 +57,7 @@
             var url = 'customers/' + customerService.getCustomerId() + '/edit';
             commonService.loadData(url, null, function (response) {
                 $scope.account = response.data;
-                console.log(response);
+                $scope.account.birth_date = uibDateParser.parse($scope.account.birth_date, 'yyyy-mm-dd', new Date());
             });
 
         }

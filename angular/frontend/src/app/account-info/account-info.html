@@ -47,9 +47,8 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="sex">Giới tính :</label>
                             <div class="col-sm-9">
-                                <select class="form-control" id="sex">
-                                    <option value="1">Nam</option>
-                                    <option value="0">Nữ</option>
+                                <select class="form-control" id="sex" ng-model="account.sex"
+                                        ng-options="sexOption.id as sexOption.name for sexOption in sexOptions">
                                 </select>
                             </div>
                         </div>
