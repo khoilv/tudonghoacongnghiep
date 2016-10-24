@@ -13,9 +13,11 @@
         $scope.datePicker = {
             opened: false,
             dateFormat: 'dd/MM/yyyy',
-            altInputFormats: ['dd/MM/yyyy', 'yyyy-MM-dd'],
+            altInputFormats: ['dd/MM/yyyy', 'd/MM/yyyy', 'dd/M/yyyy', 'd/M/yyyy'],
             datePickerOptions: {
                 language: 'vi',
+                formatDay: 'd!',
+                formatMonth: 'M!',
                 formatYear: 'yyyy',
                 maxDate: new Date(),
                 minDate: new Date(1940, 12, 22),
