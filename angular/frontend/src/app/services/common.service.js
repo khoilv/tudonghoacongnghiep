@@ -70,6 +70,7 @@
             var submitUrl = API_URL + url;
             $http.put(submitUrl, queryParams)
                 .success(function (data, status, headers, config) {
+                    _resetError(scope);
                     onSuccess({
                         data: data,
                         status: status
@@ -91,6 +92,11 @@
             } else {
                 console.log({data: data || 'Request failed', status: status});
             }
+        }
+
+        // private function
+        function _resetError(scope) {
+            scope.errors = {};
         }
 
         return {
