@@ -10,6 +10,7 @@ use Illuminate\Database\QueryException;
 use App\Http\Requests;
 use App\Http\Requests\RegisterCustomer;
 use App\Http\Requests\LoginCustomer;
+use App\Http\Requests\UpdateCustomer;
 use Illuminate\Support\Facades\Hash;
 use Mews\Captcha\Facades\Captcha;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
@@ -103,6 +104,34 @@ class CustomerController extends Controller
             return response()->json($data)->withCallback($request->input('callback'));
         } else {
             return response()->json($data);
+        }
+    }
+
+    public function edit(Request $request, $id)
+    {
+        if ($request->isMethod('GET')) {
+            $columns = ['first_name', 'last_name', 'birth_date', 'sex', 'company', 'tel', 'city_province_id'];
+            $data = Customer::where('id', $id)->first($columns)->toArray();
+
+            // return json result
+            if ($request->input('callback')) {
+                return response()->json($data)->withCallback($request->input('callback'));
+            } else {
+                return response()->json($data);
+            }
+        } else {
+            return response()->json(['error' => 'Invalid request'], 500);
+        }
+    }
+
+    public function update(UpdateCustomer $request, $id)
+    {
+        if ($request->isMethod('PUT')) {
+            try {
+
+            } catch (QueryException $e) {
+                return response()->json(['error' => $e->errorInfo], 500);
+            }
         }
     }
 }

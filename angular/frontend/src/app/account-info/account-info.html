@@ -22,13 +22,13 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="last_name">Họ đệm :</label>
                             <div class="col-sm-9">
-                                <input type="text" id="last_name" class="form-control" placeholder="Họ">
+                                <input type="text" id="last_name" class="form-control" placeholder="Họ" ng-model="account.last_name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="first_name">Tên (<span class="text-red">*</span>):</label>
                             <div class="col-sm-9">
-                                <input type="text" id="first_name" class="form-control" placeholder="Tên">
+                                <input type="text" id="first_name" class="form-control" placeholder="Tên" ng-model="account.first_name">
                             </div>
                         </div>
                         <div class="form-group">
@@ -56,13 +56,13 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="company">Công ty :</label>
                             <div class="col-sm-9">
-                                <input type="text" id="company" class="form-control" placeholder="Công ty">
+                                <input type="text" id="company" class="form-control" placeholder="Công ty" ng-model="account.company">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="tel">Điện thoại (<span class="text-red">*</span>):</label>
                             <div class="col-sm-9">
-                                <input type="password" id="tel" class="form-control" placeholder="Điện thoại">
+                                <input type="tel" id="tel" class="form-control" placeholder="Điện thoại" ng-model="account.tel">
                             </div>
                         </div>
                         <div class="form-group">

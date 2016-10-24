@@ -43,6 +43,10 @@ Route::group(['middleware' => ['jwt.auth' /*, 'jwt.refresh'*/]], function () {
     Route::get('customer/address', 'AddressBookController@getAddress');
     Route::post('customer/address', 'AddressBookController@store');
     Route::delete('customer/address/{id}', 'AddressBookController@destroy');
+
+    // update customer
+    Route::get('customers/{id}/edit', 'CustomerController@edit')->name('customers.edit');
+    Route::put('customers/{id}', 'CustomerController@update')->name('customers.update');
 });
 
 // project
