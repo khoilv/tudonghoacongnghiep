@@ -129,15 +129,18 @@ class CustomerController extends Controller
     {
         if ($request->isMethod('PUT')) {
             try {
-                $data = $request->only(['first_name', 'last_name', 'birth_date', 'sex', 'company', 'tel', 'city_province_id']);
-                // return json result
-                if ($request->input('callback')) {
-                    return response()->json($data)->withCallback($request->input('callback'));
-                } else {
-                    return response()->json($data);
-                }
+                $data = $request->only(['first_name', 'last_name', /*'birth_date',*/ 'sex', 'company', 'tel', 'city_province_id']);
+                Customer::where('id', $id)->update($data);
             } catch (QueryException $e) {
                 return response()->json(['error' => $e->errorInfo], 500);
+            }
+
+            // return json result
+            $result = ['success' => 'Update address successfully'];
+            if ($request->input('callback')) {
+                return response()->json($result)->withCallback($request->input('callback'));
+            } else {
+                return response()->json($result);
             }
         } else {
             return response()->json(['error' => 'Invalid request'], 500);

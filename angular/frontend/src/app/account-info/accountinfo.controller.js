@@ -51,7 +51,6 @@
 
         $scope.updateAccount = function () {
             var url = API_URL + 'customers/' + customerService.getCustomerId();
-            console.log($scope.account);
             $http.put(url, $scope.account).success(function (response) {
                 console.log(response);
             }).error(function (response) {
