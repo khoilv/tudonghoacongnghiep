@@ -6,10 +6,10 @@
         .controller('AccountInfoController', AccountInfoController);
 
 
-    AccountInfoController.$inject = ['$scope', '$location', '$http', 'uibDateParser', 'commonService', 'customerService', 'API_URL'];
+    AccountInfoController.$inject = ['$scope', '$location', 'uibDateParser', 'commonService', 'customerService', 'API_URL'];
 
     /** @ngInject */
-    function AccountInfoController($scope, $location, $http, uibDateParser, commonService, customerService, API_URL) {
+    function AccountInfoController($scope, $location, uibDateParser, commonService, customerService, API_URL) {
         $scope.datePicker = {
             opened: false,
             dateFormat: 'dd/MM/yyyy',
@@ -50,10 +50,8 @@
         };
 
         $scope.updateAccount = function () {
-            var url = API_URL + 'customers/' + customerService.getCustomerId();
-            $http.put(url, $scope.account).success(function (response) {
-                console.log(response);
-            }).error(function (response) {
+            var url = 'customers/' + customerService.getCustomerId();
+            commonService.putData(url, $scope.account, $scope, function (response) {
                 console.log(response);
             });
         };

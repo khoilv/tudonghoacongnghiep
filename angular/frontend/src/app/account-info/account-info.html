@@ -29,6 +29,7 @@
                             <label class="control-label col-sm-3" for="first_name">Tên (<span class="text-red">*</span>):</label>
                             <div class="col-sm-9">
                                 <input type="text" id="first_name" class="form-control" placeholder="Tên" ng-model="account.first_name">
+                                <span class="error-msg" ng-show="errors.first_name">{{errors.first_name}}</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -62,6 +63,7 @@
                             <label class="control-label col-sm-3" for="tel">Điện thoại (<span class="text-red">*</span>):</label>
                             <div class="col-sm-9">
                                 <input type="tel" id="tel" class="form-control" placeholder="Điện thoại" ng-model="account.tel">
+                                <span class="error-msg" ng-show="errors.tel">{{errors.tel}}</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -71,6 +73,7 @@
                                         ng-model="account.city_province_id"
                                         ng-options="city_province.id as city_province.name for city_province in cities_provinces">
                                 </select>
+                                <span class="error-msg" ng-show="errors.city_province_id">{{errors.city_province_id}}</span>
                             </div>
                         </div>
 

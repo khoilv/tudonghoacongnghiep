@@ -43,7 +43,6 @@
 
         function postData(url, queryParams, onSuccess, onError) {
             var submitUrl = API_URL + url;
-
             return $http({
                 url: submitUrl,
                 method: 'POST',
@@ -67,9 +66,37 @@
             );
         }
 
+        function putData(url, queryParams, scope, onSuccess) {
+            var submitUrl = API_URL + url;
+            $http.put(submitUrl, queryParams)
+                .success(function (data, status, headers, config) {
+                    onSuccess({
+                        data: data,
+                        status: status
+                    });
+                })
+                .error(function (data, status, header, config) {
+                    _parseError(scope, data, status);
+                });
+        }
+
+        // private function
+        function _parseError(scope, data, status) {
+            if (status == 422) {
+                var errors = {};
+                angular.forEach(data, function (value, key) {
+                    errors[key] = value[0];
+                });
+                scope.errors = errors;
+            } else {
+                console.log({data: data || 'Request failed', status: status});
+            }
+        }
+
         return {
             loadData: loadData,
-            postData: postData
+            postData: postData,
+            putData: putData
         }
     }
 

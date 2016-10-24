@@ -129,14 +129,15 @@ class CustomerController extends Controller
     {
         if ($request->isMethod('PUT')) {
             try {
-                $data = $request->only(['first_name', 'last_name', /*'birth_date',*/ 'sex', 'company', 'tel', 'city_province_id']);
+                $data = $request->only(['first_name', 'last_name', 'birth_date', 'sex', 'company', 'tel', 'city_province_id']);
+                $data['birth_date'] = new \DateTime($data['birth_date']);
                 Customer::where('id', $id)->update($data);
             } catch (QueryException $e) {
                 return response()->json(['error' => $e->errorInfo], 500);
             }
 
             // return json result
-            $result = ['success' => 'Update address successfully'];
+            $result = ['success' => 'Update customer successfully'];
             if ($request->input('callback')) {
                 return response()->json($result)->withCallback($request->input('callback'));
             } else {
