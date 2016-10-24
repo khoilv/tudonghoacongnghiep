@@ -111,7 +111,7 @@ class CustomerController extends Controller
     public function edit(Request $request, $id)
     {
         if ($request->isMethod('GET')) {
-            $columns = ['first_name', 'last_name', 'birth_date', 'sex', 'company', 'tel', 'city_province_id'];
+            $columns = ['id', 'first_name', 'last_name', 'birth_date', 'sex', 'company', 'tel', 'city_province_id'];
             $data = Customer::where('id', $id)->first($columns)->toArray();
 
             // return json result
@@ -129,10 +129,18 @@ class CustomerController extends Controller
     {
         if ($request->isMethod('PUT')) {
             try {
-
+                $data = $request->only(['first_name', 'last_name', 'birth_date', 'sex', 'company', 'tel', 'city_province_id']);
+                // return json result
+                if ($request->input('callback')) {
+                    return response()->json($data)->withCallback($request->input('callback'));
+                } else {
+                    return response()->json($data);
+                }
             } catch (QueryException $e) {
                 return response()->json(['error' => $e->errorInfo], 500);
             }
+        } else {
+            return response()->json(['error' => 'Invalid request'], 500);
         }
     }
 }

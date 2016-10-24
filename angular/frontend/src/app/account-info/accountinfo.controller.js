@@ -29,7 +29,12 @@
             {id: 1, name: 'Nam'}
         ];
         $scope.account = {
-            birth_date: null,
+            first_name: '',
+            last_name: '',
+            birth_date: '',
+            sex: '',
+            company: '',
+            tel: '',
             city_province_id: ''
         };
 
@@ -42,6 +47,16 @@
 
         $scope.cancel = function () {
             $location.path('/tai-khoan-cua-toi');
+        };
+
+        $scope.updateAccount = function () {
+            var url = API_URL + 'customers/' + customerService.getCustomerId();
+            console.log($scope.account);
+            $http.put(url, $scope.account).success(function (response) {
+                console.log(response);
+            }).error(function (response) {
+                console.log(response);
+            });
         };
 
         function initCitiesProvinces() {
@@ -61,7 +76,6 @@
                 $scope.account = response.data;
                 $scope.account.birth_date = uibDateParser.parse($scope.account.birth_date, 'yyyy-mm-dd', new Date());
             });
-
         }
     }
 

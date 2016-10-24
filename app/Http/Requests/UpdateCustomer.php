@@ -26,7 +26,6 @@ class UpdateCustomer extends FormRequest
         return [
             'first_name' => 'required|string',
             'tel' => 'required|numeric|digits_between:10,11',
-            'address' => 'required|string',
             'city_province_id' => 'required|integer'
         ];
     }
