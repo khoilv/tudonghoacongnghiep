@@ -200,7 +200,7 @@
             <p>Điền vào email của bạn để yêu cầu một mật khẩu mới. Một Email sẽ được gửi đến địa chỉ này để xác minh địa chỉ Email của bạn.</p>
             <form class="form-horizontal mt20">
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Email(<span class="text-red">*</span>):</label>
+                    <label class="control-label col-sm-3">Email (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
                         <input type="email" class="form-control" placeholder="Enter email">
                     </div>
@@ -213,15 +213,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="tell">Ký tự hiển thị (<span class="text-red">*</span>):</label>
+                    <label class="control-label col-sm-3" for="tell">Nhập mã xác nhận (<span class="text-red">*</span>):</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tell" placeholder="Ký tự hiển thị">
+                        <input type="text" class="form-control" id="tell" placeholder="Nhập mã xác nhận">
                     </div>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn-blue btn-buy">Gửi thông tin</button>
+            <button type="button" class="btn-blue btn-buy" ng-click="send()">Gửi thông tin</button>
         </div>
     </script>
 </header>
