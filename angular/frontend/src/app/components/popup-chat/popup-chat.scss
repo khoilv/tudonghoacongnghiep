@@ -1,0 +1,62 @@
+@import "../../sass/variables";
+
+.popup-chat {
+  width: 300px;
+  position: fixed;
+  right: 10px;
+  bottom: 0;
+  .form-horizontal .form-group {
+    margin: 0 0 5px 0;
+  }
+  .btn-blue {
+    margin: {
+      left: 20px;
+      top: 5px;
+    }
+  }
+  .form-group .col-sm-4 {
+    padding-right: 0;
+  }
+  .control-label {
+    text-align: left;
+  }
+
+  .chat-header {
+    height: 35px;
+    background: url($path-icon-common + "chat_icon02.png") no-repeat 15px center #06b4dc;
+    p {
+      color: #fff;
+      padding: 6px 0 4px 60px;
+      float: left;
+      font-size: 15px;
+      strong {
+        display: inline;
+      }
+    }
+    .icon-chat {
+      width: 35px;
+      height: 100%;
+      display: block;
+      float: right;
+      &.up {
+        background: url($path-icon-common + "chat_icon_up.png") no-repeat center center #02a2c6;
+      }
+      &.down {
+        background: url($path-icon-common + "chat_icon_down.png") no-repeat center center #02a2c6;
+      }
+    }
+  }
+
+  .chat-body {
+    background-color: #e1e1e1;
+    padding-bottom: 5px;
+  }
+}
+
+.error {
+  padding: 10px;
+  color: #003d4b;
+  font-size: 12px;
+  border-bottom: 1px solid #c5c5c5;
+  margin-bottom: 15px;
+}

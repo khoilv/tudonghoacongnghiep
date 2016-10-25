@@ -1,0 +1,32 @@
+<div class="popup-chat" ng-init="popupChatState = false">
+    <div class="chat-header">
+        <p class="f-avo"><strong>Offline - </strong> Để lại lời nhắn</p>
+        <a ng-click="popupChatState = !popupChatState" class="icon-chat" ng-class="{up: !popupChatState, down: popupChatState}"></a>
+    </div>
+    <div ng-show="popupChatState" class="chat-body">
+        <p class="error">Rất tiếc, hiện tại chúng tôi không online. Hãy để lại tin nhắn và chúng tôi sẽ liên hệ lại với bạn.</p>
+        <form class="form-horizontal mt5">
+            <div class="form-group">
+                <label class="control-label col-sm-12">Tên :</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" placeholder="Tên">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-12">Email :</label>
+                <div class="col-sm-12">
+                    <input type="email" class="form-control" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-12" for="message">Tin nhắn :</label>
+                <div class="col-sm-12">
+                    <textarea class="form-control" rows="4" id="message"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn-blue">Gửi tin nhắn</button>
+            </div>
+        </form>
+    </div>
+</div>
