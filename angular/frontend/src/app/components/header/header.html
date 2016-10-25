@@ -37,56 +37,6 @@
         </div>
     </div>
 
-    <!-- customer login modal -->
-    <script type="text/ng-template" id="loginModal.html">
-        <div class="modal-header">
-            <button type="button" class="close" ng-click="cancel()">&times;</button>
-            <h4 class="modal-title">Đăng nhập</h4>
-        </div>
-        <div class="modal-body">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Email (<span class="text-red">*</span>):</label>
-                    <div class="col-sm-10">
-                        <input type="email" ng-model="loginData.email" class="form-control" id="email" placeholder="Nhập email">
-                        <span class="error-msg" ng-show="errors.email">{{errors.email}}</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-2" for="pwd">Mật khẩu (<span class="text-red">*</span>):</label>
-                    <div class="col-sm-10">
-                        <input type="password" ng-model="loginData.password" class="form-control" id="pwd" placeholder="Nhập mật khẩu">
-                        <span class="error-msg" ng-show="errors.password">{{errors.password}}</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <div class="checkbox">
-                            <label><input type="checkbox" ng-model="remember">Nhớ thông tin đăng nhập</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn-blue btn-buy" ng-click="login()">Đăng nhập</button>
-                        <a href="#" class="textblue" style="margin-left: 10px">Quên mật khẩu?</a>
-                    </div>
-                </div>
-            </form>
-            <div class="col-lg-offset-2 mt20">
-                <strong>Bạn có thể đăng nhập qua</strong>
-                <ul class="box-login" style="text-align: left">
-                    <li>
-                        <a href="#"><span></span> <p>Đăng nhập với Facebook</p></a>
-                    </li>
-                    <li>
-                        <a href="#"><span></span> <p>Đăng nhập với Google+</p></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </script>
-
     <!-- customer register modal -->
     <script type="text/ng-template" id="registerModal.html">
         <div class="modal-header">
@@ -187,6 +137,91 @@
         <div class="modal-footer">
             <button class="btn-blue btn-buy" type="button" ng-click="$ctrl.register()">Đăng ký</button>
             <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Hủy</button>
+        </div>
+    </script>
+
+    <!-- customer login modal -->
+    <script type="text/ng-template" id="loginModal.html">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()">&times;</button>
+            <h4 class="modal-title">Đăng nhập</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-10">
+                        <input type="email" ng-model="loginData.email" class="form-control" id="email" placeholder="Nhập email">
+                        <span class="error-msg" ng-show="errors.email">{{errors.email}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Mật khẩu (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-10">
+                        <input type="password" ng-model="loginData.password" class="form-control" id="pwd" placeholder="Nhập mật khẩu">
+                        <span class="error-msg" ng-show="errors.password">{{errors.password}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label><input type="checkbox" ng-model="remember">Nhớ thông tin đăng nhập</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn-blue btn-buy" ng-click="login()">Đăng nhập</button>
+                        <a class="textblue" style="margin-left: 10px" ng-click="openForgotPasswordModal()">Quên mật khẩu?</a>
+                    </div>
+                </div>
+            </form>
+            <div class="col-lg-offset-2 mt20">
+                <strong>Bạn có thể đăng nhập qua</strong>
+                <ul class="box-login" style="text-align: left">
+                    <li>
+                        <a href="#"><span></span> <p>Đăng nhập với Facebook</p></a>
+                    </li>
+                    <li>
+                        <a href="#"><span></span> <p>Đăng nhập với Google+</p></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </script>
+
+    <!-- forgot password modal -->
+    <script type="text/ng-template" id="forgotPasswordModal.html">
+        <div class="modal-header">
+            <button type="button" class="close">&times;</button>
+            <h4 class="modal-title">Khôi phục mật khẩu</h4>
+        </div>
+        <div class="modal-body">
+            <p>Điền vào email của bạn để yêu cầu một mật khẩu mới. Một Email sẽ được gửi đến địa chỉ này để xác minh địa chỉ Email của bạn.</p>
+            <form class="form-horizontal mt20">
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Email(<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="tell">Mã xác nhận :</label>
+                    <div class="col-sm-9">
+                        <img src="../../../assets/images/frontend/maxacnhan.jpg">
+                        <a href="#"><img src="../../../assets/images/frontend/maxacnhan-2.jpg"></a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="tell">Ký tự hiển thị (<span class="text-red">*</span>):</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="tell" placeholder="Ký tự hiển thị">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn-blue btn-buy">Gửi thông tin</button>
         </div>
     </script>
 </header>
