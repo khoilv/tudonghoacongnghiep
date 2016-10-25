@@ -122,7 +122,9 @@
 
     // --- ForgotPasswordModalInstanceController
     function ForgotPasswordModalInstanceController($scope, $uibModalInstance) {
-
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        }
     }
 
 })();
