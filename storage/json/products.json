@@ -3,7 +3,31 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 1",
+    "product_url": "",
+    "product_price": 1200000,
+    "product_price_discount": 1100000,
+    "discount_rate": 0,
+    "warranty_period": "6 tháng",
+    "product_evaluation": {
+      "num_votes": 1,
+      "average_value": 4
+    },
+    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
+    "product_images": [
+      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
+      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
+      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
+    ],
+    "product_keywords": "Máy khoan, khoan, may khoan",
+    "note": "",
+    "active": 1
+  },
+  {
+    "product_category_id": 1,
+    "product_brand_id": 1,
+    "product_code": "GLET-RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 2",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -27,7 +51,103 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 3",
+    "product_url": "",
+    "product_price": 1200000,
+    "product_price_discount": 1150000,
+    "discount_rate": 0,
+    "warranty_period": "6 tháng",
+    "product_evaluation": {
+      "num_votes": 1,
+      "average_value": 4
+    },
+    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
+    "product_images": [
+      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
+      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
+      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
+    ],
+    "product_keywords": "Máy khoan, khoan, may khoan",
+    "note": "",
+    "active": 1
+  },
+  {
+    "product_category_id": 1,
+    "product_brand_id": 1,
+    "product_code": "GLET-RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 4",
+    "product_url": "",
+    "product_price": 1200000,
+    "product_price_discount": 900000,
+    "discount_rate": 0,
+    "warranty_period": "6 tháng",
+    "product_evaluation": {
+      "num_votes": 1,
+      "average_value": 4
+    },
+    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
+    "product_images": [
+      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
+      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
+      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
+    ],
+    "product_keywords": "Máy khoan, khoan, may khoan",
+    "note": "",
+    "active": 1
+  },
+  {
+    "product_category_id": 1,
+    "product_brand_id": 1,
+    "product_code": "GLET-RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 5",
+    "product_url": "",
+    "product_price": 1200000,
+    "product_price_discount": 800000,
+    "discount_rate": 0,
+    "warranty_period": "6 tháng",
+    "product_evaluation": {
+      "num_votes": 1,
+      "average_value": 4
+    },
+    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
+    "product_images": [
+      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
+      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
+      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
+    ],
+    "product_keywords": "Máy khoan, khoan, may khoan",
+    "note": "",
+    "active": 1
+  },
+  {
+    "product_category_id": 1,
+    "product_brand_id": 1,
+    "product_code": "GLET-RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 6",
+    "product_url": "",
+    "product_price": 1200000,
+    "product_price_discount": 1100000,
+    "discount_rate": 0,
+    "warranty_period": "6 tháng",
+    "product_evaluation": {
+      "num_votes": 1,
+      "average_value": 4
+    },
+    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
+    "product_images": [
+      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
+      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
+      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
+    ],
+    "product_keywords": "Máy khoan, khoan, may khoan",
+    "note": "",
+    "active": 1
+  },
+  {
+    "product_category_id": 1,
+    "product_brand_id": 1,
+    "product_code": "GLET-RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 7",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -51,7 +171,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 8",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -75,7 +195,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 9",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -99,7 +219,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 10",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -123,7 +243,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 11",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -147,7 +267,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 12",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -171,7 +291,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 13",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -195,7 +315,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 14",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -219,7 +339,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 15",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -243,7 +363,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 16",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -267,7 +387,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 17",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -291,7 +411,7 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 18",
     "product_url": "",
     "product_price": 1200000,
     "product_price_discount": 1000000,
@@ -315,10 +435,10 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 19",
     "product_url": "",
     "product_price": 1200000,
-    "product_price_discount": 1000000,
+    "product_price_discount": 1200000,
     "discount_rate": 0,
     "warranty_period": "6 tháng",
     "product_evaluation": {
@@ -339,130 +459,10 @@
     "product_category_id": 1,
     "product_brand_id": 1,
     "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
+    "product_title": "Máy khoan sạc pin RBD12V-07 20",
     "product_url": "",
     "product_price": 1200000,
-    "product_price_discount": 1000000,
-    "discount_rate": 0,
-    "warranty_period": "6 tháng",
-    "product_evaluation": {
-      "num_votes": 1,
-      "average_value": 4
-    },
-    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
-    "product_images": [
-      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
-      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
-      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
-    ],
-    "product_keywords": "Máy khoan, khoan, may khoan",
-    "note": "",
-    "active": 1
-  },
-  {
-    "product_category_id": 1,
-    "product_brand_id": 1,
-    "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
-    "product_url": "",
-    "product_price": 1200000,
-    "product_price_discount": 1000000,
-    "discount_rate": 0,
-    "warranty_period": "6 tháng",
-    "product_evaluation": {
-      "num_votes": 1,
-      "average_value": 4
-    },
-    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
-    "product_images": [
-      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
-      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
-      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
-    ],
-    "product_keywords": "Máy khoan, khoan, may khoan",
-    "note": "",
-    "active": 1
-  },
-  {
-    "product_category_id": 1,
-    "product_brand_id": 1,
-    "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
-    "product_url": "",
-    "product_price": 1200000,
-    "product_price_discount": 1000000,
-    "discount_rate": 0,
-    "warranty_period": "6 tháng",
-    "product_evaluation": {
-      "num_votes": 1,
-      "average_value": 4
-    },
-    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
-    "product_images": [
-      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
-      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
-      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
-    ],
-    "product_keywords": "Máy khoan, khoan, may khoan",
-    "note": "",
-    "active": 1
-  },
-  {
-    "product_category_id": 1,
-    "product_brand_id": 1,
-    "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
-    "product_url": "",
-    "product_price": 1200000,
-    "product_price_discount": 1000000,
-    "discount_rate": 0,
-    "warranty_period": "6 tháng",
-    "product_evaluation": {
-      "num_votes": 1,
-      "average_value": 4
-    },
-    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
-    "product_images": [
-      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
-      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
-      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
-    ],
-    "product_keywords": "Máy khoan, khoan, may khoan",
-    "note": "",
-    "active": 1
-  },
-  {
-    "product_category_id": 1,
-    "product_brand_id": 1,
-    "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
-    "product_url": "",
-    "product_price": 1200000,
-    "product_price_discount": 1000000,
-    "discount_rate": 0,
-    "warranty_period": "6 tháng",
-    "product_evaluation": {
-      "num_votes": 1,
-      "average_value": 4
-    },
-    "product_description": "- Ðường kính khoan : 10mm<br>- Công suất: 12V<br>- Tố độ không tải : 650 Vòng/phút",
-    "product_images": [
-      {"image": "../../assets/images/frontend/product_img01.jpg", "main": 1},
-      {"image": "../../assets/images/frontend/product_img02.jpg", "main": 0},
-      {"image": "../../assets/images/frontend/product_img03.jpg", "main": 0}
-    ],
-    "product_keywords": "Máy khoan, khoan, may khoan",
-    "note": "",
-    "active": 1
-  },
-  {
-    "product_category_id": 1,
-    "product_brand_id": 1,
-    "product_code": "GLET-RBD12V-07",
-    "product_title": "Máy khoan sạc pin RBD12V-07",
-    "product_url": "",
-    "product_price": 1200000,
-    "product_price_discount": 1000000,
+    "product_price_discount": 1200000,
     "discount_rate": 0,
     "warranty_period": "6 tháng",
     "product_evaluation": {
