@@ -12,12 +12,12 @@ class BrandsTableSeeder extends Seeder
     public function run()
     {
         $brands = [
-            ['brand_title' => 'Samsung', 'note' => ''],
-            ['brand_title' => 'LG', 'note' => '',],
-            ['brand_title' => 'Microsoft', 'note' => ''],
-            ['brand_title' => 'Apple', 'note' => ''],
-            ['brand_title' => 'HP', 'note' => ''],
-            ['brand_title' => 'DELL', 'note' => '']
+            ['brand_title' => 'ATTEN', 'brand_logo' => '../../assets/images/frontend/brands/ATTEN.jpg', 'note' => ''],
+            ['brand_title' => 'BOSCH', 'brand_logo' => '../../assets/images/frontend/brands/BOSCH.jpg', 'note' => '',],
+            ['brand_title' => 'CROSSMAN', 'brand_logo' => '../../assets/images/frontend/brands/CROSSMAN.jpg', 'note' => ''],
+            ['brand_title' => 'DELTA', 'brand_logo' => '../../assets/images/frontend/brands/DELTA.jpg', 'note' => ''],
+            ['brand_title' => 'FLUKE', 'brand_logo' => '../../assets/images/frontend/brands/FLUKE.jpg', 'note' => ''],
+            ['brand_title' => 'HAKKO', 'brand_logo' => '../../assets/images/frontend/brands/HAKKO.jpg', 'note' => '']
         ];
         DB::table('brands')->insert($brands);
     }

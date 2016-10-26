@@ -25,6 +25,10 @@ class CreateProductsTable extends Migration
             $table->float('discount_rate');
             $table->integer('num_products_purchased', false, true); // the number of products have been purchased
             $table->string('warranty_period');
+            $table->tinyInteger('inventory_status', false, true); // 1: stocking status; 0: out of stock
+            //$table->integer('inventory_quantity', false, true);
+            //$table->integer('input_unit_price', false, true);
+            //$table->string('vendor');
             $table->string('product_evaluation');
             $table->text('product_description');
             $table->text('product_images');
