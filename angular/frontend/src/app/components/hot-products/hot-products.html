@@ -4,16 +4,16 @@
         <div class="col-lg-12">
             <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                 <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" class="item">
-                    <div ng-repeat="product in slide.items" class="col-lg-3 col-xs-3 col-md-3 col-sm-3 product-item">
+                    <div ng-repeat="p in slide.items" class="col-lg-3 col-xs-3 col-md-3 col-sm-3 product-item">
                         <div class="wrap-product">
-                            <span class="safe">{{product.discount_rate}}</span>
-                            <a href="#"><img ng-src="{{product.product_image}}"></a>
+                            <span class="safe" ng-if="p.discount_rate > 0">{{p.discount_rate * 100 + '%'}}</span>
+                            <a href="#"><img ng-src="{{p.product_image}}"></a>
                         </div>
-                        <p>{{product.product_name}}</p>
+                        <p>{{p.product_title}}</p>
                         <div class="price-product">
-                            <span>{{product.product_old_price}}</span>
-                            <p class="f-bebas">{{product.product_new_price}}</p>
-                            <a href="#" class="btn-blue btn-buy">Mua hàng</a>
+                            <span ng-if="p.discount_rate > 0">{{p.product_price}}</span>
+                            <p class="f-bebas">{{p.product_price_discount}}</p>
+                            <a class="btn-blue btn-buy">Mua hàng</a>
                         </div>
                     </div>
                 </div>

@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('product_price', false, true);
             $table->integer('product_price_discount', false, true);
             $table->float('discount_rate');
+            $table->integer('num_products_purchased', false, true); // the number of products have been purchased
             $table->string('warranty_period');
             $table->string('product_evaluation');
             $table->text('product_description');

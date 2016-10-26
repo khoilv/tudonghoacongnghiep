@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -19,35 +19,28 @@
             bindToController: false
         };
 
-        HotProductsController.$inject = ['$scope'];
+        HotProductsController.$inject = ['$scope', 'commonService'];
 
         /** @ngInject */
-        function HotProductsController($scope) {
+        function HotProductsController($scope, commonService) {
             $scope.myInterval = 5000;
             $scope.active = 0;
             $scope.noWrapSlides = false;
             $scope.slides = [];
 
-            init();
+            commonService.loadData('products/hot', null, function (response) {
+                var slide, slideItems = [], slideItemCount = 0, slideCount = 0;
+                angular.forEach(response.data, function (product, key) {
+                    slideItems.push(product);
+                    if (++slideItemCount % 4 == 0) {
+                        ++slideCount;
+                        slide = {id: slideCount - 1, items: slideItems};
+                        $scope.slides.push(slide);
+                        slideItems = [];
+                    }
+                });
+            });
 
-            function init() {
-                var i, slide = [];
-                for(i = 0; i < 4; i++) {
-                    slide.push({
-                        discount_rate: '20%',
-                        product_image: '../../../assets/images/frontend/img_05.jpg',
-                        product_name: 'Bộ chuyển đổi USB 2.0 to RS232',
-                        product_old_price: '200.000',
-                        product_new_price: '100.000'
-                    });
-                }
-                for (i = 0; i < 2; i++) {
-                    $scope.slides.push({
-                        id: i,
-                        items: slide
-                    });
-                }
-            }
         }
 
         return directive;

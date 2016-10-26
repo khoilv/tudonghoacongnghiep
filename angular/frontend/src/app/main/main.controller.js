@@ -13,7 +13,6 @@
 
         commonService.loadData('products', null, function (response) {
             $scope.products = response.data;
-            console.log(response);
         });
 
     }

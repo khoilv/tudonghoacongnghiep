@@ -21,7 +21,7 @@
                     <li class="product-item col-lg-4" ng-repeat="p in products">
                         <div class="wrap-product">
                             <span class="safe" ng-if="p.discount_rate > 0">-{{p.discount_rate * 100 + '%'}}</span>
-                            <a ng-href="#/danh-muc-san-pham/{{p.product_url}}"><img src="{{p.product_image}}"></a>
+                            <a ng-href="#/danh-muc-san-pham/{{p.product_url}}"><img ng-src="{{p.product_image}}"></a>
                         </div>
                         <p><a ng-href="#/danh-muc-san-pham/{{p.product_url}}">{{p.product_title}}</a></p>
                         <div class="price-product">
