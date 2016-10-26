@@ -6,10 +6,16 @@
         .controller('MainController', MainController);
 
 
-    MainController.$inject = ['$scope'];
+    MainController.$inject = ['$scope', 'commonService'];
 
     /** @ngInject */
-    function MainController($scope) {
+    function MainController($scope, commonService) {
+
+        commonService.loadData('products', null, function (response) {
+            $scope.products = response.data;
+            console.log(response);
+        });
 
     }
+
 })();

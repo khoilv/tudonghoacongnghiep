@@ -12,14 +12,11 @@
         function loadData(url, queryParams, onSuccess) {
             var submitUrl = API_URL + url;
             var method = 'GET';
-
             if (queryParams == null) queryParams = {};
-
             if ($location.port() == 3000) {
                 angular.extend(queryParams, {callback: 'JSON_CALLBACK'});
                 method = 'JSONP';
             }
-
             return $http({
                 url: submitUrl,
                 method: method,
@@ -33,10 +30,7 @@
                     });
                 },
                 function (response) {
-                    console.log({
-                        data: response.data || 'Request failed',
-                        status: response.status
-                    });
+                    console.log(response);
                 }
             );
         }

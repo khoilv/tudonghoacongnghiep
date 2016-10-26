@@ -22,6 +22,9 @@ class ProductsTableSeeder extends Seeder
                     $product[$column] = json_encode($record[$column]);
                 } elseif ($column == 'product_url') {
                     $product[$column] = $this->removeURL($record['product_title']);
+                } elseif ($column == 'discount_rate') {
+                    $discountRate = 1 - $product['product_price_discount'] / $product['product_price'];
+                    $product[$column] = round($discountRate, 2, PHP_ROUND_HALF_UP);
                 } else {
                     $product[$column] = $record[$column];
                 }
