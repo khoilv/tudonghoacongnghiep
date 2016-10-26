@@ -25,7 +25,7 @@
                         </div>
                         <p><a ng-href="#/danh-muc-san-pham/{{p.product_url}}">{{p.product_title}}</a></p>
                         <div class="price-product">
-                            <span>{{p.product_price | number}}</span>
+                            <span ng-if="p.discount_rate > 0">{{p.product_price | number}}</span>
                             <p class="f-bebas">{{p.product_price_discount | number}}</p>
                             <a href="#" class="btn-blue btn-buy">Mua hàng</a>
                         </div>
