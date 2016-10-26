@@ -20,7 +20,7 @@ Route::get('/user', function (Request $request) {
 
 // --------------- API FRONTEND Routes -------------------
 // get menu list
-Route::get('menu', 'ProductCategoryController@getMenuList');
+Route::get('product-categories', 'ProductCategoryController@getProductCategories');
 
 // get faq list
 Route::get('faq', 'FaqController@getFaqList');

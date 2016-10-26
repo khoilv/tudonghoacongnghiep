@@ -2,11 +2,11 @@
     <div class="bar-product-list">
         <h2 class="side-bar-title">Danh mục sản phẩm</h2>
         <ul class="product-list-content">
-            <li ng-repeat="p in menus">
-                <a href="#/danh-muc-san-pham/{{p.slug}}">{{p.name}}</a>
-                <ul ng-if="p.subMenus.length > 0">
-                    <li ng-repeat="c in p.subMenus">
-                        <a href="#/danh-muc-san-pham/{{p.slug}}/{{c.slug}}">{{c.name}}</a>
+            <li ng-repeat="cat in product_categories">
+                <a href="#/danh-muc-san-pham/{{cat.slug}}">{{cat.category_title}}</a>
+                <ul ng-if="cat.subCategories.length > 0">
+                    <li ng-repeat="subcat in cat.subCategories">
+                        <a href="#/danh-muc-san-pham/{{cat.slug}}/{{subcat.slug}}">{{subcat.category_title}}</a>
                     </li>
                 </ul>
             </li>

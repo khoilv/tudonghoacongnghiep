@@ -24,8 +24,8 @@
         /** @ngInject */
         function SidebarController($scope, $location, $timeout, commonService, localStorageService) {
 
-            commonService.loadData('menu', null, function (response) {
-                $scope.menus = response.data;
+            commonService.loadData('product-categories', null, function (response) {
+                $scope.product_categories = response.data;
             });
 
             commonService.loadData('faq', null, function (response) {

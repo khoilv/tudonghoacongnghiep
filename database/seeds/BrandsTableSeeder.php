@@ -12,30 +12,12 @@ class BrandsTableSeeder extends Seeder
     public function run()
     {
         $brands = [
-            [
-                'name' => 'Samsung',
-                'note' => ''
-            ],
-            [
-                'name' => 'LG',
-                'note' => '',
-            ],
-            [
-                'name' => 'Microsoft',
-                'note' => ''
-            ],
-            [
-                'name' => 'Apple',
-                'note' => ''
-            ],
-            [
-                'name' => 'HP',
-                'note' => ''
-            ],
-            [
-                'name' => 'DELL',
-                'note' => ''
-            ]
+            ['brand_title' => 'Samsung', 'note' => ''],
+            ['brand_title' => 'LG', 'note' => '',],
+            ['brand_title' => 'Microsoft', 'note' => ''],
+            ['brand_title' => 'Apple', 'note' => ''],
+            ['brand_title' => 'HP', 'note' => ''],
+            ['brand_title' => 'DELL', 'note' => '']
         ];
         DB::table('brands')->insert($brands);
     }

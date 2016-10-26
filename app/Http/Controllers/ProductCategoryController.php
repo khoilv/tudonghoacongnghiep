@@ -9,10 +9,10 @@ use App\Http\Requests;
 
 class ProductCategoryController extends Controller
 {
-    public function getMenuList(Request $request)
+    public function getProductCategories(Request $request)
     {
         $data = [];
-        $menuItems = ProductCategory::all(['id', 'name', 'slug', 'order', 'parent_id'])->toArray();
+        $menuItems = ProductCategory::all(['id', 'category_title', 'slug', 'order', 'parent_id'])->toArray();
 
         // get the list of parent menus
         foreach ($menuItems as $item) {
@@ -24,9 +24,9 @@ class ProductCategoryController extends Controller
 
         // get the list of children menus
         foreach ($data as &$parent) {
-            $parent['subMenus'] = [];
+            $parent['subCategories'] = [];
             foreach ($menuItems as $child) {
-                if ($child['parent_id'] == $parent['id']) $parent['subMenus'][] = $child;
+                if ($child['parent_id'] == $parent['id']) $parent['subCategories'][] = $child;
             }
         }
 
