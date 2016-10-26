@@ -1,14 +1,15 @@
 @import "../../sass/variables";
 
-#top-link{
-  position:fixed;
-  right:10px;
-  bottom:50px;
-  background:url($path-icon-common + "icon-top.png") no-repeat top left;
-  width:50px;
-  height:40px;
-  &:hover{
-    background:url($path-icon-common + "icon-top-hover.png") no-repeat top left;
+#top-link {
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+  z-index: 4;
+  background: url($path-icon-common + "icon-top.png") no-repeat top left;
+  width: 50px;
+  height: 40px;
+  &:hover {
+    background: url($path-icon-common + "icon-top-hover.png") no-repeat top left;
   }
 
 }
