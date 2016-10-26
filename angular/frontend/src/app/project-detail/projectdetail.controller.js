@@ -22,8 +22,8 @@
             project_status_3: "Chưa thực hiện"
         };
 
-        var url = 'project/' + $sanitize($stateParams.slug);
-        commonService.loadData(url, {slug: $stateParams.slug}, function (response) {
+        var url = 'project/' + $sanitize($stateParams.product_url);
+        commonService.loadData(url, {product_url: $stateParams.product_url}, function (response) {
             var project = response.data;
             project.project_status = listProjectStatus['project_status_' + response.data.project_status];
             $scope.project = project;

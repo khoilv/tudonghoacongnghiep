@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('product_brand_id', false, true);
             $table->string('product_code');
             $table->string('product_title');
+            $table->string('product_url');
             $table->integer('product_price', false, true);
             $table->integer('product_price_discount', false, true);
             $table->string('warranty_period');

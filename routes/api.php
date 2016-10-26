@@ -52,7 +52,7 @@ Route::group(['middleware' => ['jwt.auth' /*, 'jwt.refresh'*/]], function () {
 
 // project
 Route::get('project/list', 'ProjectController@getProjectList');
-Route::get('project/{slug}', 'ProjectController@getProjectBySlug');
+Route::get('project/{productUrl}', 'ProjectController@getProjectByURL');
 
 // utils
 Route::get('generate-captcha', 'UtilsController@generateCaptcha');

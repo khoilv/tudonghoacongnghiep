@@ -15,7 +15,7 @@ class ProjectController extends Controller
         $itemsPerPage = $request->input('per_page');
         $offset = ($page - 1) * $itemsPerPage;
 
-        $columns = ['id', 'project_name', 'slug', 'project_description', 'start_date', 'project_images'];
+        $columns = ['id', 'project_title', 'project_url', 'project_description', 'start_date', 'project_images'];
         $projects = Project::where('active', 1)->offset($offset)->limit($itemsPerPage)->get($columns)->toArray();
         $data = $p = [];
         $maxLength = 360;
@@ -58,9 +58,9 @@ class ProjectController extends Controller
         }
     }
 
-    public function getProjectBySlug(Request $request, $slug = null)
+    public function getProjectByURL(Request $request, $productUrl = null)
     {
-        $data = Project::where('slug', $slug)->first()->toArray();
+        $data = Project::where('project_url', $productUrl)->first()->toArray();
         $data['project_images'] = json_decode($data['project_images'], true);
 
         // return json result

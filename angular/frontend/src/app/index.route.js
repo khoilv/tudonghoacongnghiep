@@ -45,7 +45,7 @@
                 controllerAs: 'projectList'
             })
             .state('project-detail', {
-                url: '/chi-tiet-du-an/:slug',
+                url: '/chi-tiet-du-an/:product_url',
                 templateUrl: 'app/project-detail/project-detail.html',
                 controller: 'ProjectDetailController',
                 controllerAs: 'projectDetail'

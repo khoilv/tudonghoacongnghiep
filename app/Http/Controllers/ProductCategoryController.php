@@ -12,7 +12,7 @@ class ProductCategoryController extends Controller
     public function getProductCategories(Request $request)
     {
         $data = [];
-        $menuItems = ProductCategory::all(['id', 'category_title', 'slug', 'order', 'parent_id'])->toArray();
+        $menuItems = ProductCategory::all(['id', 'category_title', 'category_url', 'order', 'parent_id'])->toArray();
 
         // get the list of parent menus
         foreach ($menuItems as $item) {
