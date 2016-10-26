@@ -6,7 +6,7 @@
                 <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" class="item">
                     <div ng-repeat="p in slide.items" class="col-lg-3 col-xs-3 col-md-3 col-sm-3 product-item">
                         <div class="wrap-product">
-                            <span class="safe" ng-if="p.discount_rate > 0">{{p.discount_rate * 100 + '%'}}</span>
+                            <span class="safe" ng-if="p.discount_rate > 0">-{{p.discount_rate * 100 + '%'}}</span>
                             <a href="#"><img ng-src="{{p.product_image}}"></a>
                         </div>
                         <p>{{p.product_title}}</p>

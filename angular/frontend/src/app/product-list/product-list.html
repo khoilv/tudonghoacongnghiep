@@ -15,19 +15,20 @@
         <div class="row">
             <com-sidebar></com-sidebar>
 
-            <div class="col-lg-9 project-list">
-                <h2 class="title-cm">Danh mục dự án</h2>
+            <div class="col-lg-9">
+                <h2 class="title-cm">Danh sách sản phẩm</h2>
                 <ul>
-                    <li ng-repeat="p in projects">
-                        <div class="wrap-img-project col-lg-3 pl0 pr0">
-                            <img ng-src="{{p.project_image}}">
+                    <li class="product-item col-lg-4" ng-repeat="p in products">
+                        <div class="wrap-product">
+                            <span ng-if="p.discount_rate > 0" class="safe">-{{p.discount_rate * 100 + '%'}}</span>
+                            <a ng-href="#/danh-muc-san-pham/{{p.product_url}}"><img ng-src="{{p.product_image}}"></a>
                         </div>
-                        <div class="col-lg-9 project-item-content">
-                            <a ng-href="#/chi-tiet-du-an/{{p.project_url}}">{{p.project_title}}</a>
-                            <span>{{p.start_date}}</span>
-                            <p>{{p.project_description}}</p>
+                        <p><a ng-href="#/danh-muc-san-pham/{{p.product_url}}">{{p.product_title}}</a></p>
+                        <div class="price-product">
+                            <span ng-if="p.discount_rate > 0">{{p.product_price | number}}</span>
+                            <p class="f-bebas">{{p.product_price_discount | number}}</p>
+                            <a class="btn-blue btn-buy">Mua hàng</a>
                         </div>
-                        <div class="clearfix"></div>
                     </li>
                 </ul>
                 <div class="clearfix"></div>
@@ -38,6 +39,12 @@
             </div>
         </div>
     </section>
+    <div class="clearfix"></div>
+
+    <com-hot-products></com-hot-products>
+    <div class="clearfix"></div>
+
+    <com-news-slide></com-news-slide>
     <div class="clearfix"></div>
 
     <com-email-registration></com-email-registration>

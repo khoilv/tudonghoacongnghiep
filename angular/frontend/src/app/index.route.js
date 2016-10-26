@@ -73,6 +73,12 @@
                 templateUrl: 'app/account-info/account-info.html',
                 controller: 'AccountInfoController',
                 controllerAs: 'accountInfo'
+            })
+            .state('product-list', {
+                url: '/danh-sach-san-pham',
+                templateUrl: 'app/product-list/product-list.html',
+                controller: 'ProductListController',
+                controllerAs: 'productList'
             });
 
         $urlRouterProvider.otherwise('/');
