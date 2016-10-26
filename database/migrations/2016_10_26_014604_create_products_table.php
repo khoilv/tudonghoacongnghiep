@@ -27,6 +27,8 @@ class CreateProductsTable extends Migration
             $table->text('product_description');
             $table->text('product_images');
             $table->text('product_keywords');
+            $table->text('note');
+            $table->tinyInteger('active', false, true);
             $table->timestamps();
         });
     }
