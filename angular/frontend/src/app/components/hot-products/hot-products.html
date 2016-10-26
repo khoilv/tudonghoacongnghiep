@@ -11,8 +11,8 @@
                         </div>
                         <p>{{p.product_title}}</p>
                         <div class="price-product">
-                            <span ng-if="p.discount_rate > 0">{{p.product_price}}</span>
-                            <p class="f-bebas">{{p.product_price_discount}}</p>
+                            <span ng-if="p.discount_rate > 0">{{p.product_price | number}}</span>
+                            <p class="f-bebas">{{p.product_price_discount | number}}</p>
                             <a class="btn-blue btn-buy">Mua hàng</a>
                         </div>
                     </div>
