@@ -79,6 +79,12 @@
                 templateUrl: 'app/product-list/product-list.html',
                 controller: 'ProductListController',
                 controllerAs: 'productList'
+            })
+            .state('promotion', {
+                url: '/san-pham-khuyen-mai',
+                templateUrl: 'app/promotion/promotion.html',
+                controller: 'PromotionController',
+                controllerAs: 'promotion'
             });
 
         $urlRouterProvider.otherwise('/');

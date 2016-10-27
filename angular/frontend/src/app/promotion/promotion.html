@@ -16,30 +16,29 @@
             <com-sidebar></com-sidebar>
 
             <div class="col-lg-9">
-                <h2 class="title-cm">Sản phẩm mới</h2>
+                <h2 class="title-cm"><span class="glyphicon glyphicon-star-empty" style="color: #ffa200;font-size: 20px;"></span>&nbsp;Khuyến mãi</h2>
                 <ul>
                     <li class="product-item col-lg-4" ng-repeat="p in products">
                         <div class="wrap-product">
-                            <span class="safe" ng-if="p.discount_rate > 0">-{{p.discount_rate * 100 + '%'}}</span>
+                            <span ng-if="p.discount_rate > 0" class="safe">-{{p.discount_rate * 100 + '%'}}</span>
                             <a ng-href="#/danh-muc-san-pham/{{p.product_url}}"><img ng-src="{{p.product_image}}"></a>
                         </div>
                         <p><a ng-href="#/danh-muc-san-pham/{{p.product_url}}">{{p.product_title}}</a></p>
                         <div class="price-product">
                             <span ng-if="p.discount_rate > 0">{{p.product_price | number}}</span>
                             <p class="f-bebas">{{p.product_price_discount | number}}</p>
-                            <a href="#" class="btn-blue btn-buy">Mua hàng</a>
+                            <a class="btn-blue btn-buy">Mua hàng</a>
                         </div>
                     </li>
+                </ul>
+                <div class="clearfix"></div>
+                <ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"
+                    boundary-links="true" max-size="maxSize" items-per-page="itemsPerPage"
+                    first-text="<<" previous-text="<" next-text=">" last-text=">>" class="pagination-sm mt30">
                 </ul>
             </div>
         </div>
     </section>
-    <div class="clearfix"></div>
-
-    <com-hot-products></com-hot-products>
-    <div class="clearfix"></div>
-
-    <com-news-slide></com-news-slide>
     <div class="clearfix"></div>
 
     <com-email-registration></com-email-registration>

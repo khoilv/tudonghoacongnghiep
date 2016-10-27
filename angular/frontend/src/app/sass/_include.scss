@@ -53,8 +53,11 @@
     }
   }
   & > p {
-    font-weight: bold;
-    margin-top: 8px !important;
+    margin-top: 10px !important;
+    margin-bottom: 4px !important;
+    a {
+      font-weight: bold;
+    }
   }
 
   .btn-buy {
