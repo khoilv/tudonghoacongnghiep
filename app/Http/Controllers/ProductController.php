@@ -46,12 +46,17 @@ class ProductController extends Controller
     // get product list
     public function getProductList(Request $request)
     {
+        // sorting
+        $sortField = $request->input('sort_field');
+        $sortOrder = $request->input('sort_order');
+
+        // paging
         $page = $request->input('page');
         $itemsPerPage = $request->input('per_page');
         $offset = ($page - 1) * $itemsPerPage;
 
         $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
-        $products = Product::where('active', 1)->offset($offset)->limit($itemsPerPage)->get($columns)->toArray();
+        $products = Product::where('active', 1)->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
 
         // get main product image
         $this->setMainProductImage($products);

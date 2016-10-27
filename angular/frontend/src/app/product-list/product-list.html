@@ -16,7 +16,20 @@
             <com-sidebar></com-sidebar>
 
             <div class="col-lg-9">
-                <h2 class="title-cm">Danh sách sản phẩm</h2>
+                <div class="title-cm filter">
+                    <h2 class="pull-left" style="font-size: 20px; margin-top: 5px;">Danh sách sản phẩm</h2>
+                    <div class="pull-right">
+                        <span class="pull-left mt5">Sắp xếp theo :  &nbsp;</span>
+                        <select class="form-control pull-left" style="width: 200px;" data-ng-model="sortBy" data-ng-change="sort()">
+                            <option value="newest">S/p mới nhất</option>
+                            <option value="hottest">S/p bán chạy nhất</option>
+                            <option value="price_asc">Giá từ Thấp - Cao</option>
+                            <option value="price_desc">Giá từ Cao - Thấp</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
                 <ul>
                     <li class="product-item col-lg-4" ng-repeat="p in products">
                         <div class="wrap-product">
