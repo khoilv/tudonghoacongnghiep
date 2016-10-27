@@ -80,7 +80,7 @@
             };
 
             // favorite-product-list
-            $scope.favoriteProductList = function () {
+            $scope.favoriteList = function () {
                 checkCustomerLoggedIn('/danh-sach-ua-thich');
             };
 

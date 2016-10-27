@@ -32,10 +32,10 @@
                 controller: 'OrderHistoryController',
                 controllerAs: 'orderHistory'
             })
-            .state('favorite-product-list', {
+            .state('favorite-list', {
                 url: '/danh-sach-ua-thich',
-                templateUrl: 'app/favorite-product-list/favorite-product-list.html',
-                controller: 'FavoriteProductListController',
+                templateUrl: 'app/favorite-list/favorite-list.html',
+                controller: 'FavoriteListController',
                 controllerAs: 'favorite'
             })
             .state('project-list', {
