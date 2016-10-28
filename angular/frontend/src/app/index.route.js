@@ -80,6 +80,12 @@
                 controller: 'ProductListController',
                 controllerAs: 'productList'
             })
+            .state('product-category-list', {
+                url: '/danh-sach-san-pham/:category_url',
+                templateUrl: 'app/product-list/product-list.html',
+                controller: 'ProductListController',
+                controllerAs: 'productList'
+            })
             .state('promotion', {
                 url: '/san-pham-khuyen-mai',
                 templateUrl: 'app/promotion/promotion.html',

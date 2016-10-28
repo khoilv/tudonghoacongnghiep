@@ -101,6 +101,11 @@ class ProductController extends Controller
         }
     }
 
+    public function getProductsByCategory(Request $request)
+    {
+
+    }
+
     // set main product image
     private function setMainProductImage(&$products)
     {

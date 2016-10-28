@@ -3,10 +3,11 @@
         <h2 class="side-bar-title">Danh mục sản phẩm</h2>
         <ul class="product-list-content">
             <li ng-repeat="cat in product_categories">
-                <a href="#/danh-muc-san-pham/{{cat.category_url}}">{{cat.category_title}}</a>
+                <a ng-if="cat.subCategories.length > 0">{{cat.category_title}}</a>
+                <a ng-if="cat.subCategories.length == 0" ng-href="#/danh-sach-san-pham/{{cat.category_url}}">{{cat.category_title}}</a>
                 <ul ng-if="cat.subCategories.length > 0">
                     <li ng-repeat="subcat in cat.subCategories">
-                        <a href="#/danh-muc-san-pham/{{cat.category_url}}/{{subcat.category_url}}">{{subcat.category_title}}</a>
+                        <a ng-href="#/danh-sach-san-pham/{{subcat.category_url}}">{{subcat.category_title}}</a>
                     </li>
                 </ul>
             </li>

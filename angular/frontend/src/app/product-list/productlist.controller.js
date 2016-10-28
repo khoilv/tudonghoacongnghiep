@@ -6,12 +6,15 @@
         .controller('ProductListController', ProductListController);
 
 
-    ProductListController.$inject = ['$scope', 'commonService'];
+    ProductListController.$inject = ['$scope', '$stateParams', 'commonService'];
 
     /** @ngInject */
-    function ProductListController($scope, commonService) {
+    function ProductListController($scope, $stateParams, commonService) {
+        var categoryUrl = angular.isUndefined($stateParams.category_url)? null : $stateParams.category_url;
+        var queryParams = {category_url: categoryUrl};
+
         // sorting
-        var sort = {sort_field: 'id', sort_order: 'desc'};
+        var sorting = {sort_field: 'id', sort_order: 'desc'};
         $scope.sortBy = 'newest';
 
         // paging
@@ -20,7 +23,6 @@
         $scope.itemsPerPage = 12;
         $scope.totalItems = 0;
 
-        var queryParams = {};
         loadProductList();
 
         $scope.pageChanged = function () {
@@ -42,8 +44,9 @@
         };
 
         function loadProductList() {
-            queryParams = {page: $scope.currentPage, per_page: $scope.itemsPerPage};
-            angular.extend(queryParams, sort);
+            var paging = {page: $scope.currentPage, per_page: $scope.itemsPerPage};
+            queryParams = angular.extend(queryParams, paging, sorting);
+            console.log(queryParams);
             commonService.loadData('products/list', queryParams, function (response) {
                 $scope.products = response.data.data;
                 $scope.totalItems = response.data.total;
@@ -51,8 +54,8 @@
         }
 
         function fillSortConditions(sortField, sortOrder) {
-            sort.sort_field = sortField;
-            sort.sort_order = sortOrder;
+            sorting.sort_field = sortField;
+            sorting.sort_order = sortOrder;
         }
     }
 

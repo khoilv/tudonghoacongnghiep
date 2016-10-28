@@ -41,6 +41,7 @@ class ProjectsTableSeeder extends Seeder
         $strTitle = strtolower($strTitle);
         $strTitle = trim($strTitle);
         $strTitle = str_replace(' ', '-', $strTitle);
+        $strTitle = str_replace('---', '-', $strTitle);
         $unicode = array(
             'a' => 'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
             'd' => 'đ',
