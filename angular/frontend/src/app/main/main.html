@@ -14,23 +14,9 @@
     <section class="main-content container mt20">
         <div class="row">
             <com-sidebar></com-sidebar>
-
             <div class="col-lg-9">
                 <h2 class="title-cm">Sản phẩm mới</h2>
-                <ul>
-                    <li class="product-item col-lg-4" ng-repeat="p in products">
-                        <div class="wrap-product">
-                            <span class="safe" ng-if="p.discount_rate > 0">-{{p.discount_rate * 100 + '%'}}</span>
-                            <a ng-href="#/danh-muc-san-pham/{{p.product_url}}"><img ng-src="{{p.product_image}}"></a>
-                        </div>
-                        <p><a ng-href="#/danh-muc-san-pham/{{p.product_url}}">{{p.product_title}}</a></p>
-                        <div class="price-product">
-                            <span ng-if="p.discount_rate > 0">{{p.product_price | number}}</span>
-                            <p class="f-bebas">{{p.product_price_discount | number}}</p>
-                            <a href="#" class="btn-blue btn-buy">Mua hàng</a>
-                        </div>
-                    </li>
-                </ul>
+                <com-products products="products"></com-products>
             </div>
         </div>
     </section>
