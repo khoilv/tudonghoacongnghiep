@@ -23,7 +23,9 @@
         $scope.itemsPerPage = 12;
         $scope.totalItems = 0;
 
-        loadProductList();
+        $scope.init = function () {
+            loadProductList();
+        };
 
         $scope.pageChanged = function () {
             loadProductList();
