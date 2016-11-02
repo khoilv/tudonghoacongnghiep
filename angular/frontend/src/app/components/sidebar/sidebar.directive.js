@@ -19,10 +19,12 @@
             bindToController: false
         };
 
-        SidebarController.$inject = ['$scope', '$location', '$timeout', 'commonService', 'localStorageService'];
+        SidebarController.$inject = ['$scope', '$location', '$timeout', '$document', 'commonService', 'utilService', 'localStorageService'];
 
         /** @ngInject */
-        function SidebarController($scope, $location, $timeout, commonService, localStorageService) {
+        function SidebarController($scope, $location, $timeout, $document, commonService, utilService, localStorageService) {
+
+            var selectedCategory = utilService.getProductCategory();
 
             commonService.loadData('product-categories', null, function (response) {
                 $scope.product_categories = response.data;
@@ -43,6 +45,7 @@
                 // product category menu
                 angular.element('ul.product-list-content').on('click', 'li > a', function () {
                     if (angular.element(this).hasClass('active')) {
+                        console.log('OK');
                         angular.element(this).removeClass('active').next('ul').hide(400);
                     } else {
                         var a = angular.element(this).parent().parent().find('a.active');
@@ -50,6 +53,18 @@
                         angular.element(this).addClass('active').next('ul').show(400);
                     }
                 });
+            };
+
+            $scope.isActiveCategory = function (categoryUrl) {
+                return isSelectedCategory(categoryUrl);
+            };
+
+            $scope.isActiveSubCategory = function (categoryUrl) {
+              if (isSelectedCategory(categoryUrl)) {
+                  return {display: 'block'};
+              } else {
+                  return {display: 'none'};
+              }
             };
 
             function initMarquee() {
@@ -76,6 +91,10 @@
                     });
                 }, 2000);
                 localStorageService.set('marquee_timer', timer, 'localStorage');
+            }
+
+            function isSelectedCategory(categoryUrl) {
+                return selectedCategory == categoryUrl;
             }
         }
 

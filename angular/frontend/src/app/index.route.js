@@ -74,14 +74,20 @@
                 controller: 'AccountInfoController',
                 controllerAs: 'accountInfo'
             })
-            .state('product-list', {
-                url: '/danh-sach-san-pham',
+            .state('product-list-all', {
+                url: '/san-pham',
                 templateUrl: 'app/product-list/product-list.html',
                 controller: 'ProductListController',
                 controllerAs: 'productList'
             })
-            .state('product-list.category', {
-                url: '/:category_url',
+            .state('product-list-category', {
+                url: '/san-pham/:category_url',
+                templateUrl: 'app/product-list/product-list.html',
+                controller: 'ProductListController',
+                controllerAs: 'productList'
+            })
+            .state('product-list-sub-category', {
+                url: '/san-pham/:category_url/:sub_category_url',
                 templateUrl: 'app/product-list/product-list.html',
                 controller: 'ProductListController',
                 controllerAs: 'productList'

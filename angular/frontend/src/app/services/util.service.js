@@ -5,9 +5,9 @@
         .module('angularSeedApp')
         .factory('utilService', utilService);
 
-    utilService.$inject = ['commonService'];
+    utilService.$inject = ['localStorageService', 'commonService'];
 
-    function utilService(commonService) {
+    function utilService(localStorageService, commonService) {
 
         function generateCaptcha(onSuccess) {
             commonService.loadData('generate-captcha', null, function (data) {
@@ -21,9 +21,19 @@
             });
         }
 
+        function saveProductCategory(categoryUrl) {
+            localStorageService.set('selected_category', categoryUrl, 'sessionStorage');
+        }
+
+        function getProductCategory() {
+            return localStorageService.get('selected_category', 'sessionStorage');
+        }
+
         return {
             generateCaptcha: generateCaptcha,
-            getCitiesProvinces: getCitiesProvinces
+            getCitiesProvinces: getCitiesProvinces,
+            saveProductCategory: saveProductCategory,
+            getProductCategory: getProductCategory
         }
     }
 
