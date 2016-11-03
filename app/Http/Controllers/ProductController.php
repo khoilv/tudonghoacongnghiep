@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -26,26 +27,14 @@ class ProductController extends Controller
         }
     }
 
-    // get hot products
-    public function getHotProducts(Request $request)
-    {
-        $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
-        $products = Product::where('active', 1)->offset(0)->limit(12)->orderBy('num_products_purchased', 'desc')->get($columns)->toArray();
-
-        // get main product image
-        $this->setMainProductImage($products);
-
-        // return json result
-        if ($request->input('callback')) {
-            return response()->json($products)->withCallback($request->input('callback'));
-        } else {
-            return response()->json($products);
-        }
-    }
-
     // get product list
     public function getProductList(Request $request)
     {
+        // category_url
+        $categoryUrl = $request->input('category_url');
+        $subCategoryUrl = $request->input('sub_category_url');
+        $categoryUrl = $subCategoryUrl ? $subCategoryUrl : $categoryUrl;
+
         // sorting
         $sortField = $request->input('sort_field');
         $sortOrder = $request->input('sort_order');
@@ -56,7 +45,13 @@ class ProductController extends Controller
         $offset = ($page - 1) * $itemsPerPage;
 
         $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
-        $products = Product::where('active', 1)->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
+        if ($categoryUrl) {
+            $category = ProductCategory::where('category_url', $categoryUrl)->first();
+            $categoryId = $category->id;
+            $products = Product::where('active', 1)->where('product_category_id', $categoryId)->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
+        } else {
+            $products = Product::where('active', 1)->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
+        }
 
         // get main product image
         $this->setMainProductImage($products);
@@ -71,6 +66,23 @@ class ProductController extends Controller
             return response()->json($paginationResult)->withCallback($request->input('callback'));
         } else {
             return response()->json($paginationResult);
+        }
+    }
+
+    // get hot products
+    public function getHotProducts(Request $request)
+    {
+        $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
+        $products = Product::where('active', 1)->offset(0)->limit(12)->orderBy('num_products_purchased', 'desc')->get($columns)->toArray();
+
+        // get main product image
+        $this->setMainProductImage($products);
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($products)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($products);
         }
     }
 
@@ -99,11 +111,6 @@ class ProductController extends Controller
         } else {
             return response()->json($paginationResult);
         }
-    }
-
-    public function getProductsByCategory(Request $request)
-    {
-
     }
 
     // set main product image

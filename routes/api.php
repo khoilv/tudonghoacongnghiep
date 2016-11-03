@@ -56,10 +56,9 @@ Route::get('project/{productUrl}', 'ProjectController@getProjectByURL');
 
 // products
 Route::get('products', 'ProductController@index');
-Route::get('products/hot', 'ProductController@getHotProducts');
 Route::get('products/list', 'ProductController@getProductList');
+Route::get('products/hot', 'ProductController@getHotProducts');
 Route::get('products/promotion', 'ProductController@getPromotionList');
-Route::get('products/category', 'ProductController@getProductsByCategory');
 
 // utils
 Route::get('generate-captcha', 'UtilsController@generateCaptcha');

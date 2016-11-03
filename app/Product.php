@@ -43,4 +43,12 @@ class Product extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * Get the product category that the product belongs to.
+     */
+    public function author()
+    {
+        return $this->belongsTo('App\ProductCategory');
+    }
 }
