@@ -71,6 +71,59 @@ class ProductController extends Controller
         }
     }
 
+    // search products
+    public function search(Request $request)
+    {
+        // search query
+        $searchQuery = $request->input('search_query');
+
+        // category_url
+        $categoryUrl = $request->input('category_url');
+        $subCategoryUrl = $request->input('sub_category_url');
+        $categoryUrl = $subCategoryUrl ? $subCategoryUrl : $categoryUrl;
+
+        // sorting
+        $sortField = $request->input('sort_field');
+        $sortOrder = $request->input('sort_order');
+
+        // paging
+        $page = $request->input('page');
+        $itemsPerPage = $request->input('per_page');
+        $offset = ($page - 1) * $itemsPerPage;
+
+        // search columns
+        $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
+
+        // 3 search cases
+        if ($categoryUrl) {
+            $category = ProductCategory::where('category_url', $categoryUrl)->first();
+            $categoryId = $category->id;
+            $products = Product::where('active', 1)->where('product_category_id', $categoryId)->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
+            $total = Product::where('active', 1)->where('product_category_id', $categoryId)->count();
+        } else if ($searchQuery) {
+            $products = Product::where('active', 1)->where('product_keywords', 'LIKE', "%{$searchQuery}%")->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
+            $total = Product::where('active', 1)->where('product_keywords', 'LIKE', "%{$searchQuery}%")->count();
+        } else {
+            $products = Product::where('active', 1)->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
+            $total = Product::where('active', 1)->count();
+        }
+
+        // get main product image
+        $this->setMainProductImage($products);
+
+        $paginationResult = [
+            "total" => $total,
+            "data" => $products
+        ];
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($paginationResult)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($paginationResult);
+        }
+    }
+
     // get hot products
     public function getHotProducts(Request $request)
     {

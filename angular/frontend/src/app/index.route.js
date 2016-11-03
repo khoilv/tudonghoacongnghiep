@@ -92,6 +92,15 @@
                 controller: 'ProductListController',
                 controllerAs: 'productList'
             })
+            .state('product-search', {
+                url: '/tim-kiem-san-pham',
+                params: {
+                    keyword: null
+                },
+                templateUrl: 'app/product-list/product-list.html',
+                controller: 'ProductListController',
+                controllerAs: 'productList'
+            })
             .state('promotion', {
                 url: '/san-pham-khuyen-mai',
                 templateUrl: 'app/promotion/promotion.html',

@@ -19,10 +19,18 @@
             bindToController: false
         };
 
-        return directive;
+        SearchController.$inject = ['$scope', '$state'];
 
         /** @ngInject */
-        function SearchController() {}
+        function SearchController($scope, $state) {
+            $scope.keyword = null;
+
+            $scope.search = function () {
+                $state.go('product-search', {keyword: $scope.keyword});
+            }
+        }
+
+        return directive;
     }
 
 })();

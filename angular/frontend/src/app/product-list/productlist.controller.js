@@ -10,9 +10,10 @@
 
     /** @ngInject */
     function ProductListController($scope, $stateParams, commonService, utilService) {
+        var keyword = angular.isUndefined($stateParams.keyword)? null : $stateParams.keyword;
         var categoryUrl = angular.isUndefined($stateParams.category_url)? null : $stateParams.category_url;
         var subCategoryUrl = angular.isUndefined($stateParams.sub_category_url) ? null : $stateParams.sub_category_url;
-        var queryParams = {category_url: categoryUrl, sub_category_url: subCategoryUrl};
+        var queryParams = {search_query: keyword, category_url: categoryUrl, sub_category_url: subCategoryUrl};
 
         // sorting
         var sorting = {sort_field: 'id', sort_order: 'desc'};
@@ -51,7 +52,7 @@
             var paging = {page: $scope.currentPage, per_page: $scope.itemsPerPage};
             queryParams = angular.extend(queryParams, paging, sorting);
             console.log(queryParams);
-            commonService.loadData('products/list', queryParams, function (response) {
+            commonService.loadData('products/search', queryParams, function (response) {
                 $scope.products = response.data.data;
                 $scope.totalItems = response.data.total;
             });
