@@ -49,15 +49,17 @@ class ProductController extends Controller
             $category = ProductCategory::where('category_url', $categoryUrl)->first();
             $categoryId = $category->id;
             $products = Product::where('active', 1)->where('product_category_id', $categoryId)->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
+            $total = Product::where('active', 1)->where('product_category_id', $categoryId)->count();
         } else {
             $products = Product::where('active', 1)->offset($offset)->limit($itemsPerPage)->orderBy($sortField, $sortOrder)->get($columns)->toArray();
+            $total = Product::where('active', 1)->count();
         }
 
         // get main product image
         $this->setMainProductImage($products);
 
         $paginationResult = [
-            "total" => Product::where('active', 1)->count(),
+            "total" => $total,
             "data" => $products
         ];
 
