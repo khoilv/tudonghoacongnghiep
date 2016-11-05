@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
@@ -121,6 +122,54 @@ class ProductController extends Controller
             return response()->json($paginationResult)->withCallback($request->input('callback'));
         } else {
             return response()->json($paginationResult);
+        }
+    }
+
+    // view product detail information
+    public function detail(Request $request)
+    {
+        $productUrl = $request->input('product_url');
+
+        $product = Product::where('product_url', $productUrl)->first()->toArray();
+        $product['product_images'] = json_decode($product['product_images'], true);
+        $product['product_evaluation'] = json_decode($product['product_evaluation'], true);
+
+        // set category title
+        $category = ProductCategory::find($product['product_category_id']);
+        $product['product_category_url'] = $category->category_url;
+        $product['product_category_title'] = $category->category_title;
+
+        // set brand title
+        $brand = Brand::find($product['product_brand_id']);
+        $product['product_brand_title'] = $brand->brand_title;
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($product)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($product);
+        }
+    }
+
+    public function show(Request $request, $id)
+    {
+        $product = Product::find($id)->toArray();
+        $product['product_images'] = json_decode($product['product_images'], true);
+        $product['product_evaluation'] = json_decode($product['product_evaluation'], true);
+
+        // set category title
+        $category = ProductCategory::find($product['product_category_id']);
+        $product['product_category_url'] = $category->category_url;
+
+        // set brand title
+        $brand = Brand::find($product['product_brand_id']);
+        $product['product_brand_title'] = $brand->brand_title;
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($product)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($product);
         }
     }
 

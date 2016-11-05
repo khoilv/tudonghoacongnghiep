@@ -59,6 +59,8 @@ Route::get('products', 'ProductController@index');
 Route::get('products/search', 'ProductController@search');
 Route::get('products/hot', 'ProductController@hot');
 Route::get('products/promotion', 'ProductController@promotion');
+Route::get('products/detail', 'ProductController@detail')->name('products.detail');
+Route::get('products/{id}', 'ProductController@show')->name('products.show');
 
 // utils
 Route::get('generate-captcha', 'UtilsController@generateCaptcha');

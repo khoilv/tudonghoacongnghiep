@@ -23,11 +23,14 @@
 
         /** @ngInject */
         function SearchController($scope, $state, utilService) {
+
             $scope.keyword = utilService.getKeyword();
 
             $scope.search = function () {
-                utilService.saveKeyword($scope.keyword);
-                $state.go('product-search', {keyword: $scope.keyword});
+                if ($scope.keyword) {
+                    utilService.saveKeyword($scope.keyword);
+                    $state.go('product-search', {keyword: $scope.keyword});
+                }
             }
         }
 
