@@ -1,0 +1,84 @@
+@import "../../../bower_components/compass-sass-mixins/lib/compass/css3";
+@import "../sass/mixins";
+@import "../sass/variables";
+
+ul, ol {
+  margin-bottom: 0 !important;
+}
+
+.text-orange {
+  color: #ffba00;
+}
+
+.product-hot {
+  padding: 0 0 !important;
+}
+
+.detail-product {
+  h2 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .price-product {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    margin: 10px 0;
+    p span.f-bebas.text-orange {
+      font-size: 30px;
+    }
+    .safe-price {
+      text-decoration: line-through;
+    }
+  }
+}
+
+.detail-product-content {
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+  margin: 20px 0;
+}
+
+.guarantee {
+  display: block;
+  height: 35px;
+  color: #19a1b5;
+  margin: 10px 0 !important;
+  padding-left: 110px;
+  line-height: 35px;
+  background: url($path-icon + "baohanh_img.png") no-repeat 10px center #f2f2f2;
+}
+
+.note {
+  color: #7d7d7d;
+  font-style: italic;
+  margin: 10px 0;
+  display: block;
+}
+
+.btn-buy-product {
+  background: url($path-icon + "icon-cart.png") no-repeat 10px center #19a1b5;
+  padding: 10px 20px 10px 50px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  float: right;
+  @include border-radius(5px);
+  &:hover {
+    background: url($path-icon + "icon-cart.png") no-repeat 10px center #ffa200;
+    @include transition(all ease 0.3s);
+  }
+}
+
+.wishlist-add {
+  color: #d20000;
+}
+
+.glyphicon-heart-empty {
+  color: #d20000;
+  a:hover & {
+    color: #07b1dc;
+    @include transition(all ease 0.2s);
+  }
+}

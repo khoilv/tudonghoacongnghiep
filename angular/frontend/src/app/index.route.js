@@ -106,6 +106,12 @@
                 templateUrl: 'app/promotion/promotion.html',
                 controller: 'PromotionController',
                 controllerAs: 'promotion'
+            })
+            .state('product-detail', {
+                url: '/chi-tiet-san-pham/:product_url',
+                templateUrl: 'app/product-detail/product-detail.html',
+                controller: 'ProductDetailController',
+                controllerAs: 'productDetail'
             });
 
         $urlRouterProvider.otherwise('/');
