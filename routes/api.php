@@ -21,6 +21,7 @@ Route::get('/user', function (Request $request) {
 // --------------- API FRONTEND Routes -------------------
 // get menu list
 Route::get('product-categories', 'ProductCategoryController@getProductCategories');
+Route::get('product-category/{categoryUrl}', 'ProductCategoryController@getProductCategoryByURL');
 
 // get faq list
 Route::get('faq', 'FaqController@getFaqList');

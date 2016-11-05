@@ -37,4 +37,16 @@ class ProductCategoryController extends Controller
             return response()->json($menuItems);
         }
     }
+
+    public function getProductCategoryByURL(Request $request, $categoryUrl)
+    {
+        $category = ProductCategory::where('category_url', $categoryUrl)->first()->toArray();
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($category)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($category);
+        }
+    }
 }

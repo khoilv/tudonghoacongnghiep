@@ -28,6 +28,9 @@
         $scope.init = function () {
             utilService.saveProductCategory(categoryUrl);
             utilService.saveProductSubCategory(subCategoryUrl);
+            if ($scope.isCategorySelection()) {
+                loadProductCategory();
+            }
             loadProductList();
         };
 
@@ -48,6 +51,17 @@
             $scope.currentPage = 1;
             loadProductList();
         };
+
+        $scope.isCategorySelection = function () {
+            return (categoryUrl || subCategoryUrl);
+        };
+
+        function loadProductCategory() {
+            var url = 'product-category/' + (subCategoryUrl ? subCategoryUrl : categoryUrl);
+            commonService.loadData(url, queryParams, function (response) {
+                $scope.category = response.data;
+            });
+        }
 
         function loadProductList() {
             var paging = {page: $scope.currentPage, per_page: $scope.itemsPerPage};
