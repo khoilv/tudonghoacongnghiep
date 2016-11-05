@@ -5,8 +5,8 @@
             <li ng-repeat="cat in product_categories">
                 <a ng-if="cat.subCategories.length > 0" ng-class="{active: isActiveCategory(cat.category_url)}">{{cat.category_title}}</a>
                 <a ng-if="cat.subCategories.length == 0" ui-sref="product-list-category({category_url: cat.category_url})">{{cat.category_title}}</a>
-                <ul ng-if="cat.subCategories.length > 0" ng-style="isActiveSubCategory(cat.category_url)" id="{{cat.category_url}}">
-                    <li ng-repeat="subcat in cat.subCategories">
+                <ul ng-if="cat.subCategories.length > 0" ng-style="showSubCategories(cat.category_url)" id="{{cat.category_url}}">
+                    <li ng-repeat="subcat in cat.subCategories" ng-style="showActiveSubCategory(subcat.category_url)">
                         <a ui-sref="product-list-sub-category({category_url: cat.category_url, sub_category_url: subcat.category_url})">{{subcat.category_title}}</a>
                     </li>
                 </ul>

@@ -19,12 +19,13 @@
             bindToController: false
         };
 
-        SidebarController.$inject = ['$scope', '$location', '$timeout', '$document', 'commonService', 'utilService', 'localStorageService'];
+        SidebarController.$inject = ['$scope', 'commonService', 'utilService', 'localStorageService'];
 
         /** @ngInject */
-        function SidebarController($scope, $location, $timeout, $document, commonService, utilService, localStorageService) {
+        function SidebarController($scope, commonService, utilService, localStorageService) {
 
             var selectedCategory = utilService.getProductCategory();
+            var selectedSubCategory = utilService.getProductSubCategory();
 
             commonService.loadData('product-categories', null, function (response) {
                 $scope.product_categories = response.data;
@@ -45,7 +46,6 @@
                 // product category menu
                 angular.element('ul.product-list-content').on('click', 'li > a', function () {
                     if (angular.element(this).hasClass('active')) {
-                        console.log('OK');
                         angular.element(this).removeClass('active').next('ul').hide(400);
                     } else {
                         var a = angular.element(this).parent().parent().find('a.active');
@@ -59,12 +59,20 @@
                 return isSelectedCategory(categoryUrl);
             };
 
-            $scope.isActiveSubCategory = function (categoryUrl) {
+            $scope.showSubCategories = function (categoryUrl) {
               if (isSelectedCategory(categoryUrl)) {
                   return {display: 'block'};
               } else {
                   return {display: 'none'};
               }
+            };
+
+            $scope.showActiveSubCategory = function (subCategoryUrl) {
+                if (selectedSubCategory == subCategoryUrl) {
+                    return {'background-color': 'yellow'};
+                } else {
+                    return {'background-color': 'inherit'};
+                }
             };
 
             function initMarquee() {

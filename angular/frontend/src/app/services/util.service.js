@@ -25,15 +25,29 @@
             localStorageService.set('selected_category', categoryUrl, 'sessionStorage');
         }
 
+        function saveProductSubCategory(subCategoryUrl) {
+            localStorageService.set('selected_sub_category', subCategoryUrl, 'sessionStorage');
+        }
+
         function getProductCategory() {
-            return localStorageService.get('selected_category', 'sessionStorage');
+            var categoryUrl = localStorageService.get('selected_category', 'sessionStorage');
+            localStorageService.remove('selected_category', 'sessionStorage');
+            return categoryUrl;
+        }
+
+        function getProductSubCategory() {
+            var subCategoryUrl = localStorageService.get('selected_sub_category', 'sessionStorage');
+            localStorageService.remove('selected_sub_category', 'sessionStorage');
+            return subCategoryUrl;
         }
 
         return {
             generateCaptcha: generateCaptcha,
             getCitiesProvinces: getCitiesProvinces,
             saveProductCategory: saveProductCategory,
-            getProductCategory: getProductCategory
+            saveProductSubCategory: saveProductSubCategory,
+            getProductCategory: getProductCategory,
+            getProductSubCategory: getProductSubCategory
         }
     }
 

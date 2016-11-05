@@ -27,6 +27,7 @@
 
         $scope.init = function () {
             utilService.saveProductCategory(categoryUrl);
+            utilService.saveProductSubCategory(subCategoryUrl);
             loadProductList();
         };
 
