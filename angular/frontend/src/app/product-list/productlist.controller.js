@@ -52,7 +52,6 @@
         function loadProductList() {
             var paging = {page: $scope.currentPage, per_page: $scope.itemsPerPage};
             queryParams = angular.extend(queryParams, paging, sorting);
-            console.log(queryParams);
             commonService.loadData('products/search', queryParams, function (response) {
                 $scope.products = response.data.data;
                 $scope.totalItems = response.data.total;

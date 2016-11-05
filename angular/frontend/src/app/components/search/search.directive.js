@@ -19,13 +19,14 @@
             bindToController: false
         };
 
-        SearchController.$inject = ['$scope', '$state'];
+        SearchController.$inject = ['$scope', '$state', 'utilService'];
 
         /** @ngInject */
-        function SearchController($scope, $state) {
-            $scope.keyword = null;
+        function SearchController($scope, $state, utilService) {
+            $scope.keyword = utilService.getKeyword();
 
             $scope.search = function () {
+                utilService.saveKeyword($scope.keyword);
                 $state.go('product-search', {keyword: $scope.keyword});
             }
         }

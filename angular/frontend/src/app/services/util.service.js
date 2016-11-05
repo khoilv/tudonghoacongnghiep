@@ -21,24 +21,49 @@
             });
         }
 
+        // get/set product category
         function saveProductCategory(categoryUrl) {
-            localStorageService.set('selected_category', categoryUrl, 'sessionStorage');
-        }
-
-        function saveProductSubCategory(subCategoryUrl) {
-            localStorageService.set('selected_sub_category', subCategoryUrl, 'sessionStorage');
+            _set('selected_category', categoryUrl);
         }
 
         function getProductCategory() {
-            var categoryUrl = localStorageService.get('selected_category', 'sessionStorage');
-            localStorageService.remove('selected_category', 'sessionStorage');
+            var categoryUrl = _get('selected_category');
+            _remove('selected_category');
             return categoryUrl;
         }
 
+        // get/set product sub category
+        function saveProductSubCategory(subCategoryUrl) {
+            _set('selected_sub_category', subCategoryUrl);
+        }
+
         function getProductSubCategory() {
-            var subCategoryUrl = localStorageService.get('selected_sub_category', 'sessionStorage');
-            localStorageService.remove('selected_sub_category', 'sessionStorage');
+            var subCategoryUrl = _get('selected_sub_category');
+            _remove('selected_sub_category');
             return subCategoryUrl;
+        }
+
+        // get/set search keyword
+        function saveKeyword(keyword) {
+            _set('keyword', keyword);
+        }
+
+        function getKeyword() {
+            var keyword = _get('keyword');
+            _remove('keyword');
+            return keyword;
+        }
+
+        function _get(key) {
+            return localStorageService.get(key, 'sessionStorage');
+        }
+
+        function _set(key, value) {
+            localStorageService.set(key, value, 'sessionStorage');
+        }
+
+        function _remove(key) {
+            localStorageService.remove(key, 'sessionStorage');
         }
 
         return {
@@ -46,8 +71,10 @@
             getCitiesProvinces: getCitiesProvinces,
             saveProductCategory: saveProductCategory,
             saveProductSubCategory: saveProductSubCategory,
+            saveKeyword: saveKeyword,
             getProductCategory: getProductCategory,
-            getProductSubCategory: getProductSubCategory
+            getProductSubCategory: getProductSubCategory,
+            getKeyword: getKeyword
         }
     }
 
