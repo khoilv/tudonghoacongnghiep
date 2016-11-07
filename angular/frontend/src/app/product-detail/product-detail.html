@@ -35,8 +35,8 @@
                     <div class="col-lg-7 detail-product mt20">
                         <h2>{{product.product_title}}</h2>
                         <p>
-                            <strong>Mã sản phẩm : </strong>{{product.product_code}} &nbsp;&nbsp;|&nbsp;&nbsp;
-                            <strong>Nhà sản xuất : </strong>{{product.product_brand_title}}
+                            <strong>Mã sản phẩm :</strong>&nbsp;{{product.product_code}}&nbsp;&nbsp;|&nbsp;&nbsp;
+                            <strong>Nhà sản xuất :</strong>&nbsp;{{product.product_brand_title}}
                         </p>
 
                         <div class="price-product">
@@ -44,7 +44,7 @@
                             <p ng-if="product.product_price > product.product_price_discount">
                                 Giá bán : <span class="f-bebas text-orange">{{product.product_price_discount | price}}</span> &nbsp;&nbsp;
                                 Giá gốc : <span class="f-bebas safe-price">{{product.product_price | price}}</span> &nbsp;&nbsp;
-                                <span class="text-orange" style="font-size: 12px;">Tiết kiệm : {{(product.product_price - product.product_price_discount) | price}}</span>
+                                <span class="wishlist-add" style="font-size: 12px;">Tiết kiệm : {{(product.product_price - product.product_price_discount) | price}}</span>
                             </p>
                             <p ng-if="product.product_price == product.product_price_discount">
                                 Giá bán : <span class="f-bebas text-orange">{{product.product_price_discount | price}} VND</span>
