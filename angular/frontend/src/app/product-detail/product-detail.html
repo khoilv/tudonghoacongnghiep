@@ -82,18 +82,7 @@
                     <h2 class="title-cm">Sản phầm cùng loại</h2>
                     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" id="product_slider">
                         <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" class="item">
-                            <div ng-repeat="p in slide.items" class="col-lg-4 col-md-4 col-sm-4 product-item">
-                                <div class="wrap-product">
-                                    <span class="safe" ng-if="p.discount_rate > 0">-{{p.discount_rate * 100 + '%'}}</span>
-                                    <a href="#"><img ng-src="{{p.product_image}}"></a>
-                                </div>
-                                <p>{{p.product_title}}</p>
-                                <div class="price-product">
-                                    <span ng-if="p.discount_rate > 0">{{p.product_price | price}}</span>
-                                    <p class="f-bebas">{{p.product_price_discount | price}}</p>
-                                    <a class="btn-blue btn-buy">Mua hàng</a>
-                                </div>
-                            </div>
+                            <com-product ng-repeat="product in slide.items" class="col-lg-4 col-md-4 col-sm-4 product-item" product="product"></com-product>
                         </div>
                     </div>
                 </section>
