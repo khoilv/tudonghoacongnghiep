@@ -69,7 +69,7 @@
 
             $scope.showActiveSubCategory = function (subCategoryUrl) {
                 if (selectedSubCategory == subCategoryUrl) {
-                    return {'background-color': 'yellow'};
+                    return {'background-color': '#d7eaec'};
                 } else {
                     return {'background-color': 'inherit'};
                 }
