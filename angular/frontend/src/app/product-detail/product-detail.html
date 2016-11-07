@@ -23,11 +23,11 @@
                 <div class="row">
                     <div class="col-lg-5 mt20">
                         <div class="wrap-img-detail">
-                            <img ng-src="{{product.product_images[0].image}}">
+                            <img ng-src="{{productImage}}">
                         </div>
                         <ul class="small-product mt20">
                             <li ng-repeat="productImage in product.product_images">
-                                <a href="#"><img ng-src="{{productImage.image}}"></a>
+                                <a ng-click="changeProductImage(productImage)"><img ng-src="{{productImage.image}}"></a>
                             </li>
                         </ul>
                         <div class="clearfix"></div>
