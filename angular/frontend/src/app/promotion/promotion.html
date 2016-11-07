@@ -18,7 +18,14 @@
             <div class="col-lg-9">
                 <h2 class="title-cm"><span class="glyphicon glyphicon-star-empty" style="color: #ffa200;font-size: 20px;"></span>&nbsp;Sản phẩm khuyến mại</h2>
 
-                <com-products products="products"></com-products>
+                <ul>
+                    <li ng-repeat="product in products">
+                        <com-product class="product-item col-lg-4" product="product"></com-product>
+                    </li>
+                    <li ng-if="products.length == 0" class="product-item col-lg-12" style="border-right: 1px solid #ccc;">
+                        <span style="font-style: italic;">Xin lỗi qúy khách, hiện tại chúng tôi không có sản phẩm nào thuộc loại này.</span>
+                    </li>
+                </ul>
                 <div class="clearfix"></div>
 
                 <ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"
