@@ -23,29 +23,33 @@
                 <div class="row">
                     <div class="col-lg-5 mt20">
                         <div class="wrap-img-detail">
-                            <img src="../../assets/images/frontend/product_img01.jpg">
+                            <img ng-src="{{product.product_images[0].image}}">
                         </div>
                         <ul class="small-product mt20">
-                            <li><a href="#"><img src="../../assets/images/frontend/product_img01.jpg"></a></li>
-                            <li><a href="#"><img src="../../assets/images/frontend/product_img02.jpg"></a></li>
-                            <li><a href="#"><img src="../../assets/images/frontend/product_img03.jpg"></a></li>
+                            <li ng-repeat="productImage in product.product_images">
+                                <a href="#"><img ng-src="{{productImage.image}}"></a>
+                            </li>
                         </ul>
                         <div class="clearfix"></div>
-
                     </div>
                     <div class="col-lg-7 detail-product mt20">
-                        <h2>Máy khoan sạc pin RBD12V-07</h2>
+                        <h2>{{product.product_title}}</h2>
                         <p>
-                            <strong>Mã sản phẩm : </strong>GLET-RBD12V-07 &nbsp;&nbsp;|&nbsp;&nbsp;   <strong>Nhà sản xuất : </strong> GLET
+                            <strong>Mã sản phẩm : </strong>{{product.product_code}} &nbsp;&nbsp;|&nbsp;&nbsp;
+                            <strong>Nhà sản xuất : </strong>{{product.product_brand_title}}
                         </p>
 
                         <div class="price-product">
                             <strong>Giá sản phẩm</strong>
-                            <p>Giá bán : <span class="f-bebas text-orange">1.000.000đ</span> &nbsp;&nbsp;
-                                Giá gốc : <span class="f-bebas safe-price">1.200.000đ</span> &nbsp;&nbsp;
-                                <span class="text-orange" style="font-size: 12px;">Tiết kiệm : 200.000đ</span>
+                            <p ng-if="product.product_price > product.product_price_discount">
+                                Giá bán : <span class="f-bebas text-orange">{{product.product_price_discount | price}}</span> &nbsp;&nbsp;
+                                Giá gốc : <span class="f-bebas safe-price">{{product.product_price | price}}</span> &nbsp;&nbsp;
+                                <span class="text-orange" style="font-size: 12px;">Tiết kiệm : {{(product.product_price - product.product_price_discount) | price}}</span>
                             </p>
-                            <p class="guarantee">6 tháng</p>
+                            <p ng-if="product.product_price == product.product_price_discount">
+                                Giá bán : <span class="f-bebas text-orange">{{product.product_price_discount | price}} VND</span>
+                            </p>
+                            <p class="guarantee">{{product.warranty_period}}</p>
                             <div class="pull-left">
                                 <strong>Đánh giá : </strong>
                                 <img src="../../assets/images/frontend/star.jpg">
@@ -67,11 +71,7 @@
                 <div class="clearfix"></div>
                 <div class="detail-product-content">
                     <strong>Thông tin sản phẩm</strong>
-                    <p class="mt20">
-                        - Ðường kính khoan : 10mm <br>
-                        - Công suất: 12V<br>
-                        - Tố độ không tải : 650 Vòng/phút
-                    </p>
+                    <p class="mt20" ng-bind-html="product.product_description"></p>
                 </div>
 
                 <section class="product-hot mt30 col-lg-12">
