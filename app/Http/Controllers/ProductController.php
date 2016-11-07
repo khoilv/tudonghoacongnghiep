@@ -143,6 +143,15 @@ class ProductController extends Controller
         $brand = Brand::find($product['product_brand_id']);
         $product['product_brand_title'] = $brand->brand_title;
 
+        // find all relevant products (that belong to the same category with the current product)
+        $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
+        $products = Product::where('active', 1)->where('product_category_id', $product['product_category_id'])->get($columns)->toArray();
+
+        // get main product image
+        $this->setMainProductImage($products);
+
+        $product['relevant_products'] = $products;
+
         // return json result
         if ($request->input('callback')) {
             return response()->json($product)->withCallback($request->input('callback'));
