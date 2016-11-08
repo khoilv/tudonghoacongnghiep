@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Product;
 use App\ProductCategory;
+use App\Customer;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,7 +18,7 @@ class ProductController extends Controller
         $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->offset(0)->limit(12)->orderBy('id', 'desc')->get($columns)->toArray();
 
-        // get main product image
+        // set main product image
         $this->setMainProductImage($products);
 
         // return json result
@@ -65,7 +66,7 @@ class ProductController extends Controller
             $total = Product::where('active', 1)->count();
         }
 
-        // get main product image
+        // set main product image
         $this->setMainProductImage($products);
 
         $paginationResult = [
@@ -87,7 +88,7 @@ class ProductController extends Controller
         $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->offset(0)->limit(12)->orderBy('num_products_purchased', 'desc')->get($columns)->toArray();
 
-        // get main product image
+        // set main product image
         $this->setMainProductImage($products);
 
         // return json result
@@ -109,7 +110,7 @@ class ProductController extends Controller
         $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->where('discount_rate', '>', 0)->offset($offset)->limit($itemsPerPage)->orderBy('discount_rate', 'desc')->get($columns)->toArray();
 
-        // get main product image
+        // set main product image
         $this->setMainProductImage($products);
 
         $paginationResult = [
@@ -147,7 +148,7 @@ class ProductController extends Controller
         $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->where('product_category_id', $product['product_category_id'])->where('id', '<>', $product['id'])->get($columns)->toArray();
 
-        // get main product image
+        // set main product image
         $this->setMainProductImage($products);
 
         $product['relevant_products'] = $products;
@@ -157,6 +158,36 @@ class ProductController extends Controller
             return response()->json($product)->withCallback($request->input('callback'));
         } else {
             return response()->json($product);
+        }
+    }
+
+    // get favorite product list
+    public function favorite(Request $request, $customerId)
+    {
+        // paging
+        $page = $request->input('page');
+        $itemsPerPage = $request->input('per_page');
+        $offset = ($page - 1) * $itemsPerPage;
+
+        $customer = Customer::find($customerId);
+        $favoriteProductList = explode(',', $customer->favorite_product_list);
+
+        $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
+        $products = Product::where('active', 1)->whereBetween('id', $favoriteProductList)->offset($offset)->limit($itemsPerPage)->orderBy('discount_rate', 'desc')->get($columns)->toArray();
+
+        // set main product image
+        $this->setMainProductImage($products);
+
+        $paginationResult = [
+            "total" => Product::where('active', 1)->whereBetween('id', $favoriteProductList)->count(),
+            "data" => $products
+        ];
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($paginationResult)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($paginationResult);
         }
     }
 
