@@ -63,9 +63,10 @@
                                 <a href="#"><img src="../../assets/images/frontend/share-face.jpg"></a>
                             </div>
                             <div class="clearfix"></div>
-                            <br/><br/>
+                            <br/>
                             <a ng-if="showFavoriteList" class="wishlist-add" ng-click="addFavoriteList(product.id)">
-                                <span class="glyphicon" ng-class="{'glyphicon-heart-empty': !addedToFavoriteList, 'glyphicon-heart': addedToFavoriteList}"></span>&nbsp;Thêm vào danh sách ưa thích
+                                <span class="glyphicon" ng-class="{'glyphicon-heart-empty': !addedToFavoriteList, 'glyphicon-heart': addedToFavoriteList}"></span>
+                                &nbsp;{{addedToFavoriteList ? 'Sản phẩm thuộc danh sách ưa thích' : 'Thêm sản phẩm vào danh sách ưa thích'}}
                             </a>
                             <span class="note">* Giá trên chưa bao gồm VAT</span>
                             <button class="btn-buy-product" style="margin-top: -50px;">Mua hàng</button>

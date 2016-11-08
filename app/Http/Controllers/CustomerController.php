@@ -178,26 +178,31 @@ class CustomerController extends Controller
 
     public function favorite(Request $request, $id)
     {
-        if ($request->isMethod('PUT')) {
+        $productId = $request->input('product_id');
+        $customer = Customer::find($id);
+
+        if ($request->isMethod('GET')) {
+            $favoriteProductList = explode(',', $customer->favorite_product_list);
+            $checkStatus = in_array($productId, $favoriteProductList) ? true : false;
+            $result = ['exists' => $checkStatus, 'success' => 'Check favorite list successfully'];
+        } else if ($request->isMethod('PUT')) {
             try {
-                $productId = $request->input('product_id');
                 $action = $request->input('action');
-                $customer = Customer::find($id);
                 $favoriteProductList = $this->buildFavoriteList($customer->favorite_product_list, $productId, $action);
                 Customer::where('id', $id)->update(['favorite_product_list' => $favoriteProductList]);
+                $result = ['success' => 'Update favorite list successfully'];
             } catch (QueryException $e) {
                 return response()->json(['error' => $e->errorInfo], 500);
             }
-
-            // return json result
-            $result = ['success' => 'Update customer successfully'];
-            if ($request->input('callback')) {
-                return response()->json($result)->withCallback($request->input('callback'));
-            } else {
-                return response()->json($result);
-            }
         } else {
             return response()->json(['error' => 'Invalid request'], 500);
+        }
+
+        // return json result
+        if ($request->input('callback')) {
+            return response()->json($result)->withCallback($request->input('callback'));
+        } else {
+            return response()->json($result);
         }
     }
 

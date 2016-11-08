@@ -26,7 +26,9 @@
         commonService.loadData('products/detail', {product_url: productUrl}, function (response) {
             console.log(response.data);
             $scope.product = response.data;
+
             setProductImage(response.data.product_images);
+            checkFavoriteList(response.data.id);
 
             // show relevant products
             var slide, slideItems = [], slideItemCount = 0, slideCount = 0;
@@ -47,7 +49,7 @@
 
         $scope.addFavoriteList = function (productId) {
             $scope.addedToFavoriteList = !$scope.addedToFavoriteList;
-            var url = 'customers/' + customerService.getCustomerId() + '/favorite-list';
+            var url = 'customers/' + customerService.getCustomerId() + '/add-favorite-list';
             var queryParams = {
                 product_id: productId,
                 action: $scope.addedToFavoriteList ? 'add' : 'remove'
@@ -62,6 +64,13 @@
                if (productImage.main == 1) {
                    $scope.productImage = productImage.image;
                }
+            });
+        }
+
+        function checkFavoriteList(productId) {
+            var url = 'customers/' + customerService.getCustomerId() + '/check-favorite-list';
+            commonService.loadData(url, {product_id: productId}, function (response) {
+                $scope.addedToFavoriteList = response.data.exists;
             });
         }
     }

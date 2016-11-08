@@ -49,7 +49,8 @@ Route::group(['middleware' => ['jwt.auth' /*, 'jwt.refresh'*/]], function () {
     Route::get('customers/{id}/edit', 'CustomerController@edit')->name('customers.edit');
     Route::put('customers/{id}', 'CustomerController@update')->name('customers.update');
     Route::patch('customers/{id}', 'CustomerController@changePassword')->name('customers.changePassword');
-    Route::put('customers/{id}/favorite-list', 'CustomerController@favorite')->name('customers.favorite');
+    Route::get('customers/{id}/check-favorite-list', 'CustomerController@favorite')->name('customers.favorite');
+    Route::put('customers/{id}/add-favorite-list', 'CustomerController@favorite')->name('customers.favorite');
 });
 
 // project
