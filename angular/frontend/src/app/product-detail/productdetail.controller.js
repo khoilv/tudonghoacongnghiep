@@ -6,10 +6,10 @@
         .controller('ProductDetailController', ProductDetailController);
 
 
-    ProductDetailController.$inject = ['$scope', '$stateParams', 'commonService'];
+    ProductDetailController.$inject = ['$scope', '$stateParams', 'commonService', 'customerService'];
 
     /** @ngInject */
-    function ProductDetailController($scope, $stateParams, commonService) {
+    function ProductDetailController($scope, $stateParams, commonService, customerService) {
         var productUrl = $stateParams.product_url;
         $scope.productImage = null;
 
@@ -18,6 +18,10 @@
         $scope.active = 0;
         $scope.noWrapSlides = false;
         $scope.slides = [];
+
+        // add to favorite list (wish list)
+        $scope.showFavoriteList = customerService.isAuthenticated();
+        $scope.addedToFavoriteList = false;
 
         commonService.loadData('products/detail', {product_url: productUrl}, function (response) {
             console.log(response.data);
@@ -39,6 +43,18 @@
 
         $scope.changeProductImage = function (productImage) {
             $scope.productImage = productImage.image;
+        };
+
+        $scope.addFavoriteList = function (productId) {
+            $scope.addedToFavoriteList = !$scope.addedToFavoriteList;
+            var url = 'customers/' + customerService.getCustomerId() + '/favorite-list';
+            var queryParams = {
+                product_id: productId,
+                action: $scope.addedToFavoriteList ? 'add' : 'remove'
+            };
+            commonService.putData(url, queryParams, null, function (response) {
+                console.log(response);
+            });
         };
 
         function setProductImage(productImages) {

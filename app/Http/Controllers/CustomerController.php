@@ -175,4 +175,50 @@ class CustomerController extends Controller
             return response()->json(['error' => 'Invalid request'], 500);
         }
     }
+
+    public function favorite(Request $request, $id)
+    {
+        if ($request->isMethod('PUT')) {
+            try {
+                $productId = $request->input('product_id');
+                $action = $request->input('action');
+                $customer = Customer::find($id);
+                $favoriteProductList = $this->buildFavoriteList($customer->favorite_product_list, $productId, $action);
+                Customer::where('id', $id)->update(['favorite_product_list' => $favoriteProductList]);
+            } catch (QueryException $e) {
+                return response()->json(['error' => $e->errorInfo], 500);
+            }
+
+            // return json result
+            $result = ['success' => 'Update customer successfully'];
+            if ($request->input('callback')) {
+                return response()->json($result)->withCallback($request->input('callback'));
+            } else {
+                return response()->json($result);
+            }
+        } else {
+            return response()->json(['error' => 'Invalid request'], 500);
+        }
+    }
+
+    private function buildFavoriteList($favoriteProductList, $productId, $action)
+    {
+        if ($favoriteProductList) {
+            $arr = explode(',', $favoriteProductList);
+        } else {
+            $arr = [];
+        }
+        if ($action == 'add') {
+            if (!in_array($productId, $arr)) {
+                array_push($arr, $productId);
+            }
+        } elseif ($action == 'remove') {
+            $index = array_search($productId, $arr);
+            if ($index !== false) {
+                unset($arr[$index]);
+            }
+        }
+
+        return implode(',', $arr);
+    }
 }

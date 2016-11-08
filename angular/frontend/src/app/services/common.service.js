@@ -64,14 +64,18 @@
             var submitUrl = API_URL + url;
             $http.put(submitUrl, queryParams)
                 .success(function (data, status, headers, config) {
-                    _resetError(scope);
+                    if (scope) {
+                        _resetError(scope);
+                    }
                     onSuccess({
                         data: data,
                         status: status
                     });
                 })
                 .error(function (data, status, header, config) {
-                    _parseError(scope, data, status);
+                    if (scope) {
+                        _parseError(scope, data, status);
+                    }
                 });
         }
 
@@ -79,14 +83,18 @@
             var submitUrl = API_URL + url;
             $http.patch(submitUrl, queryParams)
                 .success(function (data, status, headers, config) {
-                    _resetError(scope);
+                    if (scope) {
+                        _resetError(scope);
+                    }
                     onSuccess({
                         data: data,
                         status: status
                     });
                 })
                 .error(function (data, status, header, config) {
-                    _parseError(scope, data, status);
+                    if (scope) {
+                        _parseError(scope, data, status);
+                    }
                 });
         }
 

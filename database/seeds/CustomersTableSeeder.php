@@ -23,7 +23,8 @@ class CustomersTableSeeder extends Seeder
                 'company' => '',
                 'tel' => '0974422633',
                 'address' => 'Số 10, ngõ 72/65, đường Đức Diễn, phường Phúc Diễn, quận Bắc Từ Liêm, Hà nội',
-                'city_province_id' => 1
+                'city_province_id' => 1,
+                'favorite_product_list' => '1,2,3,4,5,6,7,8,9,10'
             ],
             [
                 'email' => 'phamhuyenchang102@gmail.com',
@@ -35,7 +36,8 @@ class CustomersTableSeeder extends Seeder
                 'company' => '',
                 'tel' => '0988455592',
                 'address' => 'Số 10, ngõ 72/65, đường Đức Diễn, phường Phúc Diễn, quận Bắc Từ Liêm, Hà nội',
-                'city_province_id' => 1
+                'city_province_id' => 1,
+                'favorite_product_list' => '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15'
             ],
             [
                 'email' => 'test@gmail.com',
@@ -47,7 +49,8 @@ class CustomersTableSeeder extends Seeder
                 'company' => '',
                 'tel' => '0123456789',
                 'address' => 'test',
-                'city_province_id' => 2
+                'city_province_id' => 2,
+                'favorite_product_list' => '1,2,3,4,5,6'
             ],
         ];
         DB::table('customers')->insert($customers);

@@ -16,7 +16,11 @@
             <com-sidebar></com-sidebar>
             <div class="col-lg-9">
                 <h2 class="title-cm">Sản phẩm mới</h2>
-                <com-products products="products"></com-products>
+                <ul>
+                    <li ng-repeat="product in products">
+                        <com-product class="product-item col-lg-4" product="product"></com-product>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>

@@ -25,6 +25,7 @@ class CreateCustomersTable extends Migration
             $table->string('tel');
             $table->string('address');
             $table->tinyInteger('city_province_id', false, true);
+            $table->string('favorite_product_list');
             $table->rememberToken();
             $table->timestamps();
         });

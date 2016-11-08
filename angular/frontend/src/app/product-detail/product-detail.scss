@@ -73,9 +73,10 @@ ul, ol {
 
 .wishlist-add {
   color: #d20000;
+  cursor: pointer;
 }
 
-.glyphicon-heart-empty {
+.glyphicon-heart-empty, .glyphicon-heart {
   color: #d20000;
   a:hover & {
     color: #07b1dc;
