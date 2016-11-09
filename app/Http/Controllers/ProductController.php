@@ -173,13 +173,13 @@ class ProductController extends Controller
         $favoriteProductList = explode(',', $customer->favorite_product_list);
 
         $columns = ['id', 'product_title', 'product_url', 'product_price', 'product_price_discount', 'discount_rate', 'product_images'];
-        $products = Product::where('active', 1)->whereBetween('id', $favoriteProductList)->offset($offset)->limit($itemsPerPage)->orderBy('discount_rate', 'desc')->get($columns)->toArray();
+        $products = Product::where('active', 1)->whereIn('id', $favoriteProductList)->offset($offset)->limit($itemsPerPage)->orderBy('discount_rate', 'desc')->get($columns)->toArray();
 
         // set main product image
         $this->setMainProductImage($products);
 
         $paginationResult = [
-            "total" => Product::where('active', 1)->whereBetween('id', $favoriteProductList)->count(),
+            "total" => Product::where('active', 1)->whereIn('id', $favoriteProductList)->count(),
             "data" => $products
         ];
 
