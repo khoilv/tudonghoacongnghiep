@@ -6,10 +6,10 @@
         .controller('ProductDetailController', ProductDetailController);
 
 
-    ProductDetailController.$inject = ['$scope', '$state', '$stateParams', 'commonService', 'customerService'];
+    ProductDetailController.$inject = ['$scope', '$state', '$stateParams', 'commonService', 'customerService', 'cartService'];
 
     /** @ngInject */
-    function ProductDetailController($scope, $state, $stateParams, commonService, customerService) {
+    function ProductDetailController($scope, $state, $stateParams, commonService, customerService, cartService) {
         var productUrl = $stateParams.product_url;
         $scope.productImage = null;
 
@@ -49,7 +49,8 @@
             });
         };
 
-        $scope.goToCart = function () {
+        $scope.goToCart = function (productId) {
+            cartService.addItemToCart(productId, 1);
             $state.go('cart');
         };
 

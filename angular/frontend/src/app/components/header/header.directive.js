@@ -19,11 +19,13 @@
             bindToController: false
         };
 
-        HeaderController.$inject = ['$scope', '$location', '$timeout', '$interval', '$window', '$uibModal', '$log', 'customerService'];
+        HeaderController.$inject = ['$scope', '$location', '$timeout', '$interval', '$window', '$uibModal', '$log', 'customerService', 'cartService'];
 
         /** @ngInject */
-        function HeaderController($scope, $location, $timeout, $interval, $window, $uibModal, $log, customerService) {
+        function HeaderController($scope, $location, $timeout, $interval, $window, $uibModal, $log, customerService, cartService) {
+
             $scope.currentUser = null;
+            $scope.cartItemCount = cartService.countCartItems();
 
             $timeout(function () {
                 angular.element('.menu_m').addClass('original').clone().insertAfter('.menu_m').addClass('cloned').css('position', 'fixed')
