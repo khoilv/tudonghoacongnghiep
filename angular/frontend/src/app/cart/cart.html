@@ -31,7 +31,7 @@
                     <tbody>
                     <tr ng-repeat="product in products">
                         <td>{{product.product_code}}</td>
-                        <td><img ng-src="{{product.product_image}}"></td>
+                        <td><div class="wrap-img-cart"><img ng-src="{{product.product_image}}"></div></td>
                         <td>{{product.product_title}}</td>
                         <td><input type="text" value="{{product.quantity}}" class="form-control"></td>
                         <td>{{product.product_price_discount | price}}</td>
