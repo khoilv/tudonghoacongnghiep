@@ -16,7 +16,6 @@
         $scope.itemsPerPage = 12;
         $scope.totalItems = 0;
 
-        var queryParams = null;
         loadPromotionList();
 
         $scope.pageChanged = function () {
@@ -24,7 +23,7 @@
         };
 
         function loadPromotionList() {
-            queryParams = {page: $scope.currentPage, per_page: $scope.itemsPerPage};
+            var queryParams = {page: $scope.currentPage, per_page: $scope.itemsPerPage};
             commonService.loadData('products/promotion', queryParams, function (response) {
                 $scope.products = response.data.data;
                 $scope.totalItems = response.data.total;

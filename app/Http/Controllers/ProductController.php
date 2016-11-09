@@ -191,6 +191,39 @@ class ProductController extends Controller
         }
     }
 
+    public function cart(Request $request)
+    {
+        if ($request->isMethod('GET')) {
+            
+            // paging
+            $page = $request->input('page');
+            $itemsPerPage = $request->input('per_page');
+            $offset = ($page - 1) * $itemsPerPage;
+
+            $arrayProductId = json_decode($request->input('array_product_id'));
+
+            $columns = ['id', 'product_code', 'product_title', 'product_price_discount', 'product_images'];
+            $products = Product::whereIn('id', $arrayProductId)->offset($offset)->limit($itemsPerPage)->get($columns)->toArray();
+
+            // set main product image
+            $this->setMainProductImage($products);
+
+            $paginationResult = [
+                "total" => Product::whereIn('id', $arrayProductId)->count(),
+                "data" => $products
+            ];
+
+            // return json result
+            if ($request->input('callback')) {
+                return response()->json($paginationResult)->withCallback($request->input('callback'));
+            } else {
+                return response()->json($paginationResult);
+            }
+        } else {
+            return response()->json(['error' => 'Invalid request'], 500);
+        }
+    }
+
     public function show(Request $request, $id)
     {
         $product = Product::find($id)->toArray();

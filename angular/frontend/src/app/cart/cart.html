@@ -29,63 +29,26 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>HAKKO-936</td>
-                        <td><img src="../../assets/images/frontend/cart_img.jpg"></td>
-                        <td>Máy hàn thiếc HAKKO 936</td>
-                        <td><input type="text" value="1" class="form-control"></td>
-                        <td>450.000</td>
-                        <td>4.500.000</td>
-                        <td><button class="btn-delete"></button></td>
-                    </tr>
-                    <tr>
-                        <td>HAKKO-936</td>
-                        <td><img src="../../assets/images/frontend/cart_img.jpg"></td>
-                        <td>Máy hàn thiếc HAKKO 936</td>
-                        <td><input type="text" value="1" class="form-control"></td>
-                        <td>450.000</td>
-                        <td>450.000</td>
-                        <td><button class="btn-delete"></button></td>
-                    </tr>
-                    <tr>
-                        <td>HAKKO-936</td>
-                        <td><img src="../../assets/images/frontend/cart_img.jpg"></td>
-                        <td>Máy hàn thiếc HAKKO 936</td>
-                        <td><input type="text" value="1" class="form-control"></td>
-                        <td>450.000</td>
-                        <td>450.000</td>
-                        <td><button class="btn-delete"></button></td>
-                    </tr>
-                    <tr>
-                        <td>HAKKO-936</td>
-                        <td><img src="../../assets/images/frontend/cart_img.jpg"></td>
-                        <td>Máy hàn thiếc HAKKO 936</td>
-                        <td><input type="text" value="1" class="form-control"></td>
-                        <td>450.000</td>
-                        <td>450.000</td>
-                        <td><button class="btn-delete"></button></td>
-                    </tr>
-                    <tr>
-                        <td>HAKKO-936</td>
-                        <td><img src="../../assets/images/frontend/cart_img.jpg"></td>
-                        <td>Máy hàn thiếc HAKKO 936</td>
-                        <td><input type="text" value="1" class="form-control"></td>
-                        <td>450.000</td>
-                        <td>450.000</td>
+                    <tr ng-repeat="product in products">
+                        <td>{{product.product_code}}</td>
+                        <td><img ng-src="{{product.product_image}}"></td>
+                        <td>{{product.product_title}}</td>
+                        <td><input type="text" value="{{product.quantity}}" class="form-control"></td>
+                        <td>{{product.product_price_discount | price}}</td>
+                        <td>{{product.product_price_discount * product.quantity | price}}</td>
                         <td><button class="btn-delete"></button></td>
                     </tr>
                     </tbody>
                 </table>
                 <div class="clearfix"></div>
-                <ul class="pagination">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+
+                <ul uib-pagination data-ng-show="totalItems > itemsPerPage" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"
+                    boundary-links="true" max-size="maxSize" items-per-page="itemsPerPage"
+                    first-text="<<" previous-text="<" next-text=">" last-text=">>" class="pagination">
                 </ul>
                 <div class="clearfix"></div>
-                <p class="all-money">Tổng tiền : 1.000.000</p>
+
+                <p class="all-money">Tổng tiền : {{totalAmount | price}}</p>
                 <ul class="btn-list">
                     <li><button class="btn-delete-cart">Xóa giỏ hàng</button></li>
                     <li><button class="btn-yellow">Cập nhật số lượng</button></li>
