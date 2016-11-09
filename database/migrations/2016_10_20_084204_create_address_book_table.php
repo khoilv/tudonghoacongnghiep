@@ -23,6 +23,7 @@ class CreateAddressBookTable extends Migration
             $table->string('tel');
             $table->string('company');
             $table->unsignedInteger('city_province_id');
+            $table->tinyInteger('active'); // 1: active; 0: inactive
             $table->timestamps();
         });
     }

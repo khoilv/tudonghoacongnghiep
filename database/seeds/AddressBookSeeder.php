@@ -20,7 +20,8 @@ class AddressBookSeeder extends Seeder
                 'address_2' => 'Đội 15, xóm Trung Lễ, xã Hải Hưng, huyện Hải Hậu, tỉnh Nam Định',
                 'tel' => '0974422633',
                 'company' => 'KcqHome',
-                'city_province_id' => 1
+                'city_province_id' => 1,
+                'active' => 1
             ],
             [
                 'customer_id' => 1,
@@ -30,7 +31,8 @@ class AddressBookSeeder extends Seeder
                 'address_2' => 'Đội 15, xóm Trung Lễ, xã Hải Hưng, huyện Hải Hậu, tỉnh Nam Định',
                 'tel' => '0985036131',
                 'company' => '',
-                'city_province_id' => 1
+                'city_province_id' => 1,
+                'active' => 1
             ],
             [
                 'customer_id' => 2,
@@ -40,7 +42,8 @@ class AddressBookSeeder extends Seeder
                 'address_2' => 'Xóm 3, xã Nam Vân, t.p Nam Định',
                 'tel' => '0988455592',
                 'company' => 'KcqHome',
-                'city_province_id' => 1
+                'city_province_id' => 1,
+                'active' => 1
             ],
         ];
         DB::table('address_book')->insert($addressBook);
