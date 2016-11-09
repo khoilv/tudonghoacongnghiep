@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -24,23 +24,13 @@
         $scope.addedToFavoriteList = false;
 
         commonService.loadData('products/detail', {product_url: productUrl}, function (response) {
-            console.log(response.data);
             $scope.product = response.data;
 
             setProductImage(response.data.product_images);
             checkFavoriteList(response.data.id);
 
             // show relevant products
-            var slide, slideItems = [], slideItemCount = 0, slideCount = 0;
-            angular.forEach(response.data.relevant_products, function (product, key) {
-                slideItems.push(product);
-                if (++slideItemCount % 3 == 0) {
-                    ++slideCount;
-                    slide = {id: slideCount - 1, items: slideItems};
-                    $scope.slides.push(slide);
-                    slideItems = [];
-                }
-            });
+            showRelevantProducts(response.data.relevant_products);
         });
 
         $scope.changeProductImage = function (productImage) {
@@ -61,9 +51,9 @@
 
         function setProductImage(productImages) {
             angular.forEach(productImages, function (productImage) {
-               if (productImage.main == 1) {
-                   $scope.productImage = productImage.image;
-               }
+                if (productImage.main == 1) {
+                    $scope.productImage = productImage.image;
+                }
             });
         }
 
@@ -72,6 +62,27 @@
             commonService.loadData(url, {product_id: productId}, function (response) {
                 $scope.addedToFavoriteList = response.data.exists;
             });
+        }
+
+        function showRelevantProducts(relevantProducts) {
+            var slide, slideItems = [], slideItemCount = 0, slideCount = 0;
+            angular.forEach(relevantProducts, function (product, key) {
+                slideItems.push(product);
+                if (++slideItemCount % 3 == 0) {
+                    ++slideCount;
+                    slide = {id: slideCount - 1, items: slideItems};
+                    $scope.slides.push(slide);
+                    slideItems = [];
+                }
+            });
+            if (slideItems.length > 0) {
+                var i, missingItemCount = 3 - slideItems.length;
+                for (i = 0; i < missingItemCount; i++) {
+                    slideItems.push($scope.slides[slideCount - 1].items[i]);
+                }
+                slide = {id: slideCount, items: slideItems};
+                $scope.slides.push(slide);
+            }
         }
     }
 
