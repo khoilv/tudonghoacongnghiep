@@ -1,6 +1,12 @@
 .cart {
-  .table tr td, .table tr th {
+  tr td {
+    padding-top: 20px !important;
+  }
+  tr td, .table tr th {
     text-align: left !important;
+  }
+  input[type=text] {
+    width: 60px;
   }
 }
 
