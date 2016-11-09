@@ -58,7 +58,7 @@
                                 <strong>Đánh giá : </strong>
                                 <img src="../../assets/images/frontend/star.jpg">
                             </div>
-                            <div class="pull-right" style="">
+                            <div class="pull-right">
                                 <a href="#"><img src="../../assets/images/frontend/like-face.jpg"></a>
                                 <a href="#"><img src="../../assets/images/frontend/share-face.jpg"></a>
                             </div>
@@ -68,6 +68,7 @@
                                 <span class="glyphicon" ng-class="{'glyphicon-heart-empty': !addedToFavoriteList, 'glyphicon-heart': addedToFavoriteList}"></span>
                                 &nbsp;{{addedToFavoriteList ? 'Sản phẩm thuộc danh sách ưa thích' : 'Thêm sản phẩm vào danh sách ưa thích'}}
                             </a>
+                            <br ng-if="!showFavoriteList" />
                             <span class="note">* Giá trên chưa bao gồm VAT</span>
                             <button class="btn-buy-product" style="margin-top: -50px;">Mua hàng</button>
                             <div class="clearfix"></div>

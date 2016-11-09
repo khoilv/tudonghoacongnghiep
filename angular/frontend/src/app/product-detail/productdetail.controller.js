@@ -58,10 +58,12 @@
         }
 
         function checkFavoriteList(productId) {
-            var url = 'customers/' + customerService.getCustomerId() + '/check-favorite-list';
-            commonService.loadData(url, {product_id: productId}, function (response) {
-                $scope.addedToFavoriteList = response.data.exists;
-            });
+            if ($scope.showFavoriteList) {
+                var url = 'customers/' + customerService.getCustomerId() + '/check-favorite-list';
+                commonService.loadData(url, {product_id: productId}, function (response) {
+                    $scope.addedToFavoriteList = response.data.exists;
+                });
+            }
         }
 
         function showRelevantProducts(relevantProducts) {
