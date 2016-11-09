@@ -95,8 +95,8 @@ The root directory generated for a app with name `gulpAngular` :
 │   │   │   │   ├──  navbar.controller.js
 │   │   │   │   └──  navbar.html
 │   │   ├──  main/
-│   │   │   ├──  main.controller.js
-│   │   │   ├──  main.controller.spec.js
+│   │   │   ├──  cart.controller.js
+│   │   │   ├──  cart.controller.spec.js
 │   │   │   └──  main.html
 │   │   └──  index.js
 │   │   └──  index.(css|less|scss)

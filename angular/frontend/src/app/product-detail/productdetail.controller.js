@@ -6,10 +6,10 @@
         .controller('ProductDetailController', ProductDetailController);
 
 
-    ProductDetailController.$inject = ['$scope', '$stateParams', 'commonService', 'customerService'];
+    ProductDetailController.$inject = ['$scope', '$state', '$stateParams', 'commonService', 'customerService'];
 
     /** @ngInject */
-    function ProductDetailController($scope, $stateParams, commonService, customerService) {
+    function ProductDetailController($scope, $state, $stateParams, commonService, customerService) {
         var productUrl = $stateParams.product_url;
         $scope.productImage = null;
 
@@ -47,6 +47,10 @@
             commonService.putData(url, queryParams, null, function (response) {
                 console.log(response);
             });
+        };
+
+        $scope.goToCart = function () {
+            $state.go('cart');
         };
 
         function setProductImage(productImages) {

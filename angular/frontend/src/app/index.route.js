@@ -112,8 +112,13 @@
                 templateUrl: 'app/product-detail/product-detail.html',
                 controller: 'ProductDetailController',
                 controllerAs: 'productDetail'
+            })
+            .state('cart', {
+                url: '/gio-hang-cua-ban',
+                templateUrl: 'app/cart/cart.html',
+                controller: 'CartController',
+                controllerAs: 'cart'
             });
-
         $urlRouterProvider.otherwise('/');
     }
 

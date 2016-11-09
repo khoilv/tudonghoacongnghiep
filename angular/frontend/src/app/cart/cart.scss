@@ -1,0 +1,17 @@
+.cart {
+  .table tr td, .table tr th {
+    text-align: left !important;
+  }
+}
+
+.pagination{
+  margin: 0 !important;
+}
+.btn-list {
+  text-align: right;
+  li{
+    display: inline-block;
+    margin: 0 5px;
+    font-weight: bold;
+  }
+}
