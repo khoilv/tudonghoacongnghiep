@@ -5,8 +5,8 @@
     </div>
     <p><a ui-sref="product-detail({product_url: product.product_url})">{{product.product_title}}</a></p>
     <div class="price-product">
-        <span ng-if="product.discount_rate > 0">{{product.product_price | price}}</span>
-        <p class="f-bebas">{{product.product_price_discount | price}}</p>
+        <span ng-if="product.discount_rate > 0">{{product.reference_price | price}}</span>
+        <p class="f-bebas">{{product.actual_price | price}}</p>
         <a class="btn-blue btn-buy">Mua hàng</a>
     </div>
 </div>

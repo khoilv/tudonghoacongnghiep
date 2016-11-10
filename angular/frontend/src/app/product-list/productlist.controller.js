@@ -44,9 +44,9 @@
             } else if ($scope.sortBy == 'hottest') {
                 fillSortConditions('num_products_purchased', 'desc');
             } else if ($scope.sortBy == 'price_asc') {
-                fillSortConditions('product_price_discount', 'asc');
+                fillSortConditions('actual_price', 'asc');
             } else if ($scope.sortBy == 'price_desc') {
-                fillSortConditions('product_price_discount', 'desc');
+                fillSortConditions('actual_price', 'desc');
             }
             $scope.currentPage = 1;
             loadProductList();

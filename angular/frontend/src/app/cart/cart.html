@@ -33,9 +33,11 @@
                         <td>{{product.product_code}}</td>
                         <td><div class="wrap-img-cart"><img ng-src="{{product.product_image}}"></div></td>
                         <td>{{product.product_title}}</td>
-                        <td><input type="text" value="{{product.quantity}}" class="form-control"></td>
-                        <td>{{product.product_price_discount | price}}</td>
-                        <td>{{product.product_price_discount * product.quantity | price}}</td>
+                        <td>
+                            <select data-ng-model="quantity" ng-options="option for option in quantityOptions" class="form-control"></select>
+                        </td>
+                        <td>{{product.actual_price | price}}</td>
+                        <td>{{product.actual_price * product.quantity | price}}</td>
                         <td><button class="btn-delete"></button></td>
                     </tr>
                     </tbody>

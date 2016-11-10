@@ -43,15 +43,15 @@
 
                         <div class="price-product">
                             <strong>Giá sản phẩm</strong>
-                            <p ng-if="product.product_price > product.product_price_discount">
-                                Giá bán : <span class="f-bebas text-orange">{{product.product_price_discount | price}}</span> &nbsp;&nbsp;
-                                Giá gốc : <span class="f-bebas safe-price">{{product.product_price | price}}</span> &nbsp;&nbsp;
+                            <p ng-if="product.reference_price > product.actual_price">
+                                Giá bán : <span class="f-bebas text-orange">{{product.actual_price | price}}</span> &nbsp;&nbsp;
+                                Giá gốc : <span class="f-bebas safe-price">{{product.reference_price | price}}</span> &nbsp;&nbsp;
                                 <span class="wishlist-add" style="font-size: 12px;">
-                                    Tiết kiệm : {{(product.product_price - product.product_price_discount) | price}}
+                                    Tiết kiệm : {{(product.reference_price - product.actual_price) | price}}
                                 </span>
                             </p>
-                            <p ng-if="product.product_price == product.product_price_discount">
-                                Giá bán : <span class="f-bebas text-orange">{{product.product_price_discount | price}}</span>
+                            <p ng-if="product.reference_price == product.actual_price">
+                                Giá bán : <span class="f-bebas text-orange">{{product.actual_price | price}}</span>
                             </p>
                             <p class="guarantee">{{product.warranty_period}}</p>
                             <div class="pull-left">

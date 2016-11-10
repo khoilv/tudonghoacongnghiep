@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('product_code');
             $table->string('product_title');
             $table->string('product_url')->unique();
-            $table->integer('product_price', false, true);
-            $table->integer('product_price_discount', false, true);
+            $table->integer('reference_price', false, true);
+            $table->integer('actual_price', false, true);
             $table->float('discount_rate');
             $table->integer('num_products_purchased', false, true); // the number of products have been purchased
             $table->string('warranty_period');
