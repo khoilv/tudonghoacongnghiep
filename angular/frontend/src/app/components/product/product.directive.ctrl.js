@@ -7,19 +7,15 @@
 
     AddToCartModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'cartService', 'product'];
 
-    // --- RegisterModalInstanceController
     function AddToCartModalInstanceController($scope, $uibModalInstance, cartService, product) {
 
-        // cart
+        $scope.product = product;
+
+        // cart item
         $scope.quantity = 1;
         $scope.quantityOptions = quantityOptions();
-        $scope.subTotal = 0;
-        $scope.totalAmount = 0;
         $scope.cartTotalItems = cartService.countCartItems();
         $scope.cartTotalPrice = cartService.calculateCartTotalPrice();
-
-        $scope.product = product;
-        console.log($scope.product);
 
         $scope.updateCart = function () {
             cartService.updateCartItem($scope.product.id, $scope.quantity, $scope.product.actual_price);
