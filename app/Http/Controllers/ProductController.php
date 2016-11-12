@@ -15,7 +15,7 @@ class ProductController extends Controller
     // get new products
     public function index(Request $request)
     {
-        $columns = ['id', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
+        $columns = ['id', 'product_code', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->offset(0)->limit(12)->orderBy('id', 'desc')->get($columns)->toArray();
 
         // set main product image
@@ -50,7 +50,7 @@ class ProductController extends Controller
         $offset = ($page - 1) * $itemsPerPage;
 
         // search columns
-        $columns = ['id', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
+        $columns = ['id', 'product_code', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
 
         // 3 search cases
         if ($categoryUrl) {
@@ -85,7 +85,7 @@ class ProductController extends Controller
     // get hot products
     public function hot(Request $request)
     {
-        $columns = ['id', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
+        $columns = ['id', 'product_code', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->offset(0)->limit(12)->orderBy('num_products_purchased', 'desc')->get($columns)->toArray();
 
         // set main product image
@@ -107,7 +107,7 @@ class ProductController extends Controller
         $itemsPerPage = $request->input('per_page');
         $offset = ($page - 1) * $itemsPerPage;
 
-        $columns = ['id', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
+        $columns = ['id', 'product_code', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->where('discount_rate', '>', 0)->offset($offset)->limit($itemsPerPage)->orderBy('discount_rate', 'desc')->get($columns)->toArray();
 
         // set main product image
@@ -145,7 +145,7 @@ class ProductController extends Controller
         $product['product_brand_title'] = $brand->brand_title;
 
         // find all relevant products (that belong to the same category with the current product)
-        $columns = ['id', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
+        $columns = ['id', 'product_code', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->where('product_category_id', $product['product_category_id'])->where('id', '<>', $product['id'])->get($columns)->toArray();
 
         // set main product image
@@ -172,7 +172,7 @@ class ProductController extends Controller
         $customer = Customer::find($customerId);
         $favoriteProductList = explode(',', $customer->favorite_product_list);
 
-        $columns = ['id', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
+        $columns = ['id', 'product_code', 'product_title', 'product_url', 'reference_price', 'actual_price', 'discount_rate', 'product_images'];
         $products = Product::where('active', 1)->whereIn('id', $favoriteProductList)->offset($offset)->limit($itemsPerPage)->orderBy('discount_rate', 'desc')->get($columns)->toArray();
 
         // set main product image

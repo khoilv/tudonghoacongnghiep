@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -16,6 +16,7 @@
         $scope.itemsPerPage = 12;
         $scope.totalItems = 0;
 
+        // cart
         $scope.quantity = 1;
         $scope.quantityOptions = quantityOptions();
         $scope.subTotal = 0;
@@ -52,7 +53,7 @@
 
         function quantityOptions() {
             var i, quantityOpts = [];
-            for (i = 1; i<=30; i++) {
+            for (i = 1; i <= 30; i++) {
                 quantityOpts.push(i);
             }
             return quantityOpts;

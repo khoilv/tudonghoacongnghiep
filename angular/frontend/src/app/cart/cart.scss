@@ -8,9 +8,14 @@
   input[type=text] {
     width: 60px;
   }
+  select {
+    width: 60px;
+  }
   .wrap-img-cart {
     width: 100px;
     height: 75px;
+    padding: 0 !important;
+    margin: 0 !important;
     img {
       max-width: 100%;
       max-height: 100%;

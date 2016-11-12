@@ -7,6 +7,52 @@
     <div class="price-product">
         <span ng-if="product.discount_rate > 0">{{product.reference_price | price}}</span>
         <p class="f-bebas">{{product.actual_price | price}}</p>
-        <a class="btn-blue btn-buy">Mua hàng</a>
+        <a class="btn-blue btn-buy" ng-click="openAddToCartDialog()">Mua hàng</a>
     </div>
+
+    <!-- add to cart modal -->
+    <script type="text/ng-template" id="addToCartModal.html">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+            <h4 class="modal-title">Thông báo</h4>
+        </div>
+        <div class="modal-body">
+            <p>Sản phẩm đã được thêm vào giỏ hàng của bạn.</p>
+            <div class="cart">
+                <table class="table mt20" style="background-color: #f7f7f7;">
+                    <thead>
+                    <tr>
+                        <th>Mã sản phẩm</th>
+                        <th>Ảnh sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{product.product_code}}</td>
+                        <td><div class="wrap-img-cart"><img ng-src="{{product.product_image}}"></div></td>
+                        <td>{{product.product_title}}</td>
+                        <td>
+                            <select data-ng-model="quantity" ng-options="option for option in quantityOptions" class="form-control"></select>
+                        </td>
+                        <td>{{product.actual_price | price}}</td>
+                        <td>{{product.actual_price | price}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Giỏ hàng của bạn hiện có <span>12</span> sản phẩm</p>
+            <strong class="text-orange mt10" style="display: block;">Trị giá đơn hàng : 2.000.000đ</strong>
+        </div>
+        <div class="modal-footer">
+            <ul class="pull-right btn-list">
+                <li><button class="btn-delete-cart">Tiếp tục mua hàng</button></li>
+                <li><button class="btn-yellow">Xem giỏ hàng</button></li>
+                <li><button class="btn-blue">Đặt mua & Thanh toán</button></li>
+            </ul>
+        </div>
+    </script>
 </div>
