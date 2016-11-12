@@ -16,12 +16,15 @@
         $scope.subTotal = 0;
         $scope.totalAmount = 0;
         $scope.cartTotalItems = cartService.countCartItems();
+        $scope.cartTotalPrice = cartService.calculateCartTotalPrice();
 
         $scope.product = product;
         console.log($scope.product);
 
         $scope.updateCart = function () {
-            console.log($scope.quantity);
+            cartService.updateCartItem($scope.product.id, $scope.quantity, $scope.product.actual_price);
+            $scope.cartTotalItems = cartService.countCartItems();
+            $scope.cartTotalPrice = cartService.calculateCartTotalPrice();
         };
 
         $scope.cancel = function () {

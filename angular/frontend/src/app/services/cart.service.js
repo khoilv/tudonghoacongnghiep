@@ -40,6 +40,18 @@
             saveCart(cart);
         }
 
+        function updateCartItem(productId, quantity, price) {
+            var cart = getCart();
+            angular.forEach(cart, function (item, index) {
+                if (item.product_id == productId) {
+                    item.quantity = quantity;
+                    item.price = price;
+                    cart[index] = item;
+                }
+            });
+            saveCart(cart);
+        }
+
         function countCartItems() {
             var cart = getCart();
             var quantity = 0;
@@ -74,13 +86,24 @@
             return quantity;
         }
 
+        function calculateCartTotalPrice() {
+            var cart = getCart();
+            var totalPrice = 0;
+            angular.forEach(cart, function (item) {
+                totalPrice += item.quantity * item.price;
+            });
+            return totalPrice;
+        }
+
         return {
             getCart: getCart,
             addItemToCart: addItemToCart,
+            updateCartItem: updateCartItem,
             countCartItems: countCartItems,
             getCartProducts: getCartProducts,
             isCartEmpty: isCartEmpty,
-            getCartProductQuantity: getCartProductQuantity
+            getCartProductQuantity: getCartProductQuantity,
+            calculateCartTotalPrice: calculateCartTotalPrice
         }
     }
 
