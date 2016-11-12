@@ -20,14 +20,17 @@
             bindToController: false
         };
 
-        ProductController.$inject = ['$scope', '$log', '$uibModal'];
+        ProductController.$inject = ['$scope', '$log', '$uibModal', 'cartService'];
 
         /** @ngInject */
-        function ProductController($scope, $log, $uibModal) {
+        function ProductController($scope, $log, $uibModal, cartService) {
 
             // add-to-cart modal
             $scope.openAddToCartDialog = function () {
                 var modalInstance;
+
+                // add the product to cart first
+                cartService.addItemToCart($scope.product.id, 1, $scope.product.actual_price);
 
                 modalInstance = $uibModal.open({
                     animation: true,

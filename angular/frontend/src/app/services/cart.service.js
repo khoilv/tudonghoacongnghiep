@@ -24,7 +24,7 @@
             localStorageService.set('cart', JSON.stringify(cart), 'sessionStorage');
         }
 
-        function addItemToCart(productId, quantity) {
+        function addItemToCart(productId, quantity, price) {
             var cart = getCart();
             var existed = false;
             angular.forEach(cart, function (item, index) {
@@ -34,7 +34,7 @@
                }
             });
             if (!existed) {
-                var item = {product_id: productId, quantity: quantity};
+                var item = {product_id: productId, quantity: quantity, price: price};
                 cart.push(item);
             }
             saveCart(cart);
@@ -42,7 +42,11 @@
 
         function countCartItems() {
             var cart = getCart();
-            return cart.length;
+            var quantity = 0;
+            angular.forEach(cart, function (item) {
+               quantity += item.quantity;
+            });
+            return quantity;
         }
 
         function getCartProducts() {

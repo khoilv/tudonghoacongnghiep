@@ -49,8 +49,8 @@
             });
         };
 
-        $scope.goToCart = function (productId) {
-            cartService.addItemToCart(productId, 1);
+        $scope.addItemToCart = function (productId, price) {
+            cartService.addItemToCart(productId, 1, price);
             $state.go('cart');
         };
 
