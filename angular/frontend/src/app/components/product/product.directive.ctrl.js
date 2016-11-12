@@ -5,9 +5,9 @@
         .module('angularSeedApp')
         .controller('AddToCartModalInstanceController', AddToCartModalInstanceController);
 
-    AddToCartModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'cartService', 'product'];
+    AddToCartModalInstanceController.$inject = ['$scope', '$state', '$uibModalInstance', 'cartService', 'product'];
 
-    function AddToCartModalInstanceController($scope, $uibModalInstance, cartService, product) {
+    function AddToCartModalInstanceController($scope, $state, $uibModalInstance, cartService, product) {
 
         $scope.product = product;
 
@@ -25,6 +25,19 @@
 
         $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
+        };
+
+        $scope.continueShopping = function () {
+            $uibModalInstance.close(null);
+        };
+
+        $scope.viewCart = function () {
+            $uibModalInstance.close(null);
+            $state.go('cart');
+        };
+
+        $scope.doPayment = function () {
+
         };
 
         function quantityOptions() {
