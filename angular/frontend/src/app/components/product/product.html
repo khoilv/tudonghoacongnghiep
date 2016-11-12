@@ -39,7 +39,7 @@
                             <select data-ng-model="quantity" ng-options="option for option in quantityOptions" class="form-control"></select>
                         </td>
                         <td>{{product.actual_price | price}}</td>
-                        <td>{{product.actual_price | price}}</td>
+                        <td>{{product.actual_price * quantity | price}}</td>
                     </tr>
                     </tbody>
                 </table>
