@@ -149,7 +149,11 @@ class ProductController extends Controller
         $products = Product::where('active', 1)->where('product_category_id', $product['product_category_id'])->where('id', '<>', $product['id'])->get($columns)->toArray();
 
         // set main product image
-        $this->setMainProductImage($products);
+        foreach ($product['product_images'] as $productImage) {
+            if ($productImage['main'] == 1) {
+                $product['product_image'] = $productImage['image'];
+            }
+        }
 
         $product['relevant_products'] = $products;
 

@@ -34,7 +34,7 @@
                         <td><div class="wrap-img-cart"><img ng-src="{{product.product_image}}"></div></td>
                         <td>{{product.product_title}}</td>
                         <td>
-                            <select data-ng-model="quantity" ng-options="option for option in quantityOptions" class="form-control"></select>
+                            <select data-ng-model="product.quantity" ng-options="option for option in quantityOptions" class="form-control" data-ng-change="updateCart(product)"></select>
                         </td>
                         <td>{{product.actual_price | price}}</td>
                         <td>{{product.actual_price * product.quantity | price}}</td>
@@ -50,7 +50,7 @@
                 </ul>
                 <div class="clearfix"></div>
 
-                <p class="all-money">Trị giá đơn hàng : {{totalAmount | price}}</p>
+                <p class="all-money">Trị giá đơn hàng : {{cartTotalPrice | price}}</p>
                 <ul class="btn-list">
                     <li><button class="btn-delete-cart">Xóa giỏ hàng</button></li>
                     <li><button class="btn-yellow">Cập nhật số lượng</button></li>

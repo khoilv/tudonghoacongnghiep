@@ -6,10 +6,11 @@
         .controller('ProductDetailController', ProductDetailController);
 
 
-    ProductDetailController.$inject = ['$scope', '$state', '$stateParams', 'commonService', 'customerService', 'cartService'];
+    ProductDetailController.$inject = ['$scope', '$state', '$stateParams', '$uibModal', '$log', 'commonService', 'customerService', 'cartService'];
 
     /** @ngInject */
-    function ProductDetailController($scope, $state, $stateParams, commonService, customerService, cartService) {
+    function ProductDetailController($scope, $state, $stateParams, $uibModal, $log, commonService, customerService, cartService) {
+
         var productUrl = $stateParams.product_url;
         $scope.productImage = null;
 
@@ -25,6 +26,7 @@
 
         commonService.loadData('products/detail', {product_url: productUrl}, function (response) {
             $scope.product = response.data;
+            console.log(response.data);
 
             setProductImage(response.data.product_images);
             checkFavoriteList(response.data.id);
@@ -49,9 +51,31 @@
             });
         };
 
-        $scope.addItemToCart = function (productId, price) {
-            cartService.addItemToCart(productId, 1, price);
-            $state.go('cart');
+        // add-to-cart modal
+        $scope.openAddToCartDialog = function () {
+            var modalInstance;
+
+            // add the product to cart first
+            cartService.addItemToCart($scope.product.id, 1, $scope.product.actual_price);
+
+            modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'addToCartModal.html',
+                size: 'lg',
+                controller: 'AddToCartModalInstanceController',
+                controllerAs: '$ctrl',
+                resolve: {
+                    product: function () {
+                        return $scope.product; // pass parameter to modal dialog
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                $log.info('Add to cart modal closed');
+            }, function () {
+                $log.info('Add to cart modal dismissed at: ' + new Date());
+            });
         };
 
         function setProductImage(productImages) {
